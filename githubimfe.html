@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<title>Final Exam</title>
+		<style type=text/css>
+			
+		</style>
+	</head>
+	<body>
+<p id="c"><a href="http://129.24.63.138/~wbrown/Home.html">Bill Brown's Internet Mapping Home Page</a></p>
+<h1>Geography 585 Spring 2013 Final Exam</h1>
+<h3>William T. Brown</h3>
+	<p id="a">Question 1: Download 5 datasets (including at least 1 vector and 1 raster) that cover a common region of interest (i.e. the city of Albuquerque, NM, etc.), and copy them to your data directory on the class server. Run ogrinfo or gdalinfo (as appropriate) for each of the datasets you stored on the server. Print out the first 5 lines of the output from gdalinfo or ogrinfo for each of the datasets.</p>
+		
+                <p id="d">To complete this exercise, I found two raster layers to serve as base maps, ten vector datasets for overlays, and three KML layers, listed below.  Note: I have only provided GDAL and OGRINFO for six of them, one more than required for the exam.</p>
+				<p id="d">List of Data Layers Acquired for This Exercise:</p>
+		<ul>
+			<li>A global image showing shaded relief in color (raster dataset: HYP_HR_SR_OB_DR.tif Source: www.naturalearthdata.com)</li>
+			<li>A global image showing shaded relief in grayscale (raster dataset: GRAY_HR_SR.tif Source: www.naturalearthdata.com)</li>
+			<li>Global coastlines (vector/line dataset: ne_10m_coastline Source: www.naturalearthdata.com)</li>
+			<li>Maya structures from the modern town of Blue Creek, Belize (vector/polygon dataset: structures.shp Source: Maya Research Program)</li>
+			<li>Water and wetland polygon data from Belize (vector/polygon dataset: BLZ_water_areas_dcw.shp Source: www.diva-gis.org)</li>
+			<li>Stream data from Belize (vector/line dataset: BLZ_water_line_dcw.shp Source: www.diva-gis.org)</li>
+			<li>Water and wetland polygon data from Guatemala (vector/polygon dataset: GTM_water_areas_dcw.shp Source: www.diva-gis.org)</li>
+			<li>Stream data from Guatemala (vector/line dataset: GTM_water_line_dcw.shp Source: www.diva-gis.org)</li>
+			<li>Water and wetland polygon data from Honduras (vector/polygon dataset: HND_water_areas_dcw.shp Source: www.diva-gis.org)</li>
+			<li>Stream data from Honduras (vector/line dataset: HND_water_line_dcw.shp Source: www.diva-gis.org)</li>
+			<li>Water and wetland polygon data from Mexico (vector/polygon dataset: MEX_water_areas_dcw.shp Source: www.diva-gis.org)</li>
+			<li>Stream data from Mexico (vector/line dataset: MEX_water_line_dcw.shp Source: www.diva-gis.org)</li>
+			<li>A KML showing the biological corridor in the Toledo region, Belize (Source: Biodiversity and Environmental Resource Data System of Belize)</li>
+			<li>A KML showing the biological corridor in the Shipstern-Crooked Tree regions, Belize (Source: Biodiversity and Environmental Resource Data System of Belize)</li>
+			<li>A KML showing the biological corridor in the Maya Mountains, Belize (Source: Biodiversity and Environmental Resource Data System of Belize)</li>
+		</ul>
+				
+				<p id="b">GDALINFO for HYP_HR_SR_OB_DR.tif:</p>
+				<p id="answer3">wbrown@geog-485-585:~/public_html/Data/final/baselayer2$ gdalinfo HYP_HR_SR_OB_DR.tif
+Driver: GTiff/GeoTIFF
+Files: HYP_HR_SR_OB_DR.tif
+       HYP_HR_SR_OB_DR.tif.ovr
+       HYP_HR_SR_OB_DR.tfw
+       HYP_HR_SR_OB_DR.tif.aux.xml
+Size is 21600, 10800
+Coordinate System is:
+GEOGCS["WGS 84",
+    DATUM["WGS_1984",
+        SPHEROID["WGS 84",6378137,298.257223563,
+            AUTHORITY["EPSG","7030"]],
+        AUTHORITY["EPSG","6326"]],
+    PRIMEM["Greenwich",0],
+    UNIT["degree",0.0174532925199433],
+    AUTHORITY["EPSG","4326"]]
+Origin = (-180.000000000000000,90.000000000000014)
+Pixel Size = (0.016666666666670,-0.016666666666670)
+Metadata:
+  TIFFTAG_SOFTWARE=Adobe Photoshop CS5 Macintosh
+  TIFFTAG_DATETIME=2012:07:16 09:21:17
+  TIFFTAG_XRESOLUTION=72
+  TIFFTAG_YRESOLUTION=72
+  TIFFTAG_RESOLUTIONUNIT=2 (pixels/inch)
+  AREA_OR_POINT=Area
+Image Structure Metadata:
+  INTERLEAVE=PIXEL
+Corner Coordinates:
+Upper Left  (-180.0000000,  90.0000000) (180d 0'0.00"W, 90d 0'0.00"N)
+Lower Left  (-180.0000000, -90.0000000) (180d 0'0.00"W, 90d 0'0.00"S)
+Upper Right ( 180.0000000,  90.0000000) (180d 0'0.00"E, 90d 0'0.00"N)
+Lower Right ( 180.0000000, -90.0000000) (180d 0'0.00"E, 90d 0'0.00"S)
+Center      (   0.0000000,  -0.0000000) (  0d 0'0.00"E,  0d 0'0.00"S)
+Band 1 Block=21600x1 Type=Byte, ColorInterp=Red
+  Overviews: 5400x2700, 2700x1350, 1350x675, 675x338, 338x169
+Band 2 Block=21600x1 Type=Byte, ColorInterp=Green
+  Overviews: 5400x2700, 2700x1350, 1350x675, 675x338, 338x169
+Band 3 Block=21600x1 Type=Byte, ColorInterp=Blue
+  Overviews: 5400x2700, 2700x1350, 1350x675, 675x338, 338x169</p>
+                
+    <p id="b">GDALINFO for GRAY_HR_SR.tif:</p>
+				<p id="answer3">wbrown@geog-485-585:~/public_html/Data/final/baselayer1$ gdalinfo GRAY_HR_SR.tif
+Driver: GTiff/GeoTIFF
+Files: GRAY_HR_SR.tif
+       GRAY_HR_SR.tif.ovr
+       GRAY_HR_SR.tfw
+       GRAY_HR_SR.tif.aux.xml
+Size is 21600, 10800
+Coordinate System is:
+GEOGCS["WGS 84",
+    DATUM["WGS_1984",
+        SPHEROID["WGS 84",6378137,298.257223563,
+            AUTHORITY["EPSG","7030"]],
+        AUTHORITY["EPSG","6326"]],
+    PRIMEM["Greenwich",0],
+    UNIT["degree",0.0174532925199433],</p>            
+                
+        
+<p id="b">OGRINFO for BLZ_water_areas_dcw.shp:</p>
+				<p id="answer3">wbrown@geog-485-585:~/public_html/Data/final$ ogrinfo -so BLZ_water_areas_dcw.shp
+INFO: Open of `BLZ_water_areas_dcw.shp'
+      using driver `ESRI Shapefile' successful.
+1: BLZ_water_areas_dcw (Polygon)
+wbrown@geog-485-585:~/public_html/Data/final$ ogrinfo -so BLZ_water_areas_dcw.shp BLZ_water_areas_dcw
+INFO: Open of `BLZ_water_areas_dcw.shp'
+      using driver `ESRI Shapefile' successful.
+
+Layer name: BLZ_water_areas_dcw
+Geometry: Polygon
+Feature Count: 75
+Extent: (-89.052697, 16.255741) - (-87.860161, 18.491663)
+Layer SRS WKT:
+GEOGCS["GCS_WGS_1984",
+    DATUM["WGS_1984",
+        SPHEROID["WGS_1984",6378137.0,298.257223563]],
+    PRIMEM["Greenwich",0.0],
+    UNIT["Degree",0.0174532925199433]]
+ISO: String (7.0)
+COUNTRY: String (54.0)
+F_CODE_DES: String (254.0)
+HYC_DESCRI: String (254.0)
+NAME: String (254.0)</p>   
+				
+		<p id="b">OGRINFO for BLZ_water_lines_dcw.shp:</p>
+				<p id="answer3">wbrown@geog-485-585:~/public_html/Data/final$ ogrinfo -so BLZ_water_lines_dcw.shp BLZ_water_lines_dcw
+INFO: Open of `BLZ_water_lines_dcw.shp'
+      using driver `ESRI Shapefile' successful.
+
+Layer name: BLZ_water_lines_dcw
+Geometry: Line String
+Feature Count: 363
+Extent: (-89.217559, 15.891663) - (-87.838394, 18.491663)
+Layer SRS WKT:
+GEOGCS["GCS_WGS_1984",
+    DATUM["WGS_1984",
+        SPHEROID["WGS_1984",6378137.0,298.257223563]],
+    PRIMEM["Greenwich",0.0],
+    UNIT["Degree",0.0174532925199433]]
+F_CODE_DES: String (254.0)
+HYC_DESCRI: String (254.0)
+NAM: String (254.0)
+ISO: String (7.0)
+NAME_0: String (54.0)</p>   
+				
+		<p id="b">OGRINFO for structures.shp:</p>
+				<p id="answer3">wbrown@geog-485-585:~/public_html/Data/final$ ogrinfo -so structures.shp structures
+INFO: Open of `structures.shp'
+      using driver `ESRI Shapefile' successful.
+
+Layer name: structures
+Geometry: Polygon
+Feature Count: 12
+Extent: (298044.322081, 1973896.089152) - (298391.216174, 1974190.394902)
+Layer SRS WKT:
+PROJCS["NAD_1927_UTM_Zone_16N",
+    GEOGCS["GCS_North_American_1927",
+        DATUM["North_American_Datum_1927",
+            SPHEROID["Clarke_1866",6378206.4,294.9786982]],
+        PRIMEM["Greenwich",0.0],
+        UNIT["Degree",0.0174532925199433]],
+    PROJECTION["Transverse_Mercator"],
+    PARAMETER["False_Easting",500000.0],
+    PARAMETER["False_Northing",0.0],
+    PARAMETER["Central_Meridian",-87.0],
+    PARAMETER["Scale_Factor",0.9996],
+    PARAMETER["Latitude_Of_Origin",0.0],
+    UNIT["Meter",1.0]]
+Id: Integer (6.0)
+</p>   
+				
+		<p id="b">OGRINFO for ne_10m_coastline.shp:</p>
+				<p id="answer3">wbrown@geog-485-585:~/public_html/Data/final$ ogrinfo -so ne_10m_coastline.shp ne_10m_coastline
+INFO: Open of `ne_10m_coastline.shp'
+      using driver `ESRI Shapefile' successful.
+
+Layer name: ne_10m_coastline
+Geometry: Line String
+Feature Count: 4102
+Extent: (-180.000000, -85.221938) - (180.000000, 83.634101)
+Layer SRS WKT:
+GEOGCS["GCS_WGS_1984",
+    DATUM["WGS_1984",
+        SPHEROID["WGS_1984",6378137.0,298.257223563]],
+    PRIMEM["Greenwich",0.0],
+    UNIT["Degree",0.017453292519943295]]
+scalerank: Real (19.11)
+featurecla: String (80.0)</p>   
+        
+        
+        <p id="a">Question 2: Add each of the layers to GeoServer through the creation of a single (new) Workspace for the final exam, a new store for each of the datasets, and one new layer for each of the stores. Include a screenshot of each of the five new layers from the GeoServer Layer Preview tool.</p>
+		<p id="d">The workspace I created for the Final Exam is called BillBrown_final_exam, and I created eleven new stores and three new styles.</p>
+		<div class="image">
+				<img src="fefig1.jpg" width="550" height="400" alt="fig1.">
+				<p id="cap">Figure 1: Screen capture of raster layer HR_SR_OB_DR.tif.</p>
+			</div>
+                
+			<div class="image">
+				<img src="fefig2.jpg" width="550" height="400" alt="fig2.">
+				<p id="cap">Figure 2: Screen capture of raster layer GRAY_HR_SR.</p>
+			</div>
+
+		<div class="image">
+				<img src="fefig3.jpg" width="550" height="400" alt="fig3.">
+				<p id="cap">Figure 3: Screen capture of vector layer structures.shp.</p>
+			</div>
+			
+			
+			<div class="image">
+				<img src="fefig4.jpg" width="550" height="400" alt="fig4.">
+				<p id="cap">Figure 4: Screen capture of vector layer ne_10m_coastline.</p>
+			</div>
+			
+			
+			
+			<div class="image">
+				<img src="fefig5.jpg" width="550" height="400" alt="fig5.">
+				<p id="cap">Figure 5: Screen capture of vector layer MEX_water_lines_dcw.shp.</p>
+			</div>
+			
+			
+			<div class="image">
+				<img src="fefig6.jpg" width="550" height="400" alt="fig6.">
+				<p id="cap">Figure 6: Screen capture of vector layer MEX_water_areas_dcw.shp.</p>
+			</div>
+			
+			<div class="image">
+				<img src="fefig7.jpg" width="550" height="400" alt="fig7.">
+				<p id="cap">Figure 7: Screen capture of vector layer BLZ_water_areas_dcw.shp.</p>
+			</div>
+			
+			
+			<div class="image">
+				<img src="fefig8.jpg" width="550" height="400" alt="fig8.">
+				<p id="cap">Figure 8: Screen capture of vector layer BLZ_water_lines_dcw.shp.</p>
+			</div>
+			
+			
+			<div class="image">
+				<img src="fefig9.jpg" width="550" height="400" alt="fig9.">
+				<p id="cap">Figure 9: Screen capture of vector layer GTM_water_areas_dcw.shp.</p>
+			</div>
+			
+			
+			<div class="image">
+				<img src="fefig10.jpg" width="550" height="400" alt="fig10.">
+				<p id="cap">Figure 10: Screen capture of vector layer GTM_water_lines_dcw.shp.</p>
+			</div>
+			
+			
+			<div class="image">
+				<img src="fefig11.jpg" width="550" height="400" alt="fig11.">
+				<p id="cap">Figure 11: Screen capture of vector layer HND_water_areas_dcw.shp.</p>
+			</div>
+			
+			
+			<div class="image">
+				<img src="fefig12.jpg" width="550" height="400" alt="fig12.">
+				<p id="cap">Figure 12: Screen capture of vector layer HND_water_lines_dcw.shp.</p>
+			</div>
+		
+		
+		
+		
+		
+		
+		<p id="a">Question 3: Display any three of the five Geoserver layers created in 2) above in QGIS and include screenshots of each of the three layers in your writeup (for a total of three screenshots).</p>      
+              
+             
+			<div class="image">
+				<img src="fefig13.jpg" width="550" height="400" alt="fig13.">
+				<p id="cap">Figure 13: Screen capture of GTM_water_lines_dcw.shp in QGIS.</p>
+			</div>
+			
+			
+			<div class="image">
+				<img src="fefig14.jpg" width="550" height="400" alt="fig14.">
+				<p id="cap">Figure 14: Screen capture of BLZ_water_lines_dcw.shp and BLZ_water_areas_dcw.shp in QGIS.</p>
+			</div>
+			
+			
+			<div class="image">
+				<img src="fefig15.jpg" width="550" height="400" alt="fig15.">
+				<p id="cap">Figure 15: Screen capture of GRAY_HR_SR.tif in QGIS.</p>
+			</div>
+			
+			
+			<div class="image">
+				<img src="fefig16.jpg" width="550" height="400" alt="fig16.">
+				<p id="cap">Figure 12: Screen capture of layers shown above lined up in QGIS.</p>
+			</div>
+
+		 <p id="a">Question 4: Create a new OpenLayers web mapping client (as a separate web page) that includes the 5 WMS services that you created in GeoServer (in 2 above). Customize this mapping client by including a description of the data that are included in the map. Include in your exam writeup the link to your OpenLayers mapping page.</p>
+	      
+             <p id="d">For the map, please visit http://129.24.63.138/~wbrown/FinalMap.html or click <a href="http://129.24.63.138/~wbrown/FinalMap.html">here.</a></p>
+	       
+	     
+            
+
+
+        
+
+ 
+
+
+<
+		
+		<address>Bill Brown wbrown@unm.edu</address>
+							<p id="b"><a href="http://129.24.63.138/~wbrown/FinalExam.html">Back to Top</a></p>	
+		<style type=text/css>		
+		//===============DEFINE STYLE==========================
+		<style type ="text/css">
+			html {height: 100%;}					
+				body {height: 100%;
+					margin: 2px; 
+					padding: 2px;
+					text-align: justify;						
+					background-color: black;}																								  																	
+			
+				#header {margin-bottom: 36px;				 									    
+					text-align:center;
+					background-color: black; 				
+					border-style: outset;
+					border-width: thick;
+					border-color: lime;}											
+				
+				#header img {float: left;}																																																												
+				  
+				h1 {color: lime;
+					background-color: black;
+					font-family: arial;
+					font-size: 36px;					
+					text-align: center; 
+					border: 2px;
+					padding: .3em;}
+													
+				h3 {margin-left: 46%;
+					font-size: 24px;
+					font-family: arial;
+					color: lime;}		
+				
+				#cap {color:yellow; 
+					font-size:14px; 
+					font-family: arial;  
+					font-weight: bold;   
+					margin-bottom: 3em;
+					margin-left: 8%;}
+							
+				
+				#c	{color: lime;
+					font-family: arial;
+					font-size:16;
+					font-weight: bold;
+					text-align:center;
+					margin-bottom: .5em;}
+				
+				#a {															
+					color:white; 
+					font-size:22px; 
+					font-family: arial,sans-serif; 
+					margin-left: 5%; 
+					margin-right: 5%;
+					margin-top: 2em;
+					text-align: justify;
+					}				
+				li {color:white; font-size:18px; text-align: left; margin-left: 5%;}				
+				
+				#b {font-family:arial;
+					color: lightgray;
+					font-size:22px;
+					font-weight: bold;
+					text-align:center;
+					margin-bottom: .5em;}
+				
+				#d {font-family:arial;
+					color: #777777;
+					font-size:22px;
+					font-weight: bold;
+					margin-left: 5%; 
+					margin-right: 5%;
+					margin-bottom: .5em;}
+				
+				#type1 {
+					color: black;
+					font-family:arialblack;
+					font-weight: bold;
+					font-size: 32px;
+					text-align: left;
+					}				
+				
+				.image {margin-left: 30%;}	
+				
+				h3 {margin-left: 46%;
+					font-size: 24px;
+					font-family: arial;
+					color: lime;}	
+				
+				#answer3 {color:#777777; font-size:16px; font-family: times-new-roman; margin-left: 5%; margin-right: 5%; margin-top:.1em}
+				
+				address {
+					color: lime;				
+					clear: left;
+					text-align: center;
+					padding-top: 36px;
+					font-family: courier,monospace; font-size: 24px; font-weight: bold;
+				  }
+		
+                
+          
+		
+		
+	
+		</style>
+
+</body>
+</html>
+
