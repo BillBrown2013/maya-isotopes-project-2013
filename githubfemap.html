@@ -1,0 +1,551 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>	
+	<script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+			<script type="text/javascript">
+	
+//=========DEFINE GLOBAL VARIABLES==============		
+		var lon = -89.0;
+		var lat = 15.0;
+		var zoom = 6;
+		var map, map_2;
+		var Layers = new Object ();
+		var landsatLayer, bmngLayer;
+		
+//==========INITIALIZATION FUNCTION==============		
+		function init(){
+			map = new OpenLayers.Map('map',
+			{numZoomLevels: 20
+			});
+			
+//==========CREATE LAYERS FIRST MAP==============		
+			bmngLayer = new OpenLayers.Layer.WMS(							
+				"Blue Marble Base Map",
+				"http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?",
+				{layers:
+				"bmng8km,bmng2km,bmng500mA1,bmng500mA2,bmng500mB1,bmng500mB2,bmng500mC1,bmng500mC2,bmng500mD1,bmng500mD2",version: '1.3.0', transparent: 'TRUE'},
+				{isBaseLayer: true});
+						map.addLayer(bmngLayer);
+			
+			base2= new OpenLayers.Layer.WMS(
+				'Gray Earth',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',				
+				{layers:'BillBrown_final_exam:GRAY_HR_SR', transparent:true},
+				{isBaseLayer: true});
+						map.addLayer(base2);
+						
+			base1= new OpenLayers.Layer.WMS(
+				'Alternate Base Layer',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',				
+				{layers:'BillBrown_final_exam:HYP_HR_SR_OB_DR', transparent:true},
+				{isBaseLayer: true});
+						map.addLayer(base1);
+			
+			
+			bmngLayer = new OpenLayers.Layer.WMS(							
+				"Blue Marble Base Map",
+				"http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?",
+				{layers:
+				"bmng8km,bmng2km,bmng500mA1,bmng500mA2,bmng500mB1,bmng500mB2,bmng500mC1,bmng500mC2,bmng500mD1,bmng500mD2",version: '1.3.0', transparent: 'TRUE'},
+				{isBaseLayer: true});
+						map.addLayer(bmngLayer);
+									
+			bmngLayer2 = new OpenLayers.Layer.WMS(			
+				'BMNG Vegetation',
+				'http://129.24.63.138:8080/geoserver/BillBrown_wbrown/wms',
+				{layers: 'BillBrown_wbrown:bmng8km'},
+				{isBaseLayer: true});
+						map.addLayer(bmngLayer2);
+			
+			baseLayer = new OpenLayers.Layer.WMS(			
+				'Open Layer Base Map',
+				'http://vmap0.tiles.osgeo.org/wms/vmap0',
+				{layers: 'basic'},
+				{isBaseLayer: true});
+						map.addLayer(baseLayer);								
+       
+			geology = new OpenLayers.Layer.WMS(		
+				'Rock Types',
+				'http://mrdata.usgs.gov/services/worldgeol',
+				{layers:'geology', transparent:true},		
+				{visibility: false, opacity: .5});
+						map.addLayer(geology);	
+					
+			labels = new OpenLayers.Layer.WMS(
+				'Location Labels',
+				'http://vmap0.tiles.osgeo.org/wms/vmap0',
+				{layers: 'clabel,ctylabel,statelabel',
+				transparent: true},
+				{visibility: false, opacity:0.5});
+						map.addLayer(labels);
+					
+			contacts = new OpenLayers.Layer.WMS(
+				'Lithologic Contacts',
+				'http://mrdata.usgs.gov/services/worldgeol',
+				{layers:'contacts', transparent:true}, {visibility:false});
+						map.addLayer(contacts);
+					
+			landsat = new OpenLayers.Layer.WMS(
+				'Landsat Image',
+				'http://129.24.63.138:8080/geoserver/BillBrown_wbrown/wms',			
+				{layers:'BillBrown_wbrown:landsat_img2', transparent:true},
+				{isBaseLayer: true});
+						map.addLayer(landsat);
+			
+			sites = new OpenLayers.Layer.WMS(
+				'All Known Maya Sites',
+				'http://129.24.63.138:8080/geoserver/BillBrown_wbrown/wms',			
+				{layers:'BillBrown_wbrown:arch_sites', transparent:true}, {visibility:false},
+				{isBaseLayer: false});
+						map.addLayer(sites);
+			
+			
+						
+			bzewatarea = new OpenLayers.Layer.WMS(
+				'Water Polygons Belize',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
+				{layers:'BillBrown_final_exam:BLZ_water_areas_dcw',
+				transparent: true}, {visibility:false},
+				{isBaseLayer: false});
+						map.addLayer(bzewatarea);
+						
+			bzewatline = new OpenLayers.Layer.WMS(
+				'Streams in Belize',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
+				{layers:'BillBrown_final_exam:BLZ_water_lines_dcw',
+				transparent: true}, {visibility:false},
+				{isBaseLayer: false});
+						map.addLayer(bzewatline);
+						
+			guatwatarea = new OpenLayers.Layer.WMS(
+				'Water Polygons Guatemala',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
+				{layers:'BillBrown_final_exam:GTM_water_areas_dcw',
+				transparent: true}, {visibility:false},
+				{isBaseLayer: false});
+						map.addLayer(guatwatarea);	
+
+			guatwatline = new OpenLayers.Layer.WMS(
+				'Streams in Guatemala',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
+				{layers:'BillBrown_final_exam:GTM_water_lines_dcw',
+				transparent: true}, {visibility:false},
+				{isBaseLayer: false});
+						map.addLayer(guatwatline);	
+						
+			hondwatarea = new OpenLayers.Layer.WMS(
+				'Water Polygons Honduras',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
+				{layers:'BillBrown_final_exam:HND_water_areas_dcw',
+				transparent: true}, {visibility:false},
+				{isBaseLayer: false});
+						map.addLayer(hondwatarea);	
+
+			hondwatline = new OpenLayers.Layer.WMS(
+				'Streams in Honduras',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
+				{layers:'BillBrown_final_exam:HND_water_lines_dcw',
+				transparent: true}, {visibility:false},
+				{isBaseLayer: false});
+						map.addLayer(hondwatline);
+						
+			mexwatarea = new OpenLayers.Layer.WMS(
+				'Water Polygons Mexico',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
+				{layers:'BillBrown_final_exam:MEX_water_areas_dcw',
+				transparent: true}, {visibility:false},
+				{isBaseLayer: false});
+						map.addLayer(mexwatarea);	
+						
+			mexwatline = new OpenLayers.Layer.WMS(
+				'Streams in Mexico',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
+				{layers:'BillBrown_final_exam:MEX_water_lines_dcw',
+				transparent: true}, {visibility:false},
+				{isBaseLayer: false});
+						map.addLayer(mexwatline);	
+						
+			coast = new OpenLayers.Layer.WMS(
+				'Global Coastlines',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
+				{layers:'BillBrown_final_exam:ne_10m_coastline',
+				transparent: true},
+				{isBaseLayer: false});
+						map.addLayer(coast);
+						
+			structures = new OpenLayers.Layer.WMS(
+				'Structures in Blue Creek',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
+				{layers:'BillBrown_final_exam:structures',
+				transparent: true},
+				{isBaseLayer: false});
+						map.addLayer(structures);
+						
+			gmin = new OpenLayers.Layer.WMS(
+				'Distribution of Guatemalan Jade',
+				'http://129.24.63.138:8080/geoserver/BillBrown_wbrown/wms',
+				{layers:'BillBrown_wbrown:mrds-fGTlast',
+				transparent: true},
+				{isBaseLayer: false});
+					map.addLayer(gmin);
+			
+			wms_water_depth = new OpenLayers.Layer.WMS(
+				'Water Depth Contours',
+				'http://labs.metacarta.com/wms/vmap0',
+				{layers: 'depthcontour',
+				transparent: true},
+				{opacity:.8});
+						map.addLayer(wms_water_depth);
+
+//==========CREATE VECTOR FEATURES AND LAYERS FIRST MAP==============
+
+			//==========CREATE VECTOR LAYERS FIRST MAP==============			
+				Layers.localFeatures1 = new OpenLayers.Layer.Vector('Source of Olmec Blue Jade');
+					map.addLayer(Layers.localFeatures1);
+			
+				Layers.polyg = new OpenLayers.Layer.Vector('Source of Motagua Green Jade');
+					map.addLayer(Layers.polyg);
+			
+				Layers.sites = new OpenLayers.Layer.Vector('Major Archaeological Sites');
+					map.addLayer(Layers.sites);
+				
+			//==========CREATE STYLES FOR VECTOR LAYERS FIRST MAP==============
+				myRedPointStyle = {pointRadius: 4, fillColor: "#CC0000", fillOpacity: .5, strokeOpacity: .5}
+				mbStyle = {fillColor: "yellow", fillOpacity: .9, strokeOpacity: .5, strokeColor: "yellow"}
+				ypStyle1 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Tikal"}
+				ypStyle2 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Kaminaljuyu"}
+				ypStyle3 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Uaxactun"}
+				ypStyle4 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Calakmul"}
+				ypStyle5 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Nojol Nah"}
+				ypStyle6 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "El Mirador"}
+			
+			//==========CREATE VECTOR GEOMETRIES FIRST MAP==============
+				var point = new OpenLayers.Geometry.Point (-89.821383, 14.827881);
+				var tikal = new OpenLayers.Geometry.Point (-89.63163, 17.21732);
+				var kaminaljuyu = new OpenLayers.Geometry.Point (-90.549, 14.632833);
+				var uaxactun = new OpenLayers.Geometry.Point (-89.63775, 17.39795);
+				var calakmul = new OpenLayers.Geometry.Point (-89.810333, 18.1045);  
+				var nn = new OpenLayers.Geometry.Point (-89.035248, 17.947757); 
+				var emd = new OpenLayers.Geometry.Point (-91.850992, 15.766477);  
+			
+			//==========CREATE POLYGON FOR MOTAGUA GREEN JADE SOURCE FIRST MAP==============
+				var ppoints = [
+				new OpenLayers.Geometry.Point(-89.995164, 14.955405),
+				new OpenLayers.Geometry.Point(-89.692805, 15.053435),
+				new OpenLayers.Geometry.Point(-89.712800, 14.99954),
+				new OpenLayers.Geometry.Point(-89.919042, 14.932275)];					
+				var ring = new OpenLayers.Geometry.LinearRing(ppoints);
+				var polygon = new OpenLayers.Geometry.Polygon([ring])
+				var pfeature = new OpenLayers.Feature.Vector(polygon,null,mbStyle);
+			
+			//==========CREATE VECTOR FEATURES FIRST MAP==============
+				var feature_point = new OpenLayers.Feature.Vector(point,name,myRedPointStyle);
+				var feature_tikal = new OpenLayers.Feature.Vector(tikal,null,ypStyle1);
+				var feature_kaminaljuyu = new OpenLayers.Feature.Vector(kaminaljuyu,null,ypStyle2);
+				var feature_uaxactun = new OpenLayers.Feature.Vector(uaxactun,null,ypStyle3);
+				var feature_calakmul = new OpenLayers.Feature.Vector(calakmul,null,ypStyle4);
+				var feature_nn = new OpenLayers.Feature.Vector(nn,null,ypStyle5);
+				var feature_emd = new OpenLayers.Feature.Vector(emd,null,ypStyle6);
+			
+			//==========ADD VECTOR LAYERS FIRST MAP==============	
+				Layers["localFeatures1"].addFeatures([feature_point]);
+				Layers["polyg"].addFeatures([pfeature]);
+				Layers["sites"].addFeatures([feature_tikal,feature_kaminaljuyu,feature_uaxactun,feature_calakmul,feature_nn,feature_emd]);		
+	
+			//==========CREATE VECTOR EDITOR CONTROLS FIRST MAP==============
+				var vector_layer = new OpenLayers.Layer.Vector(
+					'Editable Vectors');
+
+	//==========CREATE KML LAYERS FIRST MAP==============
+	
+			//==========CREATE KML STYLE FIRST MAP==============
+				kmlStyle = {fillColor: "#0000ff", fillOpacity: .2, strokeOpacity: .5, strokeColor: "#0000ff"}	
+				
+			//==========CREATE KML LAYERS FIRST MAP==============		
+				Layers.pop = new OpenLayers.Layer.Vector("Guatemala KML", {
+					projection: map.displayProjection,
+					visibility: false,
+					style: kmlStyle,
+					strategies: [new OpenLayers.Strategy.Fixed()],
+					protocol: new OpenLayers.Protocol.HTTP({
+					url: "gpop.kml",
+					format: new OpenLayers.Format.KML({
+					extractAttributes: true
+							})
+						})
+					});
+						map.addLayer(Layers.pop)
+																						
+				bzeb = new OpenLayers.Layer.Vector("Toledo Biology KML", {
+					projection: map.displayProjection,
+					visibility: false,				
+					strategies: [new OpenLayers.Strategy.Fixed()],
+					protocol: new OpenLayers.Protocol.HTTP({
+					url: "tizbiz.kml",
+					format: new OpenLayers.Format.KML({
+					extractStyles: true,
+					extractAttributes: true
+							})
+						})
+					});
+						map.addLayer(bzeb)
+						
+				belize = new OpenLayers.Layer.Vector("Shipstern Biology KML", {
+					projection: map.displayProjection,
+					visibility: false,				
+					strategies: [new OpenLayers.Strategy.Fixed()],
+					protocol: new OpenLayers.Protocol.HTTP({
+					url: "shizbiz.kml",
+					format: new OpenLayers.Format.KML({
+					extractStyles: true,
+					extractAttributes: true
+							})
+						})
+					});
+						map.addLayer(belize)
+						
+				mountains = new OpenLayers.Layer.Vector("Maya Mountains Biology KML", {
+					projection: map.displayProjection,
+					visibility: false,					
+					strategies: [new OpenLayers.Strategy.Fixed()],
+					protocol: new OpenLayers.Protocol.HTTP({
+					url: "mizbiz.kml",
+					format: new OpenLayers.Format.KML({
+					extractStyles: true,
+					extractAttributes: true
+							})
+						})
+					});
+						map.addLayer(mountains)
+			
+			//==========ADD MAP CONTROLS FIRST MAP==============		
+				map.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
+				map.addControl(new OpenLayers.Control.MousePosition());			
+				map.addControl(new OpenLayers.Control.LayerSwitcher({}));
+				map.addControl(new OpenLayers.Control.OverviewMap() );
+				map.addControl(new OpenLayers.Control.PanZoomBar() );
+				map.addControl(new OpenLayers.Control.Scale() );
+				map.addControl(new OpenLayers.Control.ScaleLine() );	
+			
+					
+			//==========CENTER THE FIRST MAP==============
+				map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
+					
+		
+//==========CREATE SECOND MAP==============		
+	map_2 = new OpenLayers.Map('map_2', {});				
+	var baseLayer2 = base1.clone();				
+						map_2.addLayer(baseLayer2);		 
+			
+		//==========CREATE MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============			
+		
+			//==========CREATE LAYER FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============	
+				Layers.localFeatures2 = new OpenLayers.Layer.Vector('The Study Area');
+						map_2.addLayer(Layers.localFeatures2);
+			
+			//==========CREATE STYLE FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============
+				rpStyle = {pointRadius: 8, fillColor: "#CC0000", fillOpacity: .5, strokeOpacity: .5, label: "The Study Area"}
+			
+			//==========CREATE LOCATION FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============
+				var point2 = new OpenLayers.Geometry.Point (-89.8,14.91);
+				
+			//==========CREATE MARKER FEATURE FOR MOTAGUA FAULT ZONE SECOND MAP==============
+				var feature_point2 = new OpenLayers.Feature.Vector(point2,name,rpStyle);
+					feature_point2.attributes = {name: "Olmec"};
+          
+			//==========ADD VECTOR LAYER SECOND MAP==============		
+				Layers["localFeatures2"].addFeatures([feature_point2]);
+		   
+			//==========ADD MAP CONTROLS SECOND MAP==============	
+				map_2.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
+				map_2.addControl(new OpenLayers.Control.MousePosition());			
+				map_2.addControl(new OpenLayers.Control.LayerSwitcher({}));
+				map_2.addControl(new OpenLayers.Control.OverviewMap() );
+				map_2.addControl(new OpenLayers.Control.Scale() );
+				map_2.addControl(new OpenLayers.Control.ScaleLine() );
+			
+			//==========CENTER THE SECOND MAP==============
+				map_2.setCenter(new OpenLayers.LonLat(-83.0,-5.0), 3.2);
+				
+//==========THE CURLEY BRACKET BELOW ENDS INITIALIZATION FUNCTION==============
+		}
+						
+</script>
+		
+	//===============DEFINE STYLE==========================
+		<style type ="text/css">
+			html {height: 100%;}					
+				body {height: 100%;
+					margin: 2px; 
+					padding: 2px;
+					text-align: justify;						
+					background-color: black;}																								  																	
+			
+				#header {margin-bottom: 36px;				 									    
+					text-align:center;
+					background-color: black; 				
+					border-style: outset;
+					border-width: thick;
+					border-color: lime;}											
+				
+				#header img {float: left;}																																																												
+				  
+				h1 {color: lime;
+					background-color: black;
+					font-family: arial;
+					font-size: 36px;					
+					text-align: center; 
+					border: 2px;
+					padding: .3em;}
+													
+				h3 {margin-left: 46%;
+					font-size: 24px;
+					font-family: arial;
+					color: lime;}		
+				
+				#cap {color:yellow; 
+					font-size:14px; 
+					font-family: arial;  
+					font-weight: bold;   
+					margin-bottom: 3em;		
+					text-align: center;}
+							
+				#capb {color:yellow; 
+					font-size:14px; 
+					font-family: arial;  
+					font-weight: bold;   
+					padding-top: 10em;
+					
+					text-align: center;}
+				
+				#cap2 {color:yellow; 
+					font-size:14px; 
+					font-family: arial;  
+					font-weight: bold;   
+					margin-bottom: 3em;
+					margin-left:52%;}							
+				
+				#a1 {color:lightgray; 
+					font-size:20px; 
+					font-family: arial,sans-serif; 
+					text-align: justify;
+					padding-left: 3em;
+					padding-right: 1em;
+					margin-right: 5%;
+					margin-top: .1em;
+					margin-bottom: 2em;}																						
+				
+				#a2 {color: white; 
+					font-size:20px; 
+					font-family: arial;}									
+			
+				#b {font-family:arialblack;
+					font-size:16;
+					font-weight: bold;
+					text-align:center;
+					margin-bottom: .5em;}
+				
+				.image2 {float: right; margin-left: 5%;}				
+				.image3 {float: left; margin-left: 5%; padding-right: 2em;}			
+				.image4 {float: right; margin-left: 5%;}	
+				.image5 {float: left; margin-left: 5%; padding-right: 2em; margin-bottom: 1em;}					
+				.image6 {margin-left: 50%;}								
+						
+				li {color:#777777; font-size:18px; text-align: left; margin-left: 5%;}
+				
+				address {color: lime;				
+					clear: left;
+					text-align: center;
+					margin-top: 1em;
+					padding-top: 36px;
+					font-family: courier,monospace; font-size: 24px; font-weight: bold;}
+			
+				#map {height: 650px; float: left;
+					width: 1100px;
+					background-color: white;
+					border: 4px solid lime;
+					padding-right: 3em;}
+				
+				#map_2 {height: 650px; float: left; width:450px; padding-left: 5em; padding-right: 5em; padding-bottom: 25em; margin-left: 30%; border: 4px solid lime;}
+			
+		//==========STYLE MAP CONTROLS===============	
+				.olControlMousePosition {
+					right: 3px;
+					position: absolute;
+					font-size: smaller;
+					padding: 2px 5px;
+					background-color: rgba(189,192,191,0.5);
+					bottom: 5px !important}
+				
+				.olControlScaleLine {background: white; color:black;}
+				
+				
+		</style>
+	</head>			
+	
+	
+	//===============ORDER THE WEB CONTENT==========================
+		<body onload="init()">		
+					<p id="b"><a href="http://129.24.63.138/~wbrown/Home.html">Bill Brown's Internet Mapping Home Page</a></p>
+		
+			<div id="header"><img src="jade1.jpg" width="175" height="200" alt="Olmec"/><h1>Geography 585 Final Exam: Map of the Maya World</h1></div>
+			
+											<h3>William T. Brown</h3>
+				
+			<div id='map'></div>
+				
+			<div id='map_2'></div>
+				
+					<p id="capb">Figure 1: The World of the Ancient Maya. The map on the right shows the study area on a larger scale.</p>
+					<p id="a1">This map is different than my previous ones, which deal with the distribution of jade and jadeite minerals in Guatemala.  Here, I have combined several attributes of physical geography that act in concert to influence human settlement patterns.  For this final map I have taken the maps created in earlier labs and added 10 vector layers (global coastlines, water vector line and polygon data for Mexico, Honduras, Guatemala, and Belize, along with two additional raster layers that serve as alternate base layers for the Blue Marble default base.  The vector layers were styled in GeoServer and those styles are shown in my workspace.  Also, I added three KML layers showing specific ecosystems in Belize.  Notice that almost all of the overlays have been set to invisible; this was done because the map was getting very busy and hard to discern anything. But, I feel that I have left the viewer with a great deal of flexibility when trying to look at the interaction of several variables.  A complete list of all layers is provided below. For the previous map, click <a href="http://129.24.63.138/~wbrown/Lab13.html">here</a>.  My objective in creating this map is to show geographic variables that may have influenced Maya settlement patterns in prehistory; in order to accomplish my goals, I set a base layer of Blue Marble Next Generation images from EDAC/WMS, an Open Layer base map, along with the newly added layers just described. Hopefully this map will be the ground work for future GIS and spatial analyses that could shed light on Maya settlement patterns and how they changed through time.</p>				
+					
+				<p id="a2">List of Data Layers Used in the Final Map:</p>
+		<ul>
+			<li>BMNG Background (base layer Source: Earth Data Analysis Center WMS, UNM)</li>
+			<li>A global image showing shaded relief in grayscale (raster dataset: GRAY_HR_SR.tif Source: www.naturalearthdata.com)</li>
+			<li>A global image showing shaded relief in color (raster dataset: HYP_HR_SR_OB_DR.tif Source: www.naturalearthdata.com)</li>
+			<li>BMNG styled to highlight vegetation (base layer Source: Earth Data Analysis Center WMS, UNM)</li>
+			<li>OpenLayer Base Map (base layer Source: OpenLayers WMS)</li>
+			<li>Landsat Image (base layer Source: ide.segeplan.gob.gt/geoserver/gwc/service/wms)</li>
+			<li>Rock Types (overlay Source: mrdata.usgs.gov)</li>
+			<li>Location Labels (overlay Source: OpenLayers WMS)</li>
+			<li>Lithologic Contacts (overlay Source: mrdata.usgs.gov)</li>
+			<li>Known Maya Sites (styled vector overlay Source: Dr. Lars Kotthoff)</li>
+			<li>A global image showing shaded relief in color (raster dataset: HYP_HR_SR_OB_DR.tif Source: www.naturalearthdata.com)</li>
+			<li>Global coastlines (vector/line dataset: ne_10m_coastline Source: www.naturalearthdata.com)</li>
+			<li>Maya structures from the modern town of Blue Creek, Belize (vector/polygon dataset: structures.shp Source: Maya Research Program)</li>
+			<li>Water and wetland polygon data from Belize (vector/polygon dataset: BLZ_water_areas_dcw.shp Source: www.diva-gis.org)</li>
+			<li>Stream data from Belize (vector/line dataset: BLZ_water_line_dcw.shp Source: www.diva-gis.org)</li>
+			<li>Water and wetland polygon data from Guatemala (vector/polygon dataset: GTM_water_areas_dcw.shp Source: www.diva-gis.org)</li>
+			<li>Stream data from Guatemala (vector/line dataset: GTM_water_line_dcw.shp Source: www.diva-gis.org)</li>
+			<li>Water and wetland polygon data from Honduras (vector/polygon dataset: HND_water_areas_dcw.shp Source: www.diva-gis.org)</li>
+			<li>Stream data from Honduras (vector/line dataset: HND_water_line_dcw.shp Source: www.diva-gis.org)</li>
+			<li>Water and wetland polygon data from Mexico (vector/polygon dataset: MEX_water_areas_dcw.shp Source: www.diva-gis.org)</li>
+			<li>Stream data from Mexico (vector/line dataset: MEX_water_line_dcw.shp Source: www.diva-gis.org)</li>
+			<li>Global Mineral Resources (overlay Source: mrdata.usgs.gov)</li>
+			<li>Distribution of Guatemalan Jade (styled vector overlay Source: mrdata.usgs.gov)</li>
+			<li>Water Depth Contours (overlay Source:MetaCarta Labs WMS)</li>
+			<li>Source of Olmec Blue Jade (overlay vector created by the author in OpenLayers)</li>
+			<li>Source of Motagua Green Jade (overlay vector created by the author in OpenLayers)</li>
+			<li>Major Archaeological Sites (overlay vector created by the author in OpenLayers)</li>
+			<li>A KML depiciting the boundaries of Guatemala and its political subdivisions (Source: maps.worldbank.org)</li>
+			<li>A KML showing the biological corridor in the Toledo region, Belize (Source: Biodiversity and Environmental Resource Data System of Belize)</li>
+			<li>A KML showing the biological corridor in the Shipstern-Crooked Tree regions, Belize (Source: Biodiversity and Environmental Resource Data System of Belize)</li>
+			<li>A KML showing the biological corridor in the Maya Mountains, Belize (Source: Biodiversity and Environmental Resource Data System of Belize)</li>
+		</ul>
+					
+							
+			
+									<address>Bill Brown wbrown@unm.edu</address>
+									<p id="b"><a href="http://129.24.63.138/~wbrown/FinalExam.html">Back to Final Exam</a></p>
+							<p id="b"><a href="http://129.24.63.138/~wbrown/FinalMap.html">Back to Top</a></p>					
+	
+		</body>
+</html>
+					
+					
+					
+					
+					
+			
+	
