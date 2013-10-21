@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+			<title>Geography 585 Home Page</title>
+                <style type=text/css>		
+					body {color:black; background:black}							  				
+				a {color: lime;}
+				a:active {color: red;}
+				a:visited {color: lightgrey}								
+					
+				#header {margin-bottom: 32px;
+				color: lime; font-size: 32px; font-family:arial; 									    
+					text-align:center;
+					background-color: black; 				
+					border-style: outset;
+					border-width: thick;
+					border-color: lime;
+				}							
+				
+				#header img {float: left;
+				}			
+																												
+			h2 {
+				color: lime;
+				font-family: arial;
+				font-size: 24px;
+				font-weight: bold;
+				text-align: center; 
+				margin-bottom: 0em;
+				}				  				
+				
+			h3 {
+				color: lime;
+				font-family: arial;
+				font-size: 20px;
+				font-style: italic;
+				text-align: center; 
+				margin-top: .1em;
+				 }
+				  
+			h4 {
+				color: lime;
+				background-color: black;
+				font-family: arial;
+				font-size: 42px;					
+				text-align: center; 
+				border: 2px;
+				}						
+				  
+			#q {								
+				color:lime; 
+				font-size:24px; 
+				font-family: arial; font-style: italic; 
+				font-weight: bold; margin-left: 3%;  
+				margin-bottom: 0em;
+				}
+					
+			#a {															
+				color:white; 
+				font-size:20px; 
+				font-family: arial,sans-serif; 
+				margin-left: 5%; 
+				margin-top: .1em;
+				}
+					
+			li {
+				color: lime;
+				font-family: arial,sans-serif;
+				font-size:20px;
+				margin-left: 18%;
+				}
+				
+			#b {
+				font-family:arialblack;
+				font-size:20px;
+				font-weight: bold;
+				text-align:center;
+				margin-bottom: .5em;
+				}
+				
+			#type1 {
+				color: lightgrey;
+				font-family:arial;
+				font-weight: bold;
+				font-size: 28px;
+				text-align: justify;
+				}
+	
+			#type2 {
+				color: white;
+				font-family:courier;
+				font-size: 20px;
+				margin-top: .1em;
+				margin-left: 5%;
+				}
+				
+			address {
+				color: lime;				
+				clear: left;
+				text-align: center;
+				padding-top: 36px;
+				font-family: courier,monospace; font-size: 24px; font-weight: bold;
+				 }
+				 			
+			</style>
+			
+</head>
+	
+	<body>
+		<p id="b"><a href="http://129.24.63.138/~wbrown/Home.html">Bill Brown's Internet Mapping Home Page</a></b>
+	<div id="header"><img src="zia1.gif" width="200" height="180" alt="Zia"/><h4>Geography 585 Midterm Exam</h4></div>
+	
+	 <h2>William T. Brown</h2>
+	 <h3>Mar. 6, 2013</h3>	
+		
+		<p id="type1">Question 1<br/>Which command line utility would you use to determine the following:</p>
+		<p id="q">The spatial extent of a GML file?</p>
+		<p id="a">You would use <em>ogr (ogrinfo)</em> in order to determine the spatial extent of a GML file.</p>
+		<p id="q">The spatial reference system of a raster file in the format of a GeoTIFF?</p>
+		<p id="a">You would use <em>gdal (gdalinfo)</em> in order to determine the spatial reference system of a raster file/GeoTIFF.</p>
+		<p id="type1">Question 2<br/>What combination of OGC Service and Request (e.g. SERVICE=WMS&REQUEST=GetFeatureInfo) would you use to perform the
+						following:</p>
+		<p id="q">1) Determine the spatial extent of an available layer from a Web Map Service?</p>
+		<p id="type2">SERVICE=WMS&REQUEST=GetCapabilities.</p>
+		<p id="q">2) Obtain a list of coverages from a Web Coverage service?</p>
+		<p id="type2">SERVICE=WCS&REQUEST=GetCapabilities.</p>
+		<p id="q">3) Determine what file formats are supported by a Web Feature Service for the
+						delivery of available data types (i.e. layers)?</p>
+		<p id="type2">SERVICE=WFS&REQUEST=GetCapabilities.</p>
+		<p id="q">4) Retrieve a map image from a Web Map Service?</p>
+		<p id="type2">SERVICE=WMS&REQUEST=GetMap.</p>
+		<p id="q">5) Retrieve data from an available coverage from a Web Coverage Service?</p>
+		<p id="type2">SERVICE=WCS&REQUEST=GetCoverage.</p>
+		<p id="type1">Question 3<br/>Use the cs2cs command line utility to convert the following latitude-longitude
+						coordinates to UTM, Zone 13N, NAD83 coordinates:</p>
+		<p id="q">1) 35.2386477 North Latitude -107.6083868 East Longitude (Mount Taylor
+						Summit)</p>
+		<p id="a">3902627.28N 262645.89E</p>
+		<p id="type2">wbrown@geog-485-585:~$ cs2cs +proj=latlong +datum=NAD83 +to +proj=utm +zone=13 +datum=NAD83<br/>
+				-107.6083868d 35.2386477d<br/>
+				262645.89       3902627.28 0.00</p></p>
+		<p id="q">2) 35.0839355 North Latitude -106.6191915 East Longitude (UNM)</p>
+		<p id="a">48953298.39N 22274507.72E</p>
+		<p id="type2">wbrown@geog-485-585:~$ cs2cs +proj=latlong +datum=NAD83 +to +proj=utm +zone=13 +datum=NAD83<br/>
+				-106.6191915d 35.0839355d<br/>
+				352390.41       3883550.28 0.00</p></p>
+		<p id="type1">Question 4<br/>Perform the following WMS GetCapabilities request and answer the following questions:</p>
+		
+		<p id="b"><a href="http://SDMDataAccess.nrcs.usda.gov/Spatial/SDM.wms?SERVICE=wms&REQUEST=GetCapabilities">http://SDMDataAccess.nrcs.usda.gov/Spatial/SDM.wms?SERVICE=wms&REQUEST=GetCapabilities</a></p>
+		
+		<p id="q">1) What is the name of the service?</p>
+		<p id="a">The name is USDA NRCS WMS and the title is NRCS Soil Data Mart Data Access Web Map Service.</p>
+		<p id="type2">USDA NRCS WMS<br/>
+						NRCS Soil Data Mart Data Access Web Map Service</p>
+		
+		<p id="q">2) What file formats are supported by the GetMap request?</p>
+		<p id="a">gif, png, png 24 bit, jpeg, wbmp, and tiff.</p>
+		<p id="type2">GetMap<br/>
+						Format image/gif /Format<br/>
+						Format image/png /Format<br/>
+						Format image/png; mode=24bit /Format<br/>
+						Format image/jpeg /Format<br/>
+						Format image/wbmp /Format<br/> 
+						Format image/tiff /Format</p>
+		<p id="q">3) What are the names of the layers included in the service?</p>
+		<p id="a">Name: SDM-WMS Title: NRCS Soil Data Mart Data Access Web Map Service.<br/>
+					Name: SurveyAreaPoly Title: SSURGO Soil Survey Area Polygon.<br/>
+					Name: SurveyAreaPolyTransparent Title: SSURGO Soil Survey Area Polygon Transparent.<br/>
+					Name: SurveyAreaPolyOutline Title: SSURGO Soil Survey Area Polygons Outlines.<br/>
+					Name: MapunitPoly Title: Soil Mapunit Polygon.<br/>
+					Name: MapunitLine Title: Soil Mapunit Line.<br/>
+					Name: MapunitPoint Title: Soil Mapunit Point.</p>
+		<p id="type1">Question 5<br/> Compose a GetMap request for the WMS referenced in Question 4 that includes the following characteristics:</p>
+						<ul>
+							<li>JPEG image format</li>
+							<li>1200 pixels wide (calculate the height based upon the aspect ratio of the bounding box)</li>
+							<li>Bounding Box (EPSG:4326)</li>
+							<li>Min X = -106.993 East Longitude</li>
+							<li>Min Y = 34.989 North Latitude</li>
+							<li>Max X = -106.243 East Longitude</li>
+							<li>Max Y = 35.489 North Latitude</li>
+							<li>Layer to be mapped = “SurveyAreaPoly”</li>
+							<li>Include the complete WMS GetMap request and the resulting map image that is returned.</li>
+						</ul>
+		<p id="a">To define the height:</p>
+		<p id="type2">BBOX width = (maxx) - (minx) = (-106.243)-(-106.993) = 0.75<br/>
+						BBOX height = (maxy) - (miny) = (35.489)-(34.989) = 0.5<br/>
+						BBOX aspect ratio = (BBOX width) / (BBOX height) = 0.75/0.5 = 1.5<br/>
+						width = 1200 pixels<br/>
+						height = 1200/1.5 = 800 pixels</p>
+		<p id="a">WMS GetMap Request:</p>
+		<p id="b"><a href="http://SDMDataAccess.nrcs.usda.gov/Spatial/SDM.wms?VERSION=1.1.1&SERVICE=wms&REQUEST=GetMap&SRS=EPSG:4326&BBOX=-106.993,34.989,-106.243,35.489&LAYERS=SurveyAreaPoly&WIDTH=1200&HEIGHT=800&FORMAT=image/jpeg&STYLE=">http://SDMDataAccess.nrcs.usda.gov/Spatial/SDM.wms?VERSION=1.1.1&SERVICE=wms&REQUEST=GetMap&SRS=EPSG:4326&BBOX=-106.993,34.989,-106.243,35.489&LAYERS=SurveyAreaPoly&WIDTH=1200&HEIGHT=800&FORMAT=image/jpeg&STYLE=</a></p>
+		<p id="a">Required Image:</p>
+		<p><img src="mtfig1.jpg" width="700" height="500" alt="Midterm Figure 1"></p>
+		<p id="type1">Question 6<br/>From the XML GetCapabilities returned by the following WFS request answer the following questions:</p>	
+		<p id="b"><a href="http://ogi.state.ok.us/geoserver/wfs?VERSION=1.1.0&REQUEST=GetCapabilities&SERVICE=WFS">http://ogi.state.ok.us/geoserver/wfs?VERSION=1.1.0&REQUEST=GetCapabilities&SERVICE=WFS</a></p>		
+		<p id="q">1) What is the abstract for this service?</p>
+		<p id="type2">(ows:Abstract)<br/>This is the reference implementation of WFS 1.0.0 and WFS 1.1.0, supports all WFS operations including Transaction.<br/>(/ows:Abstract)</p>
+		<p id="q">2) What file formats are supported by this service's GetFeature request?</p>
+		<p id="a">text/xml; subtype=gml/3.1.1, GML2-GZIP, GML2, OGR-CSV-ZIP, OGR-DGN, OGR-KML, OGR-KML-ZIP, OGR-MIF-ZIP, OGR-SHP-ZIP, OGR-TAB-ZIP, SHAPE-ZIP, application/gml+xml, csv, gml3, gml32, json, text/xml; subtype=gml/2.1.2, and text/xml; subtype=gml/3.2.</p>
+		<p id="type2">(ows:Parameter name="outputFormat")<br/>ows:Value text/xml; subtype=gml/3.1.1 /ows:Value<br/>ows:Value GML2 /ows:Value<br/>ows:Value GML2-GZIP /ows:Value<br/>ows:Value OGR-CSV-ZIP /ows:Value<br/>ows:Value OGR-DGN /ows:Value <br/>ows:Value OGR-KML /ows:Value<br/>ows:Value OGR-KML-ZIP /ows:Value<br/>ows:Value OGR-MIF-ZIP /ows:Value<br/>ows:Value OGR-SHP-ZIP /ows:Value<br/>ows:Value OGR-TAB-ZIP /ows:Value<br/>ows:Value SHAPE-ZIP /ows:Value<br/>ows:Value application/gml+xml; version=3.2 /ows:Value<br/>ows:Value csv /ows:Value<br/>ows:Value gml3 /ows:Value<br/>ows:Value gml32 /ows:Value<br/>ows:Value json /ows:Value<br/>ows:Value text/xml; subtype=gml/2.1.2 /ows:Value<br/>ows:Value text/xml; subtype=gml/3.2 /ows:Value<br/>(/ows:Parameter)</p>
+		<p id="q">3) What is the DefaultSRS for the feature type named "ogi.quad100"?</p>
+		<p id="a">WGS 84 (EPSG:4326).</p>
+		<p id="type2">(DefaultSRS)<br/>urn:x-ogc:def:crs:EPSG:4326<br/>(/DefaultSRS)</p>
+		<p id="q">What is the WGS84BoundingBox for the feature named "ogi.quad100"?</p>
+		<p id="type2">(ows:WGS84BoundingBox)<br/>ows:LowerCorner -104.20301 30.297490000000003 /ows:LowerCorner<br/>ows:UpperCorner -93.79799 40.70251<br/>ows:UpperCorner<br/>(/ows:WGS84BoundingBox)</p>
+			
+		<p id="type1">Question 7<br/>From the XML GetCapabilities returned by the following WFS request answer the following questions:</p>
+		<p id="b"><a href="http://sdf.ndbc.noaa.gov/thredds/wcs/hfradar_usegc_1km?request=GetCapabilities&version=1.0.0&service=WCS">http://sdf.ndbc.noaa.gov/thredds/wcs/hfradar_usegc_1km?request=GetCapabilities&version=1.0.0&service=WCS</a></p>
+		<p id="q">1) What is the description of this service?</p>
+		<p id="a">The description reads "Experimental THREDDS/WCS server for CDM gridded datasets"</p>
+		<p id="q">2) How many coverages are available from this service?</p>
+		<p id="a">There are four coverages: u, v, DOPx, and DOPy.</p>
+		<p id="type1">Question 8a<br/>Formulate a complete DescribeCoverage request for the WCS service referenced in Question 7.  Provide the complete DescribeCoverage request and returned XML document.</p>
+		<p id="b"><a href="http://sdf.ndbc.noaa.gov/thredds/wcs/hfradar_usegc_1km?request=DescribeCoverage&version=1.0.0&service=WCS">http://sdf.ndbc.noaa.gov/thredds/wcs/hfradar_usegc_1km?request=DescribeCoverage&version=1.0.0&service=WCS</a></p>
+		<p id="type1">Question 8b<br/>From the returned XML document answer the following questions:</p>
+		<p id="q">1) What is the spatial domain for the 'u' coverage?</p>
+		<p id="a">97.88385009765625 21.700000762939453<br/>
+					57.1924934387207 46.49441909790039</p>
+		<p id="type2">(spatialDomain)<br/>gml:Envelope srsName="WGS84(DD)" <br/>gml:pos -97.88385009765625 21.700000762939453 /gml:pos<br/>gml:pos-57.1924934387207 46.49441909790039 /gml:pos<br/>gml:Envelope<br/>gml:RectifiedGrid dimension="2"<br/>gml:limits<br/>gml:GridEnvelope<br/>gml:low0 0/gml:low<br/>gml:high 4204 2758/gml:high<br/>/gml:GridEnvelope<br/>/gml:limits<br/>gml:axisName x /gml:axisName gml:axisName y /gml:axisName<br/>gml:origin<br/>gml:pos -97.88385009765625 21.700000762939453 /gml:pos<br/>/gml:origin<br/>gml:offsetVector 0.009679199966445182 0.0 /gml:offsetVector<br/>gml:offsetVector 0.0 0.008989999396287505 /gml:offsetVector<br/>/gml:RectifiedGrid<br/>(/spatialDomain)</p>
+		<p id="q">2) What file formats are available for 'u' data delivered by this service?</p>
+		<p id="a">GeoTIFF, GeoTIFFfloat, and NetCDF3.</p>
+		<p id="type2">(supportedFormats)<br/>formats GeoTIFF /formats<br/>formats GeoTIFFfloat /formats<br/>formats NetCDF3 /formats<br/>(/supportedFormats)</p>
+		<p id="q">3) What SRS(s) are supported by this service for requested data delivery?</p>
+		<p id="a">WGS 84 (EPSG:4326)</p>
+		<p id="type2">(supportedCRSs)<br/>requestCRSs EPSG:4326 /requestCRSs<br/>responseCRSs>EPSG:4326/responseCRSs<br/>nativeCRSs EPSG:4326 /nativeCRSs<br/>(/supportedCRSs)</p>
+		<address>Bill Brown wbrown@unm.edu</address>
+		<p id="b"><a href="http://129.24.63.138/~wbrown/midterm.html">Back to Top</a></p>
+	</body>
+</html>		
+
+
+

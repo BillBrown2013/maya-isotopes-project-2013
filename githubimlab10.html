@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+			<title>Geography 585 Homework 3</title>
+                <style type=text/css>		
+					body {color:darkgray; background:darkgray}							  				
+				a {color: lime;}
+				a:active {color: red;}
+				a:visited {color: black}								
+					
+				#header {margin-bottom: 36px;
+				color: lime; font-size: 46px; font-family:arial; 									    
+					text-align:center;
+					background-color: black; 				
+					border: 2px solid lime;
+				  }							
+				
+				#header img {float: left;
+				}
+								
+				h2 {
+					color: lime;
+					font-family: arial;
+					font-size: 24px;
+					font-weight: bold;
+					text-align: center; 
+					margin-bottom: 0em;
+				  }				  				
+				
+				h3 {
+					color: lime;
+					font-family: arial;
+					font-size: 20px;
+					font-style: italic;
+					text-align: center; 
+					margin-top: .1em;
+				  }
+				  
+				h4 {
+					color: lime;
+					background-color: black;
+					font-family: arial;
+					font-size: 46px;					
+					text-align: center; 
+					border: 2px;
+					padding: .3em;
+					}						
+				  
+
+				#a {															
+					color:white; 
+					font-size:22px; 
+					font-family: arial,sans-serif; 
+					margin-left: 10%; 
+					margin-top: .1em;
+					text-align: justify;
+					}
+					
+				
+				img {margin-left: 5%}
+				
+				#cap {color:yellow; 
+					font-size:14px; 
+					font-family: arial;  
+					font-weight: bold;   
+					margin-bottom: 3em;
+					text-align: center;}
+				
+				#b {font-family:arialblack;
+					font-size:16;
+					font-weight: bold;
+					text-align:center;
+					margin-bottom: .5em;}
+				
+				#type1 {
+					color: black;
+					font-family:arialblack;
+					font-size: 20px;
+					text-align: justify;
+					}
+	
+				#type2 {
+					color: black;
+					font-family:courier;
+					font-size: 18px;
+					text-align: justify;
+					margin-left: 2%;
+					}
+	
+				address {
+					color: lime;				
+					clear: left;
+					text-align: center;
+					padding-top: 36px;
+					font-family: courier,monospace; font-size: 24px; font-weight: bold;
+				  }
+				 </style>
+		</head>
+	<body>
+	
+		<p id="b"><a href="http://129.24.63.138/~wbrown/Home.html">Bill Brown's Internet Mapping Home Page</a></b>
+		<div id="header"><img src="zia1.gif" width="200" height="180" alt="Zia"/><h4>Geography 585 Homework 3</h4></div>		
+		<h2>William T. Brown</h2>
+		<h3>April 4, 2013</h3>		
+		<p id="a">The first requirement of this lab is to add three WMS layers to a new map project in QGIS.  I chose the landsat layer from EDAC Imagery as the base, and added the Streams layer from FEMA and the MapunitPoly layer from the NRCS Soil Mart webpage as overlays.  Figure 1 below shows all three WMS layers in the same map; the yellow lines are the soil map polygons and the blue lines are the stream vectors from FEMA.</p>
+		
+		<p><img src="lab10fig2.jpg" alt="" title="Three WMS layers combined in QGIS"></p>
+		<p id="cap">Figure 1: Three combined WMS layers in QGIS.  The landsat image is the base, streams from FEMA are shown in blue, and soil unit boundaries from NRCS are shown in yellow.</p>
+		
+		<p id="a">The next requirement was to add three features from the web feature service from <a href="http://rgis.unm.edu/browsedata">EDAC.</a> If you look at the table of contents shown below in Fig. 2 you can see the layers that I have added, but have been renamed.
+		I added ventdd83.shp (Volcanic vents of New Mexico), nnmapdd83 (Geologic map of New Mexico; shown in black lines), and nm_statsgo (soil map of New Mexico; shown in heavy red lines).  All three features lined up on the map, but several times zooming in and out of the map QGIS simply stopped working, so the volcanic vents are shown on a separate map shown below in Figure 3.</p>
+
+		<p><img src="lab10fig3.jpg" alt="" title="Bernalillo County"></p>
+		<p id="cap">Figure 2: The final map with three WMS layers and three WFS layers in QGIS.  Note the volcanic vents did not show up at this level, and when I zoomed in and out QGIS stopped, so the vents are shown below in Figure 3.  Also note that I changed the base layer from a landsat image to a doqq.</p>
+		
+		<p><img src="lab10fig4.jpg" alt="" title="Bernalillo County"></p>
+		<p id="cap">Figure 3: Screen capture showing the volcanic vents layer.</p>
+		<address>Bill Brown wbrown@unm.edu</address>
+		<p id="b"><a href="http://129.24.63.138/~wbrown/Lab10.html">Back to Top</a></p>
+		
+	</body>
+</html>
+				  
+
+		
+	
+		
+	

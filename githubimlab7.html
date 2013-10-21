@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+			<title>Geography 585 Lab 7</title>
+                <style type=text/css>		
+					body {color:darkgray; background:darkgray}							  				
+				a {color: lime;}
+				a:active {color: red;}
+				a:visited {color: black}								
+					
+				#header {margin-bottom: 36px;
+				color: lime; font-size: 46px; font-family:arial; 									    
+					text-align:center;
+					background-color: black; 				
+					border: 2px solid lime;
+				  }							
+				
+				#header img {float: left;
+				}
+								
+				h2 {
+					color: lime;
+					font-family: arial;
+					font-size: 24px;
+					font-weight: bold;
+					text-align: center; 
+					margin-bottom: 0em;
+				  }				  				
+				
+				h3 {
+					color: lime;
+					font-family: arial;
+					font-size: 20px;
+					font-style: italic;
+					text-align: center; 
+					margin-top: .1em;
+				  }
+				  
+				h4 {
+					color: lime;
+					background-color: black;
+					font-family: arial;
+					font-size: 46px;					
+					text-align: center; 
+					border: 2px;
+					padding: .3em;
+					}						
+				  
+				#q {								
+					color:lime; 
+					font-size:20px; 
+					font-family: arial; font-style: italic; 
+					font-weight: bold; margin-left: 5%;  
+					margin-bottom: 0em;
+					}
+					
+				#a {															
+					color:white; 
+					font-size:16px; 
+					font-family: arial,sans-serif; 
+					margin-left: 10%; 
+					margin-top: .1em
+					}
+					
+				#b {
+					font-family:arialblack;
+					font-size:16;
+					font-weight: bold;
+					text-align:center;
+					margin-bottom: .5em;
+					}
+				
+				#type1 {
+					color: black;
+					font-family:arialblack;
+					font-size: 20px;
+					text-align: justify;
+					}
+	
+				#type2 {
+					color: black;
+					font-family:courier;
+					font-size: 18px;
+					text-align: justify;
+					margin-left: 2%;
+					}
+	
+				address {
+					color: lime;				
+					clear: left;
+					text-align: center;
+					padding-top: 36px;
+					font-family: courier,monospace; font-size: 24px; font-weight: bold;
+				  }
+				 </style>
+		</head>
+	<body>
+	
+		<p id="b"><a href="http://129.24.63.138/~wbrown/Home.html">Bill Brown's Internet Mapping Home Page</a></b>
+		<div id="header"><img src="zia1.gif" width="200" height="180" alt="Zia"/><h4>Geography 585 Lab 7</h4></div>		
+		<h2>William T. Brown</h2>
+		<h3>Feb. 28, 2013</h3>		
+		<p id="type1">You might have noticed in the WMS requests that you generated in the previous lab returned images that did not look quite right relative to what you may know of the shape of familiar features.</p>
+		<p id="type1">For example, a WMS request for a 200x200 pixel image for an area surrounding Bernalillo County (-107.2,34.7,-106,35.25) from the previous lab would be:</p>
+		<p id="type2">http://gstore.unm.edu/apps/rgis/datasets/609320d1-8d95-47a7-818f-64ca7bc66c3d/services/ogc/wms?
+			VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&BBOX=-107.2,34.7,-106,35.25&
+			LAYERS=2007fe_35_county00&FORMAT=image/png&TRANSPARENT=TRUE&STYLES=&
+			SRS=EPSG:4326&WIDTH=200&HEIGHT=200</p>
+		<p><img src="bernco.png" alt="" title="Bernalillo County"></p>
+		<p id="type1">This request results in a map image that does not agree with the standard shape of Bernalillo county (depicted in the Google Map below) that we are accustomed to, regardless of the specific map projection being used.</p>
+		<p><a href="http://g.co/maps/sc688"><img src="bernalilloCountyGoogleMaps.png" alt="" title="Google Maps representation of Bernalillo County" class="fit-width" /></a></p>
+		<p id="type1">This discrepancy is the result of a difference in the aspect ratio of the requested BBOX (-107.2,34.7,-106,35.25) and the requested image dimensions (200x200 pixels). When you compose a WMS GetMap request, you need to make sure that the aspect ratio of both the image size and BBOX match.</p>
+		<p id="type1">For example, if we calculate the aspect ratio of the BBOX we obtain the following values (remember that the BBOX is specified as a comma separated list of x,y coordinates: minx,miny,maxx,maxy):</p>
+		<p id="type2">BBOX width = (maxx) - (minx) = (-106) - (-107.2) = 1.2 degrees
+			BBOX height = (maxy) - (miny) = (35.25) - (34.7) = 0.55 degrees
+			BBOX aspect ratio = (BBOX width) / (BBOX height) = (1.2) / (0.55) = 2.1818</p>
+		<p id="type1">If we want to retrieve a map image that is 200 pixels wide, we need to calculate an image height that yields an aspect ratio that matches the BBOX aspect ratio. Harking back to basic algebra:</p>
+		<p id="type2">width = 200
+			aspect ratio = width / height = 200 / height = 2.1818
+			height = (height) / (aspect ratio) = 200 / 2.1818 = 91.667</p>
+		<p id="type1">So, if we request an image that is 200x92 (we have to request pixel dimensions in integers, so rounding to the nearest integer) we should get a representation that closely approximates the proper shape of features. The modified WMS request with the new images size is the following:</p>
+		<p id="type2">http://gstore.unm.edu/apps/rgis/datasets/609320d1-8d95-47a7-818f-64ca7bc66c3d/services/ogc/wms?
+			VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&BBOX=-107.2,34.7,-106,35.25&
+			LAYERS=2007fe_35_county00&FORMAT=image/png&TRANSPARENT=TRUE&STYLES=&
+			SRS=EPSG:4326&WIDTH=200&HEIGHT=92</p>
+		<p><img src="bernco2.png" alt="" title="Bernalillo County"></p>
+		<p id="type1">This process may be reversed to request images of a fixed size for use in a client interface, with the requested BBOX modified to match the aspect ratio of the target image. If, for example, images are being requested for a client interface with a fixed map size of 600x400 pixels, a corresponding BBOX can be derived using the same calculation.
+			If, for example, the area of interest for a map is 2 degrees wide, we can calculate the target height (in degrees) using the aspect ratio of the desired image.</p>
+		<p id="type2">image aspect ratio = (width) / (height) = (600) / (400) = 1.5
+			BBOX aspect ratio = (width) / (height) = (2) / (height in degrees) = 1.5
+			BBOX height = (width) / BBOX aspect ratio = (2) / (1.5) = 1.3333</p>
+		<p id="type1">If our area of interest extends from -106 to -108 degrees East Longitude, we can use the known target height of 1.3333 to generate a WMS BBOX of the appropriate aspect ratio. If the minimum Latitude of interest is 34.7 degrees North Latitude, the maximum BBOX Y value would be</p>
+		<p id="type2">BBOX Max Y = (BBOX Min Y) + (BBOX height) = (34.7) + (1.3333) = 36.0333</p>
+		<p id="type1">This set of calculations may be used to compose the following WMS request:</p>
+		<p id="type2">http://gstore.unm.edu/apps/rgis/datasets/609320d1-8d95-47a7-818f-64ca7bc66c3d/services/ogc/wms?
+			VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&BBOX=-108,34.7,-106,36.0333&
+			LAYERS=2007fe_35_county00&FORMAT=image/png&TRANSPARENT=TRUE&STYLES=&
+			SRS=EPSG:4326&WIDTH=600&HEIGHT=400</p>
+		<p><img src="bernco3.png" alt="" title="Bernalillo County"></p>
+		<p id="type1">Given that McKinley County NM is contained within the following BBOX: -109.5, 34.5, -106.5, 36.5</p>
+		<p id="q">Question 1: What is the aspect ratio of this geographic region?</p>
+		<p id="a"><i><u>Answer:</u></i><br/>(-106.5 + 109.5)/(36.5-34.5) = 3/2 = <em>1.5</em></p>		
+		<p id="q">Question 2: What would be the height (in whole pixels) for a map image for this region that is 600 pixels wide?</p>
+		<p id="a"><i><u>Answer:</u></i><br/>600/1.5 = <em>400 pixels</em></p>
+		<p id="q">Question 3: Formulate a WMS request that reflects the values determined in 1.1 and 1.2 above for the WMS service used above in the examples. Include in your answer both the actual WMS request and the returned map image.</p>
+		<p id="a"><i><u>Answer:</u></i></p>
+		<p id="type2">http://gstore.unm.edu/apps/rgis/datasets/609320d1-8d95-47a7-818f-64ca7bc66c3d/services/ogc/wms?
+				VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&BBOX=-109.5,34.5,-106.5,36.5&
+				LAYERS=2007fe_35_county00&FORMAT=image/png&TRANSPARENT=TRUE&STYLES=&
+				SRS=EPSG:4326&WIDTH=600&HEIGHT=400</p>		
+		<p><img src="lab7q3.png" alt="" title="McKinley County"></p>
+		<p id="q">Question 4: Formulate a WMS request for a 900x600 pixel map image that represents the full 3-degree width of the geographic region, and is based upon the minimum Y value of 34.5 degrees North Latitude. Include in your answer both the WMS request and the returned map image.</p>
+		<p id="a"><i><u>Answer:</u></i></p>
+		<p id="a">Aspect Ratio = width/height<br/>
+						= 900/600<br/>
+						= 1.5<br/>
+		<p id="a">BBOX Width = Max X - Min X<br/>
+						= -106.5 + 109.5<br/>
+						= 3 degrees</p>
+		<p id="a">BBOX Height = BBOX Width/Aspect Ratio<br/>
+						= 3/1.5<br/>
+						= 2 degrees</p>
+		<p id="a">Min X = -109.5	Min Y = 34.5	Max X = -106.5</p>
+		<p id="a">Max Y = Min Y + BBOX Height<br/>
+						= 34.5 + 2<br/>
+						= 36.5</p>
+		<p id="type2">http://gstore.unm.edu/apps/rgis/datasets/609320d1-8d95-47a7-818f-64ca7bc66c3d/services/ogc/wms?
+				VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&BBOX=-109.5,34.5,-106.5,36.5&
+				LAYERS=2007fe_35_county00&FORMAT=image/png&TRANSPARENT=TRUE&STYLES=&
+				SRS=EPSG:4326&WIDTH=900&HEIGHT=600</p>
+		<p><img src="lab7q4.png" alt="" title="McKinley County"></p>
+		<p id="q">Question 5: Given a WMS that is represented by the following GetCapabilities request (the downloaded file will need to be manually opened in a text editor such as Notepad [Windows] or TextEdit [Mac]), formulate individual GetMap requests (using the same BBOX, WIDTH, and HEIGHT values that you used for Question 3 above) for each of the following layers: bmng2km, bmng500mA1, landsat, and doqq05.</p>
+		<p id="a"><i><u>Answer:</u></i><br/></p>
+		<p id="type2">http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=bmng2km&SRS=EPSG:4326&BBOX=-109.5,34.5,-106.5,36.5&WIDTH=600&HEIGHT=400&FORMAT=image/jpeg&STYLE=</p>
+		<p id="type2">http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=bmng500mA1&SRS=EPSG:4326&BBOX=-109.5,34.5,-106.5,36.5&WIDTH=600&HEIGHT=400&FORMAT=image/jpeg&STYLE=</p>
+		<p id="type2">http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=landsat&SRS=EPSG:4326&BBOX=-109.5,34.5,-106.5,36.5&WIDTH=600&HEIGHT=400&FORMAT=image/jpeg&STYLE=</p>
+		<p id="type2">http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=doqq05&SRS=EPSG:4326&BBOX=-109.5,34.5,-106.5,36.5&WIDTH=600&HEIGHT=400&FORMAT=image/jpeg&STYLE=</p>
+		<p id="q">Question 6: Which layers return map images that display image content? In other words, which images display actual aerial or satellite imagery as opposed to a "blank" image?</p>
+		<p id="a"><i><u>Answer:</u></i><br/>The doqq and landsat files are aerial and satellite images, respectively, and the bmng are blank.</p>
+		<p id="type1">Sometimes when WMS layers are accessed, there is a limit on the map scales for which the map image will be returned. If a request is submitted for a map scale that is outside the range specified for a given layer, typically, a blank map image (an image that does not display any layer data) will be returned.</p>
+		<p id="q">Question 7: From examining the information for these layers in the GetCapabilities XML document requested above - which element in each layer’s service metadata do you think provides information about the scales for which the layer will return map images containing data?</p>
+		<p id="a"><i><u>Answer:</u></i><br/>The <em>ScaleHint</em> element.</p>
+		<p id="q">Question 8: Which map images display data for each of the following map image widths (remember to adjust the image height to match the BBOX of the request) 100 pixels 1000 pixels.</p>
+		<p id="a"><i><u>Answer:</u></i><br/>At 100 pixels, the only visible layer is the bmng2km; the others are not visible.</p>					
+		<p id="a">At 1000 pixels, only the landsat image is visible and the other three are not.</p> 
+		<p id="type1">Below is a link to a KML file that includes a single GroundOverlay element that, in turn, contains a single Icon and href element that contains a WMS request (including all layers in the service in the “LAYERS” parameter) to the imagery service you worked with in question 2, above.
+			EDACImagery.kml 
+			Open the supplied KML file in Google Earth and enable it by clicking the checkbox next to its name in the “Temporary Places” pane on the left side of the user interface. Zoom in over several steps (i.e. pause after zooming in to allow the imagery WMS requested by the KML file to load - the white box with the rounded arrows will be replaced by the imagery) to the intersection of Interstate 25 and 40 in Albuquerque.</p>
+		<p id="q">Question 9: What do you notice as you stop zooming?</p>
+		<p id="a"><i><u>Answer:</u></i><br/>The angle changes as you zoom in, and each time you zoom in there are different images with different resolutions and the map refreshes after each zoom.</p>
+		<p id="q">Question 10: How does what you see relate to the scale dependencies that were highlighted in question 5-8 above?</p>
+		<p id="a"><i><u>Answer:</u></i><br/>When you zoom in and out the layers change showing that the different layers have different scale limits.  Zooming in and out turns different layers on or off, giving the impression that all of the layers are a single image layer.</p>
+		<p id="type1">Open the KML file in a text editor (like Notepad or TextEdit). Using the original GroundOverlay element and its content as a template, create new KML files, one for each layer in the downloaded KML file, with each of the multiple layers in the original file being the only one included in the Layers parameter of the WMS request in the href element (remember to rename the GroundOverlay element so that they can be distinguished in the legend).
+			For example, change the following:</p>
+		<p id="type2"><name>EDAC - Imagery</name>
+			<Icon>
+		<href>http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?VERSION=1.1.1
+		&amp;REQUEST=GetMap&amp;SRS=EPSG:4326&amp;LAYERS=mrcog_2008_rast,
+		doqq05,doqq06_gaps,doqq06,landsat,bmng500mA1,bmng500mA2,bmng500mB1,
+		bmng500mB2,bmng500mC1,bmng500mC2,bmng500mD1,bmng500mD2,
+		bmng2km,bmng8km&amp;
+		TRANSPARENT=TRUE&amp;FORMAT=image/jpeg&amp;STYLES=&amp;
+		WIDTH=1024&amp;HEIGHT=1024</href>
+		<viewRefreshMode>onStop</viewRefreshMode>
+		<viewBoundScale>0.66</viewBoundScale>
+			</Icon></p>
+		<p id="type1">To</p>
+		<p id="type2"><name>EDAC - Imagery - mrcog_2008_rast</name>
+			<Icon>
+		<href>http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?VERSION=1.1.1
+		&amp;REQUEST=GetMap&amp;SRS=EPSG:4326&amp;LAYERS=mrcog_2008_rast&amp;
+		TRANSPARENT=TRUE&amp;FORMAT=image/jpeg&amp;STYLES=&amp;
+		WIDTH=1024&amp;HEIGHT=1024</href>
+		<viewRefreshMode>onStop</viewRefreshMode>
+		<viewBoundScale>0.66</viewBoundScale>
+			</Icon></p>
+		<p id="type1">in a kew KML file named:</p>
+		<p id="type2">mrgoc_2008_rast.kml</p>
+		<p id="q">Question 11: What do you see in the map when you add the KML file depicting bmng2km to Google Earth and enable it?</p>
+		<p id="a"><i><u>Answer:</u></i><br/>There is a shaded region with a huge red X marking the greater Albuquerque region.</p>
+		<p id="q">Question 12: What happens when you change (by editing the KML file, saving the change, and re-adding the modified file to Google Earth) the image format in the KML WMS request from</p>
+		<p id="type2">image/jpeg</p>
+		<p id="type1">to</p>
+		<p id="type2">image/png</p>
+		<p id ="type1">If there is a change in what you see, why do you think it happens?</p>
+		<p id="a"><i><u>Answer:</u></i><br/>The png format supports transparency while the jpeg does not, so when the format is changed to png then the red X is visible at the default zoom but if you zoom in or out beyond the scale range for bmng2km then Google's imagery appears.  When the zoom level falls outside of that defined for the layer, then the png is transparent and the Google Map shows up.</p>
+		<p id="q">Bonus Question: What WMS parameter(s) are missing from the href element in the GroundOverlay in the KML? Why do you think it/they are missing?</p>
+		<p id="a"><i><u>Answer:</u></i><br/>The BBOX parameter is missing from the KML file because it's "built in" to the KML specification; the KML structure provides automated addition of the BBOX boundaries based on the area that is currently being looked at by the viewer.</p>
+		<address>Bill Brown wbrown@unm.edu</address>
+		<p id="b"><a href="http://129.24.63.138/~wbrown/Lab7.html">Back to Top</a></p>
+		
+	</body>
+</html>
+				  
+
+		
+	
+		
+	

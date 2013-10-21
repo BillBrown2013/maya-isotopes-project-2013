@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<title>Geography 585 Lab 6</title>
+                <style type=text/css>		
+                body {color:black; background:black}
+		
+			
+		</style>
+	</head>
+	<body>
+<p id="answer1"><p><a href="http://129.24.63.138/~wbrown/Home.html">Home</a></p>
+<h1>Lab Assignment 6</h1>
+<h4>Feb. 21, 2013</h4>
+<h3>William T. Brown</h3>
+<h2>As with the previous lab assignments, please submit your assignment as a web page that is linked from your class home page, with the direct link to your web page submitted through Learn.
+
+There are a large number of WMS services available on the web. One way to find interesting services is to search for them using standard search engines such as Google. Try searching for the following search phrase:
+
+“REQUEST=GetCapabilities” and “SERVICE=WMS”
+as a single search phrase</h2>
+
+	<p id="question1">Question 1: What search engine did you use?</p>
+		
+                <p id="answer1">Answer: I used the Firefox search engine.</p>             
+                           
+        <p id="question1">Question 2: How many ‘hits’ did you get?</p>	
+                
+                <p id="answer1">Answer: Using Firefox, I got roughly 63,200 hits.</p>            
+               
+        <p id="question1">Question 3: How useful (i.e. did you find pointers to live WMS services [defined as a functioning GetCapabilities request]) were the ‘hits’?</p>
+		
+                <p id="answer1">Answer: I found Firefox's search results very useful; it quickly directed me to multiple WM services.  The only problem I had answering this question is which service to chose for my write-up.</p>
+<h2>Pick two of the services that you found above, and answer the following questions about each.</h2>
+		
+        <p id="question1">Question 4:What is the URL for the full GetCapabilities request to the service?<br/>
+        What is the Name of the service?<br/>
+        What Format(s) are available for GetMap requests from the service?<br/>
+        How many layers are included in the service? Make sure to include all containing <layer> elements as part of your count.</p>
+        <p id="answer1">Answer (Service 1):</p>
+
+<p id="answer1">Name: Global Fire Information Management System (GFIMS).</p>
+
+<p id="answer1"><p><a href="http://geonetwork4.fao.org/wms/wms.php?SERVICE=WMS&VERSION=1.1.1&REQUEST=GETCAPABILITIES&BBOX=-199.5,7,-58.5,33.5;">http://geonetwork4.fao.org/wms/wms.php?SERVICE=WMS&VERSION=1.1.1&REQUEST=GETCAPABILITIES&BBOX</a></p>
+            
+<p id="answer1">Formats: According to the metadata yielded by the GetCapabilities URL, the formats rendered include .png, MODIS data in .jpg and .tif formats, shapefiles (.shp), text (.txt) files, .vnd.wap.wbmp, .kml, WMS version 1.1.1, email, and .csv formats.<br/>
+Layers: There are three layers available: GFIMS WMS Service, Fires - Past 48 Hours, and Fires - Past 24 hours.</p>
+
+
+        <p id="question1">Question 4, Service 2:What is the URL for the full GetCapabilities request to the service?<br/>
+        What is the Name of the service?<br/>
+        What Format(s) are available for GetMap requests from the service?<br/>
+        How many layers are included in the service? Make sure to include all containing <layer> elements as part of your count.</p>
+        
+		
+       <p id="answer1">Answer (Service 2):</p>
+
+<p id="answer1">Name: National Atlas.gov.</p>
+
+<p id="answer1"><p><a href="http://webservices.nationalatlas.gov/wms/geology?SERVICE=WMS&REQUEST=GetCapabilities">http://webservices.nationalatlas.gov/wms/geology?SERVICE=WMS&REQUEST=GetCapabilities</a></p>
+
+<p id="answer1">Formats: png, jpeg, gif, png mode=8bit, and tiff.<br/>
+Layers: I counted a total of 39 layers.</p>
+
+        <p id="question1">Question 5: For one of the layers in the service,<br/>
+                What is the SRS of the layer?<br/>
+                What is the name of the projection that matches the SRS EPSG code?<br/>
+                What is the LatLonBoundingBox of the layer?</p>
+		
+                <p id="answer1">Answer: I chose the "Fires past 24 hours" layer from the GFIMS WMS:<br/>
+	        SRS: EPSG:4269 and EPSG:4326.<br/>
+		Name of the Projection: NAD83 and WGS84, respectively.<br/>
+		LatLongBoundingBox: maxy="90" maxx="180" miny="-90" minx="-180"</p>
+
+<h2>Open the following GetCapabilities request in your browser. Select “View Source” from the browser menu to see the delivered XML document (it may appear as an unformatted string of text by default in your browser). Use the information in the XML capabilities document to formulate GetMap requests for the following map images. Include the requests and resulting images in your write-up.</h2>
+
+
+<p id="answer1"><p><a href="http://gstore.unm.edu/apps/rgis/datasets/6ca5428a-a78c-4c82-8120-da70dc92f2cc/services/ogc/wms?SERVICE=wms&REQUEST=GetCapabilities&VERSION=1.1.1">http://gstore.unm.edu/apps/rgis/datasets/6ca5428a-a78c-4c82-8120-da70dc92f2cc/services/ogc/wms?SERVICE=wms&REQUEST=GetCapabilities&VERSION=1.1.1</a></p>
+  
+<p id="question1">Question 6: For the area surrounding Bernalillo County (-107.2,34.7,-106,35.25) as a 200x200 pixel JPEG</p>
+
+<p id="answer1">Figure 1 (below) shows the map rendered when you access the New Mexico state boundaries layer from RGIS.  Note there are no county lines which was confusing because when I went to zoom in as required in Questions 6 and 7, all I got was a blue square, while I was expecting the boundary lines of Bernalillo County.</p>
+				
+				<p id="image1"><img src="lab6fig1.png" width="550" height="600" alt="figure 1"></p>
+				
+				<p id="answer2">Figure 1: State boundaries layer of New Mexico.</p>
+		
+   <p id="answer1">Answer:http://gstore.unm.edu/apps/rgis/datasets/6ca5428a-a78c-4c82-8120-da70dc92f2cc/services/ogc/wms?VERSION1.1.1&SERVICE=WMS&REQUEST=GetMap&BBOX=-107.2,34.7,-106,35.25&LAYERS=tl_2010_35_state10&WIDTH=200&HEIGHT=200&SRS=EPSG:4326&FORMAT=image/jpeg&STYLES=</p>
+
+  <p id="answer1">The image is shown below in Figure 2.</p>
+				
+				<p id="image2"><img src="lab6fig2.jpg" width="250" height="300" alt="figure 2"></p>
+				
+				<p id="answer2">Figure 2: 200 x 200 pixel JPEG image of Bernalillo County, NM.</p>
+  
+  <p id="question1">Question 7: For the area surrounding Bernalillo County (-107.2,34.7,-106,35.25) as a 500x500 pixel PNG</p>
+		
+                <p id="answer1">Answer: http://gstore.unm.edu/apps/rgis/datasets/6ca5428a-a78c-4c82-8120-da70dc92f2cc/services/ogc/wms?VERSION1.1.1&SERVICE=WMS&REQUEST=GetMap&BBOX=-107.2,34.7,-106,35.25&LAYERS=tl_2010_35_state10&WIDTH=500&HEIGHT=500&SRS=EPSG:4326&TRANSPARENT=TRUE&FORMAT=image/png&STYLES=</p>
+
+				<p id="answer1">The image is shown below in Figure 3.</p>
+				
+				<p id="image2"><img src="lab6fig3.png" width="250" height="300" alt="figure 3"></p>
+				
+				<p id="answer2">Figure 3: 500 x 500 pixel PNG image of Bernalillo County, NM.</p>
+				
+				<h2>Open the following (linked) KML file in Google Earth, uncompress it, and save the contained KML file on your computer. Open the KML file in a text editor (e.g. TextEdit [Mac], Notepad/Notepad++ [Windows]). Add a second Placemark element to the KML file that represents a square region that is completely contained within the state boundary. Save the KML file and open it in Google Earth (download from http://www.google.com/earth/index.html) or view it in Google Maps (by saving the file in your public_html directory on the class server and accessing it from the Google Maps web interface) as demonstrated in the lecture. Submit the KML file (as a link in your writeup) as part of your writeup for the lab.</h2>
+
+<p id="answer1"><p><a href="http://rgis.unm.edu/gstore/datasets/6ca5428a-a78c-4c82-8120-da70dc92f2cc/tl_2010_35_state10.derived.kml">http://rgis.unm.edu/gstore/datasets/6ca5428a-a78c-4c82-8120-da70dc92f2cc/tl_2010_35_state10.derived.kml</a></p>
+
+<p id="answer1">I saved the file as a jpeg image shown below in Figure 4, and the link to the KML is also provided below.</p>
+
+<p id="image1"><img src="lab6fig4.jpg" width="850" height="800" alt="google earth map"></p>
+<p id="answer2">Figure 4: Image of my four points within the state of New Mexico.</p>
+
+<p id="answer1"><p><a href="http://129.24.63.138/~wbrown/BBlab6.kml">Lab 6 Google Map</a></p>
+
+		
+		<p id="answer1"><p><a href="http://129.24.63.138/~wbrown/Lab6.html">Back to Top</a></p>
+		
+<style type=text/css>		
+		h1 {color:lime; font-size:46px; font-family: arial; font-style: italic; font-weight: bold; margin-left: 32%; margin-bottom: 0em}                        
+		h2 {color:gray; font-size:18px; font-family: arial; font-weight: bold; margin-left: 3%}
+		h3 {color:lime; font-size:20px; font-family: arialblack; font-style: italic; margin-left: 42%; margin-top: .1em}
+        h4 {color:lime; font-size:24px; font-family: courier; margin-left: 40%; margin-top: .1em; margin-bottom: 0em}       
+                #question1 {color:lime; font-size:20px; font-family: arial; font-style: italic; font-weight: bold; margin-left: 2%;  margin-bottom: 0em}
+			    #answer1 {color:white; font-size:16px; font-family: arial; margin-left: 5%; margin-top: .1em}
+	            #answer2 {color:white; font-size:12px; font-family: arial; margin-left:32%; margin-top: .1em}
+				#image1 {margin-left: 18%; margin-bottom: 0em}
+				#image2 {margin-left: 35%; margin-bottom: 0em}
+		</style>
+
+<div id="bbfooter">
+            Geography 485L: Internet Mapping &nbsp;&nbsp;|&nbsp;&nbsp;
+            University of New Mexico &nbsp;&nbsp;|&nbsp;&nbsp; <a
+            href="mailto:wbrown@unm.edu" target="_https://my.unm.edu/cp/home/displaylogin">Bill Brown</a>
+         </div>
+		
+		</body>
+</html>
+
+
+

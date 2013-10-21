@@ -1,0 +1,237 @@
+ <html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+			<title>Geography 585 Lab8</title>
+                <style type="text/css">		
+					html {
+						height: 100%;
+						}
+					
+					body {
+						height: 100%;
+						margin: 0px; 
+						padding: 0px;
+						text-align: center;						
+						color:black; 
+						background:black; 					
+						}							  				
+				
+					#map { 
+						width:85%;						
+						height:75%; 
+						margin-left: auto; 
+						margin-right: auto; 
+						}
+				
+				a {color: yellow;}
+				a:active {color: red;}
+				a:visited {color: lime}								
+					
+				#header {margin-bottom: 36px;				 									    
+					text-align:center;
+					background-color: black; 				
+					border-style: outset;
+					border-width: thick;
+					border-color: lime;
+				}							
+				
+				#header img {float: left;																			
+				}																																					
+				  
+			h1 {
+				color: lime;
+				background-color: black;
+				font-family: arial;
+				font-size: 36px;					
+				text-align: center; 
+				border: 2px;
+				padding: .3em;
+				}						
+			
+			h3 {text-align: center;
+				font-size: 24px;
+				font-family: arial;
+				color: lime;}
+			
+			h4 {text-align: center;
+				font-size: 22px;
+				font-family: arial;
+				color: darkgray;}
+			
+			#cap {								
+				color:white; 
+				font-size:14px; 
+				font-family: arial;  
+				font-weight: bold;   
+				margin-bottom: 3em;
+				text-align: center;
+				}
+			
+			#q {								
+				color:lime; 
+				font-size:20px; 
+				font-family: arial; font-style: italic; 
+				font-weight: bold; text-align: center;  
+				margin-bottom: 2em;
+				}
+					
+			#a {															
+				color:white; 
+				font-size:16px; 
+				font-family: arial,sans-serif; 
+				text-align: center;
+				margin-left: 5%; 
+				margin-top: .1em
+				}																						
+				
+			#b {
+					font-family:arialblack;
+					font-size:16;
+					font-weight: bold;
+					text-align:center;
+					margin-bottom: .5em;
+				}
+			
+			address {
+				color: lime;				
+				clear: left;
+				text-align: center;
+				padding-top: 36px;
+				font-family: courier,monospace; font-size: 24px; font-weight: bold;
+				 }
+		</style>
+    <script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+        
+        var lon = -89.0;
+        var lat = 15;
+        var zoom = 6;
+        var map;
+        var terrain, geology, contacts; 			
+        							 
+        
+		 var baseControls = [
+			new OpenLayers.Control.Navigation({}),
+			new OpenLayers.Control.PanZoomBar({}),
+			new OpenLayers.Control.LayerSwitcher({}),
+			new OpenLayers.Control.MousePosition({})
+        ];
+        
+        
+        function init(){
+            map = new OpenLayers.Map( 'map',{
+			projection: new OpenLayers.Projection('EPSG:3857'),
+			displayProjection: new OpenLayers.Projection("EPSG:4326"),
+			} );
+            
+			           
+			terrain = new OpenLayers.Layer.Google(
+				"Google Physical",
+				{type: google.maps.MapTypeId.TERRAIN, numZoomLevels: 15}
+			);
+			
+			geology = new OpenLayers.Layer.WMS
+		(
+		'USGS Layer',
+		'http://mrdata.usgs.gov/services/worldgeol',
+		{layers:'geology', transparent:true},		
+		{opacity: .5}
+		);						
+		
+		contacts = new OpenLayers.Layer.WMS
+		(
+		'USGS Layer',
+		'http://mrdata.usgs.gov/services/worldgeol',
+		{layers:'contacts', transparent:true}		
+		);
+			
+		
+		
+			map.addLayers([terrain, geology, contacts]);
+
+		
+			var vector_layer = new OpenLayers.Layer.Vector(
+				'Editable Vectors');
+ //Add a vector editing control
+            map.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));
+			
+			//Add a mouse position control
+			map.addControl(new OpenLayers.Control.MousePosition());
+			
+			// Add a layer switcher control
+			map.addControl(new OpenLayers.Control.LayerSwitcher({}));
+		
+
+ map.setCenter(
+        new OpenLayers.LonLat(lon, lat).transform(
+           new OpenLayers.Projection("EPSG:4326"),
+           map.getProjectionObject()
+       ), zoom
+);
+
+
+
+
+						map.addControl(new OpenLayers.Control.LayerSwitcher() );
+            map.addControl(new OpenLayers.Control.OverviewMap() );
+            map.addControl(new OpenLayers.Control.Scale() );
+            map.addControl(new OpenLayers.Control.ScaleLine() );
+
+                
+        }		
+        
+        
+        
+	</script>
+
+	
+	</head>
+		<body onload="init()">
+		<p id="b"><a href="http://129.24.63.138/~wbrown/Home.html">Bill Brown's Internet Mapping Home Page</a></b>
+		<div id="header"><img src="zia1.gif" width="200" height="180" alt="Zia"/><h1>Lab 8: Lithologies of the Motagua Fault Zone, the Source of Mesoamerican Jade</h1></div>
+			<h3>William T. Brown</h3>
+				<div id="map"></div>
+			<p id="cap">Figure 1: Geologic data superimposed on a Google Terrain Map.</p>
+			
+				<p id="q">Question 1: What area do you want to depict in your map? Why?</p>
+		
+                <p id="a">I chose the area of the Motagua Fault zone in Guatemala because it is the only known source of the mineral jadeite, commonly known as jade, in the region (Figure 3, below).  Jade was an important trade item in prehistoric Mesoamerica since the time of the Olmecs, and until recently there has been a raging debate on how many sources of jade are represented in the Mesoamerican samples.  Two "types" have been recognized: the Olmec blue and Guatemalan green.  The color differences (seen below in Figures 4 and 5) are so striking that researchers have proposed sources for jadeite (the mineral that predominates in jade rock) in Costa Rica and/or Mexico.  However, jadeite is only formed in very specific geologic settings, namely low temperature and pressure subduction zones, locations that are very restricted globally (Figure 2, below).  During the 1980s, several researchers found chemical differences between jade samples from Mesoamerica and argued that an unknown sample must exist.  However, geologists, arguing from a processual stance, said that the only place in the region that could possibly make jadeite is in the Motagua Fault zone in Guatemala.  Just as liquid water and/or ice can only occur in certain temperature and pressure conditions, minerals are controlled in the same way.  In 1985 Hurricane Mitch eroded several stream systems, exposing the "Olmec/Costa Rican Blue" source.  The reason for the chemical differences is that the sources were produced by two distinct subduction activities, one occurring between 77-65 Mya and the other from 125-113 Mya.</p>   
+				<p><img src="distofjadeite.jpg" width="500" height="300" alt="Distribution of Global Subduction Zones where Production of Jadeite is Possible."></p>
+						<p id="cap">Figure 2: Distribution of Global Subduction Zones where Production of Jadeite is Possible.</p>		
+				
+				<p><img src="motag1.jpg" width="750" height="500" alt="Mineral Deposits along the Motagua Fault Zone, Guatemala."></p>
+						<p id="cap">Figure 3: Mineral Deposits along the Motagua Fault Zone, Guatemala.</p>		
+				
+				<p><img src="jade1.jpg" width="450" height="500" alt="Maya Mask: An Example of "Maya Green" jade."></p>
+						<p id="cap">Figure 4: Maya Mask: An Example of "Maya Green" jade.</p>	
+				
+				<p><img src="jade2.jpg" width="350" height="500" alt="Olmec Figurine Depicting the God "Earth Quake" Denoted by the Cleft Head."></p>
+						<p id="cap">Figure 5: Olmec Figurine Depicting the God "Earth Quake" Denoted by the Cleft Head. Note the bluish hue of the stone, as opposed to that in Figure 4.</p>	
+				
+				<p id="q">Question 2: What is the center point (latitude and longitude) of your area of interest?</p>
+		
+                <p id="a">I tried to approximate the rough location of the Motagua Fault zone in Guatemala and chose -89.0 degrees latitude and 15 degrees longitude.</p>   				
+												
+				<p id="q">Question 3: What base map(s) did you select for use in your map? Why?</p>
+		
+                <p id="a">I selected a Google Terrain map as the base because it compliments the distribution of rock types (that is, topography, tectonic processes, and rock types are all related).  Basically I embedded a Google Terrain map along with two USGS data sets, a map of geologic contacts and rock types.</p>   
+													
+				<p id="q">Question 4: What is the scale of your map (local, regional, continental, global)? How will this translate into your selection of an appropriate default zoom level for your map?</p>
+		
+                <p id="a">The scale is regional, because I want to show the various rock types from proposed alternative sources of jadeite from Mexico to Costa Rica.</p>   
+				
+				<p id="q">Question 5: Embed the OpenLayers Map in your writeup (included with the answers to questions 1-4 above) that is based upon your responses to questions 1-4 above.</p>
+		
+                <p id="a">See Figure 1 above.</p>
+						 
+									
+						
+								
+		
+
+		<address>Bill Brown wbrown@unm.edu</address>
+		<p id="b"><a href="http://129.24.63.138/~wbrown/Lab8.html">Back to Top</a></p>	
+	
+		</body>
+</html>
