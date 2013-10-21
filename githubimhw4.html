@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+			<title>Geography 585 Homework 4</title>
+                <style type=text/css>		
+					body {color:darkgray; background:darkgray; text-align:center;}							  				
+				a {color: lime;}
+				a:active {color: red;}
+				a:visited {color: black}								
+					
+				#header {margin-bottom: 36px;
+				color: lime; font-size: 46px; font-family:arial; 									    
+					text-align:center;
+					background-color: black; 				
+					border: 2px solid lime;
+				  }							
+				
+				#header img {float: left;
+				}
+								
+				h2 {
+					color: black;
+					font-family: arial;
+					font-size: 24px;
+					font-weight: bold;
+					text-align: center; 
+					margin-bottom: 0em;
+				  }				  				
+				
+				h3 {
+					color: white;
+					font-family: arial;
+					font-size: 20px;
+					font-style: italic;
+					text-align: center; 
+					margin-top: .1em;
+				  }
+				  
+				h4 {
+					color: lime;
+					background-color: black;
+					font-family: arial;
+					font-size: 46px;					
+					text-align: center; 
+					border: 2px;
+					padding: .3em;
+					}						
+				  
+
+				#cap {color:yellow; 
+					font-size:14px; 
+					font-family: arial;  
+					font-weight: bold;   
+					margin-bottom: 3em;
+					text-align: center;}
+				
+				#a {															
+					color:white; 
+					font-size:22px; 
+					font-family: arial,sans-serif; 
+					margin-left: 5%; 
+					margin-right: 5%;
+					margin-top: .1em;
+					text-align: justify;
+					}				
+				li {color:black; font-size:24px; text-align: left; margin-left: 5%;}				
+				
+				#b {font-family:arialblack;
+					font-size:14;
+					font-weight: bold;
+					text-align:center;
+					margin-bottom: .5em;}
+				
+				#type1 {
+					color: black;
+					font-family:arialblack;
+					font-weight: bold;
+					font-size: 32px;
+					text-align: left;
+					}				
+	
+				address {
+					color: lime;				
+					clear: left;
+					text-align: center;
+					padding-top: 36px;
+					font-family: courier,monospace; font-size: 24px; font-weight: bold;
+				  }
+				 </style>
+		</head>
+	<body>
+	
+		<p id="b"><a href="http://129.24.63.138/~wbrown/Home.html">Bill Brown's Internet Mapping Home Page</a></b>
+		<div id="header"><img src="olm.jpg" width="200" height="180" alt="Olmec"/><h4>Geography 585 Homework 4</h4></div>		
+		<h2>William T. Brown</h2>
+		<h3>May 2, 2013</h3>		
+		<p id="a">In this home work assignment, we were tasked with finding the map data that we will use in the final lab and to import these data into GeoServer.  The basic goals and previous work leading to this point in the project are provided below.  Once our data sets were imported in GeoServer, we were to style at least three of these layers; I did the bare minimum in styling because much of my data are derived from external WMS sites and GeoServer does not permit styling of external layers.  The three layers that I did stylize are a Blue Marble Next Generation raster, which I will use as an alternate base map in the final project.  I rearranged the color scheme to show Red in the Blue channel and Blue in the Red channel, in hopes of enhancing the depiction of vegetation.  Altough vegetation per se is not directly related to jade distribution, it is related to topography and human settlement patterns and perhaps may be important to the overall goals of the mapping project. The other styled layers are a vector data set of all known archaeological sites in the Maya world and another vector of jadeite sources derived from the USGS Mineral Resource Data Service.  All three styled layers are shown below in Figures 1 through 3.  For a the previous map created in Lab 9, click <a href="http://129.24.63.138/~wbrown/Lab9.html">here</a></p>
+		<p id="a">Along with the three layers added above, I also retrieved a Landsat image from the Guatemalan government (http://ide.segeplan.gob.gt/geoserver/gwc), several orthophotos from the same WMS (although I did not use them in the final map), and a layer depicting the worldwide distribution of minerals again from the USGS Mineral Data service.  The reason the distribution of minerals is so important to the final product is that mineral formation is controlled by temperature and pressure conditions which is central to the location of jade sources.  In a nutshell, I imported at least nine layers into GeoServer, although only three of them could be styled.</p>
+		<p id="a">Unfortunately when I saved my screen captures as pictures, the cropping was not applied for some reason; after taking the screen captures, I cropped them, yet when I saved them as pictures the crops were not kept.  Also note that we are required to show the name of our styles in the screen capture; I created my styles for specific layers, thus when one looks in the OpenLayers preview tool set, the names are simply "Default".  For a the final map created in Lab 13, click <a href="http://129.24.63.138/~wbrown/Lab13.html">here</a></p>
+		
+		<p><img src="hw4fig1.jpg" width="850" height="500" alt="" title="Guatemalan Jade"></p>
+		<p id="cap">Figure 1: Screen capture showing styled vector layer of Guatemalan jadeite deposits.</p>
+		
+		<p><img src="hw4fig2.jpg" width="850" height="500" alt="" title="Maya Archaeological Sites"></p>
+		<p id="cap">Figure 2: Screen capture showing styled vector layer of all known Maya sites in Central America.</p>
+		
+		<p><img src="hw4fig3.jpg" width="850" height="500" alt="" title="BMNG"></p>
+		<p id="cap">Figure 3: Screen capture showing the styled BMNG raster layer.</p>
+		
+		<p><img src="hw4fig4.jpg" width="850" height="500" alt="" title="Landsat"></p>
+		<p id="cap">Figure 4: Screen capture showing the Landsat base map alternative.</p>
+		
+		<p><img src="hw4fig5.jpg" width="850" height="500" alt="" title="Worldwide Mineral Data"></p>
+		<p id="cap">Figure 5: Screen capture showing global distribution of mineral data.</p>
+		
+		<p><img src="hw4fig6.jpg" width="850" height="500" alt="" title="Orthophoto"></p>
+		<p id="cap">Figure 6: Screen capture showing the orthophoto acquired from the Guatemalan WMS but not used in the final map.</p>
+		
+		<p><img src="hw4fig7.jpg" width="850" height="500" alt="" title="Rock Types"></p>
+		<p id="cap">Figure 7: Screen capture showing the distribution of global rock types.</p>
+		
+		<p><img src="hw4fig8.jpg" width="850" height="500" alt="" title="Lithologic Contacts"></p>
+		<p id="cap">Figure 8: Screen capture showing global lithologic contacts.</p>
+		
+		<p><img src="hw4fig9.jpg" width="850" height="500" alt="" title="World Geology"></p>
+		<p id="cap">Figure 9: Screen capture showing global lithologies.</p>
+		
+		<p id="type1">The Problem to be Addressed by This Map Project:</p>
+		<p id="a">I want to expand the map developed in Lab Assignment 9, namely, the geology and hydrology of the Motagua Fault Zone in central Guatemala (for an in-depth discussion of the problem click <a href="http://129.24.63.138/~wbrown/Lab9.html">here</a>. It is highly possible that there are more undiscovered sources of jadeite in the area and it is an important question in archaeological and geological research.  When studying human trade networks, it is critical to understand where the items being exchanged come from, and for geologists the discovery of another jadeite source could lead to a more sophisticated understanding to the tectonic development of the region.  Therefore I want to overlay geologic, mineralogic, and hydrologic data on a BMNG base map in order to predict other areas in the Motagua Fault Zone that may have undiscovered jadeite sources.  The hydrologic data is important because the location of streams and water represent low spots in topography which may or may not reflect deeper tectonic features.</p>
+	
+		<p id="type1">The Target Audience:</p>
+		<p id="a">Mayan archaeologists, archaeologists in general, and geologists interested in Central American tectonics.</p>
+
+		
+		
+		<p id="type1">List of Data Layers Used in the Final Map:</p>
+		<ul>
+			<li>BMNG Background (base layer)</li>
+			<li>Google Terrain (base layer)</li>
+			<li>BMNG styled to highlight vegetation (base layer)</li>
+			<li>OpenLayer Base Map (base layer)</li>
+			<li>Landsat Image (base layer)</li>
+			<li>Rock Types (overlay)</li>
+			<li>Location Labels (overlay set to invisible)</li>
+			<li>Lithologic Contacts (overlay)</li>
+			<li>All Maya Sites (styled vector overlay)</li>
+			<li>Global Mineral Resources (overlay)</li>
+			<li>Distribution of Guatemalan Jade (styled vector overlay)</li>
+			<li>Water Depth Contours (overlay)</li>
+			<li>Source of Olmec Blue Jade (overlay vector created in OpenLayers)</li>
+			<li>Source of Motagua Green Jade (overlay vector created in OpenLayers)</li>
+			<li>Major Archaeological Sites (overlay vector created in OpenLayers)</li>
+			<li>Guatemala KML (overlay set to invisible)</li>
+		</ul>
+		
+		<p id="type1">Sources of Data:</p>
+		<p id="a">EDAC Imagery (http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery), the Government of Guatemala WMS (http://ide.segeplan.gob.gt/geoserver/gwc/service/wms), OpenLayers (http://vmap0.tiles.osgeo.org/wms/vmap0), Metacarta WMS (http://labs.metacarta.com/wms/vmap0), Google Maps, and the USGS (http://mrdata.usgs.gov/services/worldgeol).</p>
+		
+		<p id="type1">Projection:</p>
+		<p id="a">WGS 84 (EPSG:4326).</p>
+		
+		
+		<p id="type1">Problems Encountered:</p>
+		<p id="a">I had a lot of problems using the WMS option when creating my stores in GeoServer; it turns out that any spaces or special characters used will throw GeoServer a loop.  Also, I was unable to filter my data when styling my Guatemalan jadeite sources vector data; I had to edit the data base in ArcMap and delete those layers that did not pertain.  While in ArcMap I tried to Select by Attribute, but the output would not be recognized by GeoServer.  Also, I tried to upload ArcGIS vector layer packages into GeoServer, but was unable to do so.  Finally, I had problems displaying the known sources of Mesoamerican jade because the outcrops are small geographic features and I wanted to provide the viewer with a regional perspective; this will probably lead to people not noticing where the outcrops are, because at the present scale of the map they are just blips.</p>
+		
+		
+		
+		
+		<address>Bill Brown wbrown@unm.edu</address>
+		<p id="b"><a href="http://129.24.63.138/~wbrown/HW4.html">Back to Top</a></p>
+		
+	</body>
+</html>
+				  
+
+		
+	
+		
+	

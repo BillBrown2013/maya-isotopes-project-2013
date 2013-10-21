@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+			<title>Geography 585 Homework 2</title>
+                <style type=text/css>		
+					body {color:darkgray; background:darkgray}							  				
+				a {color: lime;}
+				a:active {color: red;}
+				a:visited {color: black}								
+					
+				#header {margin-bottom: 36px;
+				color: lime; font-size: 46px; font-family:arial; 									    
+					text-align:center;
+					background-color: black; 				
+					border: 2px solid lime;
+				  }							
+				
+				#header img {float: left;
+				}
+								
+				h2 {
+					color: lime;
+					font-family: arial;
+					font-size: 24px;
+					font-weight: bold;
+					text-align: center; 
+					margin-bottom: 0em;
+				  }				  				
+				
+				h3 {
+					color: lime;
+					font-family: arial;
+					font-size: 20px;
+					font-style: italic;
+					text-align: center; 
+					margin-top: .1em;
+				  }
+				  
+				h4 {
+					color: lime;
+					background-color: black;
+					font-family: arial;
+					font-size: 46px;					
+					text-align: center; 
+					border: 2px;
+					padding: .3em;
+					}						
+				  
+				#q {								
+					color:lime; 
+					font-size:20px; 
+					font-family: arial; font-style: italic; 
+					font-weight: bold; margin-left: 2%;  
+					margin-bottom: 0em;
+					}
+					
+				#a {															
+					color:white; 
+					font-size:16px; 
+					font-family: arial,sans-serif; 
+					margin-left: 15%; 
+					margin-top: .1em
+					}
+					
+				#b {
+					font-family:arialblack;
+					font-size:16;
+					font-weight: bold;
+					text-align:center;
+					margin-bottom: .5em;
+					}
+				
+				#type1 {
+					color: black;
+					font-family:arialblack;
+					font-size: 20px;
+					text-align: justify;
+					}
+	
+				#type2 {
+					color: black;
+					font-family:courier;
+					font-size: 20px;
+					text-align: justify;
+					margin-left: 10%;
+					}
+	
+				address {
+					color: lime;				
+					clear: left;
+					text-align: center;
+					padding-top: 36px;
+					font-family: courier,monospace; font-size: 24px; font-weight: bold;
+				  }
+				 </style>
+		</head>
+	<body>
+	
+		<p id="b"><a href="http://129.24.63.138/~wbrown/Home.html">Bill Brown's Internet Mapping Home Page</a></b>
+		<div id="header"><img src="zia1.gif" width="200" height="180" alt="Zia"/><h4>Geography 585 Homework 2: OGC Service Concepts</h4></div>		
+		<h2>William T. Brown</h2>
+		<h3>Feb. 28, 2013</h3>		
+		<p id="q">Question 1: What request type is common across all three (WMS, WFS, WCS) OGC web services that we have learned about?</p>
+		<p id="a"><i><u>Answer:</u></i><br/>GetCapabilities is a request used by all three OGC web services.</p>		
+		<p id="type1">Answer the following questions about a WMS GetCapabilities request.</p>
+		<p id="q">Question 2: What are the required parameters, and what do they represent?<br/>
+			What is returned in response to a WMS GetCapabilities request?</p>
+		<p id="a"><i><u>Answer:</u></i><br/>1) REQUEST=GetCapabilities. This command is used when you want a service to tell you what capabilities it provides.<br/>
+			2) SERVICE=WMS.  This represents the service type for the request being submitted.</p>
+		<p id="type1">Answer the following questions about a WMS GetMap request.</p>
+		<p id="q">Question 3: What are the required parameters and what do they represent?<br/>
+			What is returned in response to a WMS GetMap request?<br/>
+			What is the significance of transparency in WMS requests?</p>
+		<p id="a"><i><u>Answer:</u></i><br/>1) REQUEST=GetMap:  This tells the service that you want a map.<br/>
+			2) BBOX: The BBOX parameter defines the area of interest for the map by setting the bounding box for the map you want.<br/>
+				3) FORMAT: The format of the image (i.e., jpeg, png, etc.) is needed for the map request.<br/>
+				4) VERSION: This represents the WMS version being used for the map request.<br/>
+				5) LAYERS: Represents the layers of a map that will be rendered in the map image you want.<br/>
+				6) SRS: The SRS is the spatial reference system for the map (i.e., WGS, NAD83, etc.).<br/>
+				7) WIDTH and HEIGHT: Represents how high and wide (in pixels) you want you map.<br/>
+				8) STYLES: Represents the style used when returning the map.</p>
+		<p id="a">When a WMS GetMap request is submitted, if you are lucky you get an image of the map you want, but if you have submitted incorrectly, you will get an error message.</p>
+		<p id="a">If your request includes the parameter TRANSPARENT=TRUE the background pixels will be transparent (if the layers and the file format support transparency).</p>
+		<p id="a">The tranparency allows the layers stacked below the upper layer to be visible in a client application.</p>  
+		<p id="q">Question 4:What OGC request would you use to inform the configuration of a client application (like ArcGIS) about an OGC service that you want to add layers from?</p>
+		<p id="a"><i><u>Answer:</u></i><br/>The OGC request is <i>GetCapabilities</i>.</p>
+		<p id="type1">Which OGC request would you submit under the following circumstances (include both the service type [e.g. WMS, WFS, WCS], and the request [e.g. GetMap, GetCapabilities, GetCoverage, etc.] in your answer)</p>
+		<p id="q">Question 5: You want a map image representing three layers of data in a single JPEG for a specified area of interest.<br/>
+				You want to retrieve data representing geometries and associated attributes for a road network, with the returned data in GML.
+				You want to retrieve data representing a digital elevation model (a raster dataset) in the form of a GeoTIFF.</p>
+		<p id="a"><i><u>Answer:</u></i><br/>SERVICE=WMS&REQUEST=GetMap.</p>
+		<p id="a">SERVICE=WFS&REQUEST=GetFeature.</p>
+		<p id="a">SERVICE=WCS&REQUEST=GetCoverage.</p>
+		<p id="q">Question 6: What are the EPSG codes of the following Spatial Reference Systems<br/>
+			WGS 84 (Geodetic CRS [geographic 2d])<br/>
+			NAD83 / UTM zone 13N<br/>
+			NAD27 / UTM zone 13N</p>
+		<p id="a"><i><u>Answer:</u></i><br/>WGS 84 (Geodetic CRS [geographic 2d]) <em>EPSG:4326</em>.<br/>
+											NAD83/UTM Zone 13N <em>EPSG:26913</em><br/>
+											NAD27/UTM Zone 13N <em>EPSG:26713</em></p>
+		<p id="type1">Use the cs2cs utility to convert the following WGS84 Geographic Coordinates into UTM Zone 13, NAD83 coordinates. Include your cs2cs command and output in your writeup.</p>
+		<p id="q">Question 7: 33 degrees 40 minutes 38 seconds N, 106 degrees 28 minutes 31 seconds W (the Trinity Site)<br/>
+			35 degrees 47 minutes 18 seconds N, 106 degrees 18 minutes 04 seconds W (the Bandelier National Monument Historic Marker)</p>
+		<p id="a"><i><u>Answer:</u></i><br/><em>The Trinity Site:</em></p>
+		<p id ="type2">wbrown@geog-485-585:~/public_html$ cs2cs +proj=latlong +datum=NAD83 +to +proj=utm +zone=13 +datum=NAD83
+						-106d28'31" 33d40'38"<br/>
+						363242.30       3727344.39 0.00</p>
+
+		<p id="a"><em>Bandelier National Monument Historic Marker:</em></p>
+		<p id="type2">wbrown@geog-485-585:~/public_html$ cs2cs +proj=latlong +datum=NAD83 +to +proj=utm +zone=13 +datum=NAD83
+						-106d18'04" 35d47'18"<br/>
+							382418.16       3961252.75 0.00</p>		
+	  
+	  <address>Bill Brown wbrown@unm.edu</address>
+		<p id="b"><a href="http://129.24.63.138/~wbrown/HW2.html">Back to Top</a></p>
+		
+	</body>
+</html>
+				  
+
+		
+	
+		
+	

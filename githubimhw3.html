@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+			<title>Geography 585 Homework 3</title>
+                <style type=text/css>		
+					body {color:darkgray; background:darkgray}							  				
+				a {color: lime;}
+				a:active {color: red;}
+				a:visited {color: black}								
+					
+				#header {margin-bottom: 36px;
+				color: lime; font-size: 46px; font-family:arial; 									    
+					text-align:center;
+					background-color: black; 				
+					border: 2px solid lime;
+				  }							
+				
+				#header img {float: left;
+				}
+								
+				h2 {
+					color: lime;
+					font-family: arial;
+					font-size: 24px;
+					font-weight: bold;
+					text-align: center; 
+					margin-bottom: 0em;
+				  }				  				
+				
+				h3 {
+					color: lime;
+					font-family: arial;
+					font-size: 20px;
+					font-style: italic;
+					text-align: center; 
+					margin-top: .1em;
+				  }
+				  
+				h4 {
+					color: lime;
+					background-color: black;
+					font-family: arial;
+					font-size: 46px;					
+					text-align: center; 
+					border: 2px;
+					padding: .3em;
+					}						
+				  
+
+				#a {															
+					color:white; 
+					font-size:22px; 
+					font-family: arial,sans-serif; 
+					margin-left: 5%; 
+					margin-right: 5%;
+					margin-top: .1em;
+					text-align: left;
+					}				
+								
+				
+				#b {font-family:arialblack;
+					font-size:14;
+					font-weight: bold;
+					text-align:center;
+					margin-bottom: .5em;}
+				
+				#type1 {
+					color: black;
+					font-family:arialblack;
+					font-weight: bold;
+					font-size: 32px;
+					text-align: left;
+					}				
+	
+				address {
+					color: lime;				
+					clear: left;
+					text-align: center;
+					padding-top: 36px;
+					font-family: courier,monospace; font-size: 24px; font-weight: bold;
+				  }
+				 </style>
+		</head>
+	<body>
+	
+		<p id="b"><a href="http://129.24.63.138/~wbrown/Home.html">Bill Brown's Internet Mapping Home Page</a></b>
+		<div id="header"><img src="olm.jpg" width="200" height="180" alt="Olmec"/><h4>Geography 585 Homework 3</h4></div>		
+		<h2>William T. Brown</h2>
+		<h3>April 4, 2013</h3>		
+		<p id="type1">The Problem to be Addressed by This Map Project:</p>
+		<p id="a">I want to expand the map developed in Lab Assignment 9, namely, the geology and hydrology of the Motagua Fault Zone in central Guatemala (for an in-depth discussion of the problem click <a href="http://129.24.63.138/~wbrown/Lab9.html">here</a>. It is highly possible that there are more undiscovered sources of jadeite in the area and it is an important question in archaeological and geological research.  When studying human trade networks, it is critical to understand where the items being exchanged come from, and for geologists the discovery of another jadeite source could lead to a more sophisticated understanding to the tectonic development of the region.  Therefore I want to overlay geologic, mineralogic, and hydrologic data on a BMNG base map in order to predict other areas in the Motagua Fault Zone that may have undiscovered jadeite sources.  The hydrologic data is important because the location of streams and water represent low spots in topography which may or may not reflect deeper tectonic features.</p>
+	
+		<p id="type1">The Target Audience:</p>
+		<p id="a">Mayan archaeologists, archaeologists in general, and geologists interested in Central American tectonics.</p>
+
+		<p id="type1">The Geographic Region:</p>
+		<p id="a">The Motagua Fault Zone of Guatemala (click <a href="http://129.24.63.138/~wbrown/Lab9.html">here</a> for a map.)</p>
+		
+		<p id="type1">Types of Data:</p>
+		<p id="a">For the base map I want to use Blue Marble Next Generation raster data, water depth countours (vector), lithologic contacts (vector), distribution of rock types (vector), and orthophotos (raster).</p>
+		
+		<p id="type1">Projection:</p>
+		<p id="a">WGS 84 (EPSG:4326).</p>
+		
+		<p id="type1">Sources of Data:</p>
+		<p id="a">EDAC Imagery (http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery), the Government of Guatemala WMS (http://ide.segeplan.gob.gt/geoserver/gwc/service/wms), Metacarta WMS (http://labs.metacarta.com/wms/vmap0), and the USGS (http://mrdata.usgs.gov/services/worldgeol).</p>
+		
+		<p id="type1">Potential Problems:</p>
+		<p id="a">One of the major problems that I have experienced so far is getting data outside the US.  Geologic data for the US is easily available, yet outside of the country is hard to find.  Also, the main source of Guatemalan data is from a site that is in Spanish, and I don't speak Spanish.</p>
+		
+		<p id="type1">Dataset 1:</p>
+		<p id="a">For the base map I will use bmng8km,bmng2km,bmng500mA1,bmng500mA2,bmng500mB1,bmng500mB2,bmng500mC1,bmng500mC2,bmng500mD1,bmng500mD2.</br>
+		These are raster data in jpeg format with global extent (CRS EPSG:4326).</p>
+		
+		<p id="type1">Dataset 2:</p>
+		<p id="a">For the lithologic data I will use the geology layer and the lithologic contacts layer from the MRDATA from USGS.  This is vector data in PNG format and global extent (CRS EPSG:4326).</p>
+		
+		<p id="type1">Dataset 3:</p>
+		<p id="a">The third dataset will be the water depth contours layer (vector) from Metacarta which is in jpeg format and global extent (CRS EPSG:4326).</p>
+		
+		<p id="type1">Dataset 4:</p>
+		<p id="a">I also want to utilize several layers from the WMS provided by the government of Guatemala, but for now I want to use the Ortho (g_orto) layer which is raster data in png format and the extent is -95.0049057006836, -84.9998931884766, 9.99086856842041, 20.0009536743164(CRS EPSG:)</p>
+		
+		<p id="type1">Dataset 5:</p>
+		<p id="a">I will also create a vector feature layer showing archaeological sites in Guatemala.  The extent will be limited to the country of Guatemala and the format will be an ArcGIS shapefile (CRS EPSG:4326).</p>
+		
+		<address>Bill Brown wbrown@unm.edu</address>
+		<p id="b"><a href="http://129.24.63.138/~wbrown/HW3.html">Back to Top</a></p>
+		
+	</body>
+</html>
+				  
+
+		
+	
+		
+	
