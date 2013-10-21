@@ -1,0 +1,382 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>	
+	<script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+			<script type="text/javascript">
+	
+//=========DEFINE GLOBAL VARIABLES==============		
+		var lon = -89.0;
+		var lat = 15.0;
+		var zoom = 7;
+		var map, map_2;
+		var Layers = new Object ();
+		var landsatLayer, bmngLayer;
+		
+//==========INITIALIZATION FUNCTION==============		
+		function init(){
+			map = new OpenLayers.Map('map',
+			{numZoomLevels: 20
+			});
+			
+//==========CREATE LAYERS FIRST MAP==============		
+			bmngLayer = new OpenLayers.Layer.WMS(							
+				"Background",
+				"http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?",
+				{layers:
+				"bmng8km,bmng2km,bmng500mA1,bmng500mA2,bmng500mB1,bmng500mB2,bmng500mC1,bmng500mC2,bmng500mD1,bmng500mD2",version: '1.3.0', transparent: 'TRUE'},
+				{isBaseLayer: true});
+						map.addLayer(bmngLayer);
+				
+			terrain = new OpenLayers.Layer.Google(
+				'Google Terrain',
+				{type: google.maps.MapTypeId.TERRAIN, srs:'EPSG:4326', numZoomLevels: 15});		
+						map.addLayer(terrain);
+					
+			baseLayer = new OpenLayers.Layer.WMS(			
+				'Open Layer Base Map',
+				'http://vmap0.tiles.osgeo.org/wms/vmap0',
+				{layers: 'basic'},
+				{isBaseLayer: true});
+						map.addLayer(baseLayer);
+					
+			landsatLayer = new OpenLayers.Layer.WMS(							
+				"Landsat",
+				"http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?",
+				{layers:"landsat",version: '1.3.0', transparent: 'TRUE'},
+				{isBaseLayer: false});
+						map.addLayer(landsatLayer);		
+       
+			geology = new OpenLayers.Layer.WMS(		
+				'Rock Types',
+				'http://mrdata.usgs.gov/services/worldgeol',
+				{layers:'geology', transparent:true},		
+				{opacity: .5});
+						map.addLayer(geology);	
+					
+			labels = new OpenLayers.Layer.WMS(
+				'Location Labels',
+				'http://vmap0.tiles.osgeo.org/wms/vmap0',
+				{layers: 'clabel,ctylabel,statelabel',
+				transparent: true},
+				{visibility: false, opacity:0.5});
+						map.addLayer(labels);
+					
+			contacts = new OpenLayers.Layer.WMS(
+				'Lithologic Contacts',
+				'http://mrdata.usgs.gov/services/worldgeol',
+				{layers:'contacts', transparent:true});
+						map.addLayer(contacts);
+					
+			ortho = new OpenLayers.Layer.WMS(
+				'Ortho',
+				'http://ide.segeplan.gob.gt/geoserver/gwc/service/wms?',
+				{visibility: false, opacity:0.5},
+				{layers:'g_orto', srs: 'EPSG:4326', transparent:true},
+				{isBaseLayer: false});
+						map.addLayer(ortho);
+					
+			wms_water_depth = new OpenLayers.Layer.WMS(
+				'Water Depth Contours',
+				'http://labs.metacarta.com/wms/vmap0',
+				{layers: 'depthcontour',
+				transparent: true},
+				{opacity:.8});
+						map.addLayer(wms_water_depth);
+
+//==========CREATE VECTOR FEATURES AND LAYERS FIRST MAP==============
+
+			//==========CREATE VECTOR LAYERS FIRST MAP==============			
+				Layers.localFeatures1 = new OpenLayers.Layer.Vector('Source of Olmec Blue Jade');
+					map.addLayer(Layers.localFeatures1);
+			
+				Layers.polyg = new OpenLayers.Layer.Vector('Source of Motagua Green Jade');
+					map.addLayer(Layers.polyg);
+			
+				Layers.sites = new OpenLayers.Layer.Vector('Major Archaeological Sites');
+					map.addLayer(Layers.sites);
+				
+			//==========CREATE STYLES FOR VECTOR LAYERS FIRST MAP==============
+				myRedPointStyle = {pointRadius: 4, fillColor: "#CC0000", fillOpacity: .5, strokeOpacity: .5}
+				mbStyle = {fillColor: "yellow", fillOpacity: .9, strokeOpacity: .5, strokeColor: "yellow"}
+				ypStyle1 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Tikal"}
+				ypStyle2 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Kaminaljuyu"}
+				ypStyle3 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Uaxactun"}
+				ypStyle4 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Calakmul"}
+				ypStyle5 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Nojol Nah"}
+				ypStyle6 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "El Mirador"}
+			
+			//==========CREATE VECTOR GEOMETRIES FIRST MAP==============
+				var point = new OpenLayers.Geometry.Point (-89.821383, 14.827881);
+				var tikal = new OpenLayers.Geometry.Point (-89.63163, 17.21732);
+				var kaminaljuyu = new OpenLayers.Geometry.Point (-90.549, 14.632833);
+				var uaxactun = new OpenLayers.Geometry.Point (-89.63775, 17.39795);
+				var calakmul = new OpenLayers.Geometry.Point (-89.810333, 18.1045);  
+				var nn = new OpenLayers.Geometry.Point (-89.035248, 17.947757); 
+				var emd = new OpenLayers.Geometry.Point (-91.850992, 15.766477);  
+			
+			//==========CREATE POLYGON FOR MOTAGUA GREEN JADE SOURCE FIRST MAP==============
+				var ppoints = [
+				new OpenLayers.Geometry.Point(-89.995164, 14.955405),
+				new OpenLayers.Geometry.Point(-89.692805, 15.053435),
+				new OpenLayers.Geometry.Point(-89.712800, 14.99954),
+				new OpenLayers.Geometry.Point(-89.919042, 14.932275)];					
+				var ring = new OpenLayers.Geometry.LinearRing(ppoints);
+				var polygon = new OpenLayers.Geometry.Polygon([ring])
+				var pfeature = new OpenLayers.Feature.Vector(polygon,null,mbStyle);
+			
+			//==========CREATE VECTOR FEATURES FIRST MAP==============
+				var feature_point = new OpenLayers.Feature.Vector(point,name,myRedPointStyle);
+				var feature_tikal = new OpenLayers.Feature.Vector(tikal,null,ypStyle1);
+				var feature_kaminaljuyu = new OpenLayers.Feature.Vector(kaminaljuyu,null,ypStyle2);
+				var feature_uaxactun = new OpenLayers.Feature.Vector(uaxactun,null,ypStyle3);
+				var feature_calakmul = new OpenLayers.Feature.Vector(calakmul,null,ypStyle4);
+				var feature_nn = new OpenLayers.Feature.Vector(nn,null,ypStyle5);
+				var feature_emd = new OpenLayers.Feature.Vector(emd,null,ypStyle6);
+			
+			//==========ADD VECTOR LAYERS FIRST MAP==============	
+				Layers["localFeatures1"].addFeatures([feature_point]);
+				Layers["polyg"].addFeatures([pfeature]);
+				Layers["sites"].addFeatures([feature_tikal,feature_kaminaljuyu,feature_uaxactun,feature_calakmul,feature_nn,feature_emd]);		
+	
+			//==========CREATE VECTOR EDITOR CONTROLS FIRST MAP==============
+				var vector_layer = new OpenLayers.Layer.Vector(
+					'Editable Vectors');
+
+	//==========CREATE KML LAYERS FIRST MAP==============
+	
+			//==========CREATE KML STYLE FIRST MAP==============
+				kmlStyle = {fillColor: "#0000ff", fillOpacity: .2, strokeOpacity: .5, strokeColor: "#0000ff"}	
+		
+			//==========CREATE KML LAYERS FIRST MAP==============		
+				Layers.pop = new OpenLayers.Layer.Vector("Guatemala KML", {
+					projection: map.displayProjection,
+					visibility: false,
+					style: kmlStyle,
+					strategies: [new OpenLayers.Strategy.Fixed()],
+					protocol: new OpenLayers.Protocol.HTTP({
+					url: "gpop.kml",
+					format: new OpenLayers.Format.KML({
+					extractAttributes: true
+							})
+						})
+					});
+						map.addLayer(Layers.pop)		
+		
+			
+			//==========ADD MAP CONTROLS FIRST MAP==============		
+				map.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
+				map.addControl(new OpenLayers.Control.MousePosition());			
+				map.addControl(new OpenLayers.Control.LayerSwitcher({}));
+				map.addControl(new OpenLayers.Control.OverviewMap() );
+				map.addControl(new OpenLayers.Control.PanZoomBar() );
+				map.addControl(new OpenLayers.Control.Scale() );
+				map.addControl(new OpenLayers.Control.ScaleLine() );	
+			
+					
+			//==========CENTER THE FIRST MAP==============
+				map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
+					
+		
+//==========CREATE SECOND MAP==============		
+	map_2 = new OpenLayers.Map('map_2', {});				
+	var baseLayer2 = baseLayer.clone();				
+						map_2.addLayer(baseLayer2);		 
+			
+		//==========CREATE MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============			
+		
+			//==========CREATE LAYER FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============	
+				Layers.localFeatures2 = new OpenLayers.Layer.Vector('Motagua Fault Zone');
+						map_2.addLayer(Layers.localFeatures2);
+			
+			//==========CREATE STYLE FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============
+				rpStyle = {pointRadius: 8, fillColor: "#CC0000", fillOpacity: .5, strokeOpacity: .5, label: "Motagua Fault Zone"}
+			
+			//==========CREATE LOCATION FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============
+				var point2 = new OpenLayers.Geometry.Point (-89.8,14.91);
+				
+			//==========CREATE MARKER FEATURE FOR MOTAGUA FAULT ZONE SECOND MAP==============
+				var feature_point2 = new OpenLayers.Feature.Vector(point2,name,rpStyle);
+					feature_point2.attributes = {name: "Olmec"};
+          
+			//==========ADD VECTOR LAYER SECOND MAP==============		
+				Layers["localFeatures2"].addFeatures([feature_point2]);
+		   
+			//==========ADD MAP CONTROLS SECOND MAP==============	
+				map_2.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
+				map_2.addControl(new OpenLayers.Control.MousePosition());			
+				map_2.addControl(new OpenLayers.Control.LayerSwitcher({}));
+				map_2.addControl(new OpenLayers.Control.OverviewMap() );
+				map_2.addControl(new OpenLayers.Control.Scale() );
+				map_2.addControl(new OpenLayers.Control.ScaleLine() );
+			
+			//==========CENTER THE SECOND MAP==============
+				map_2.setCenter(new OpenLayers.LonLat(-89.1, 15.2), 3);
+				
+//==========THE CURLEY BRACKET BELOW ENDS INITIALIZATION FUNCTION==============
+		}
+						
+</script>
+		
+	//===============DEFINE STYLE==========================
+		<style type ="text/css">
+			html {height: 100%;}					
+				body {height: 100%;
+					margin: 2px; 
+					padding: 2px;
+					text-align: justify;						
+					background-color: black;}																								  																	
+			
+				#header {margin-bottom: 36px;				 									    
+					text-align:center;
+					background-color: black; 				
+					border-style: outset;
+					border-width: thick;
+					border-color: lime;}											
+				
+				#header img {float: left;}																																																												
+				  
+				h1 {color: lime;
+					background-color: black;
+					font-family: arial;
+					font-size: 36px;					
+					text-align: center; 
+					border: 2px;
+					padding: .3em;}
+													
+				h3 {margin-left: 46%;
+					font-size: 24px;
+					font-family: arial;
+					color: lime;}		
+				
+				#cap {color:yellow; 
+					font-size:14px; 
+					font-family: arial;  
+					font-weight: bold;   
+					margin-bottom: 3em;
+					text-align: center;}
+							
+				#cap2 {color:yellow; 
+					font-size:14px; 
+					font-family: arial;  
+					font-weight: bold;   
+					margin-bottom: 3em;
+					margin-left:52%;}							
+				
+				#a1 {color:lightgray; 
+					font-size:20px; 
+					font-family: arial,sans-serif; 
+					text-align: justify;
+					padding-left: 3em;
+					padding-right: 1em;
+					margin-right: 5%;
+					margin-top: .1em;
+					margin-bottom: 2em;}																						
+				
+				#a2 {color:lightgray; 
+					font-size:20px; 
+					font-family: arial,sans-serif; 
+					text-align: justify;
+					padding-left: 3em;
+					padding-right: 3em;
+					margin-top: .1em;
+					margin-bottom: 2em;}									
+			
+				#b {font-family:arialblack;
+					font-size:16;
+					font-weight: bold;
+					text-align:center;
+					margin-bottom: .5em;}
+				
+				.image2 {float: right; margin-left: 5%;}				
+				.image3 {float: left; margin-left: 5%; padding-right: 2em;}			
+				.image4 {float: right; margin-left: 5%;}	
+				.image5 {float: left; margin-left: 5%; padding-right: 2em; margin-bottom: 1em;}					
+				.image6 {margin-left: 50%;}								
+						
+				address {color: lime;				
+					clear: left;
+					text-align: center;
+					margin-top: 1em;
+					padding-top: 36px;
+					font-family: courier,monospace; font-size: 24px; font-weight: bold;}
+			
+				#map {height: 600px; float: left;
+					width: 1100px;
+					background-color: white;
+					border: 4px solid lime;
+					padding-right: 3em;}
+				
+				#map_2 {height: 600px; float: left; width:450px; padding-left: 5em; padding-right: 5em; margin-left: 30%; border: 4px solid lime;}
+			
+		//==========STYLE MAP CONTROLS===============	
+				.olControlMousePosition {
+					right: 3px;
+					position: absolute;
+					font-size: smaller;
+					padding: 2px 5px;
+					background-color: rgba(189,192,191,0.5);
+					bottom: 5px !important}
+				
+				.olControlScaleLine {background: white; color:black;}
+				
+				
+		</style>
+	</head>
+	
+	//===============ORDER THE WEB CONTENT==========================
+		<body onload="init()">		
+					<p id="b"><a href="http://129.24.63.138/~wbrown/Home.html">Bill Brown's Internet Mapping Home Page</a></p>
+		
+			<div id="header"><img src="olm.jpg" width="200" height="200" alt="Olmec"/><h1>Lab 9: Ancient Mesoamerican Jade: The Source Debate</h1></div>
+			
+											<h3>William T. Brown</h3>
+				
+			<div id='map'></div>
+				
+			<div id='map_2'></div>
+				
+					<p id="cap">Figure 1: The Motagua Fault Zone, the only known source of the mineral jadeite in Central America. The map on the right shows the study area on a larger scale.</p>
+					<p id="a1">The goal of the lab exercise is to further develop the map started in the previous assignment, adding five vector features, one KML file, and at least one WMS file.  My previous assignment dealt with the debate over multiple sources of jade found in prehistoric Mesoamerican archaeological contexts; for the answers to the Lab 8 questions, click <a href="http://129.24.63.138/~wbrown/Lab8.html">here</a>.  In order to accomplish my goals, I set a base layer of bmng images from EDAC/WMS, a Google Terrain map (which I have not been able to load yet probably due to projection problems), an OpenLayer basic map, and an Ortho image from a Guatemalan site, which I also have not been able to load yet.</p>				
+					<p id="a1">The overlay layers I used are a Landsat image (which may or may not be there), a WMS vector data of rock types of the world, the OpenLayers cities and labels layer (set to not visible), another WMS vector showing rock contacts, a WMS vector set showing water depth contours, and I created vector features including the source of the Olmec Blue jade, the Motagua Green jade, major archaeological sites in the region, and another vector point feature on an inset map showing the location of my main map.  My KML layer is a KML of Guatemala boundaries and rivers.  One problem I had is trying to show the locations of the jade sources; they were so small on the map that you have to zoom in a lot, but I didn.t want to have the default zoom any higher than it was because the reader would lose their regional bearings.  More discussion of jade is provided below.</p>
+		
+			<div class="image2">
+				<img src="motag1.jpg" width="550" height="400" alt="Mineral Deposits along the Motagua Fault Zone, Guatemala.">
+				<p id="cap">Figure 2: Mineral Deposits along the Motagua Fault Zone, Guatemala.</p>
+			</div>
+			
+					<p id="a1">I chose the area of the Motagua Fault zone in Guatemala because it is the only known source of the mineral jadeite in Central America (Figure 3, below).  Jade, a rock composed of the mineral jadeite, was an important trade item in prehistoric Mesoamerica since the time of the Olmecs, and until recently there has been a lot of debate on how many sources of jade are represented in the Mesoamerican samples.  Jadeite (NaAlSi2O6) has a lot of chemical substitution in the aluminum site, with trivalent chromium often entering that location of the mineral; the more Cr3+ that enters the Al site, the more green the jade rock appears.</p>
+	
+			<div class="image3">
+				<img src="jade1.jpg" width="400" height="500" alt="Maya Mask: An Example of "Maya Green" jade."></p>
+				<p id="cap">Figure 3: Maya Mask: An Example of "Motagua Green" jade.</p>
+			</div>
+				
+					<p id="a1">Two "types" have been recognized: Olmec Blue and Motagua Green, and several researchers have used a variety of geochemical analyses to show that statistically, the two types must be from different source locations.  However, many processual geologists noted that the mineral jadeite is only formed in low temperature and high pressure settings in tectonic regions that are limited around the world, namely, subduction zones where oceanic plates are being overridden by continental crust.</p>
+				
+			<div class="image4">
+				<p><img src="distofjadeite.jpg" width="600" height="400" alt="Distribution of Global Subduction Zones where Production of Jadeite is Possible."></p>
+				<p id="cap">Figure 4: Distribution of Global Subduction Zones where Production of Jadeite is Possible.</p>		
+			</div>
+				
+					<p id="a2">The upshot is that the only geological setting is that present in the region that could produce the mineral is the Motagua River Valley in Guatemala, so all of the prehistoric material must have come from that source.   The Motagua Green jade was known to come from an approximate 5km belt north of the fault zone/river valley, but the source of the Olmec Blue was a mystery.  Many geologists and archaeologists argued that another source must exist because the colors are so different, reflecting statistically significant chemical differences.  Various researchers looked for sources of jadeite in Costa Rica and Mexico, to no avail.  In 1985, Hurricane Mitch eroded sediments exposing the source of the Olmec Blue, which lies just to the south of the Motagua Green source. Subsequent 40Ar/39Ar dating showed that the Olmec Blue material was roughly 50 million older than its green counterpart, indicating that the two different jadeites were produced in separate tectonic events.  So in a sense everyone was right; although there is no other place in Central America could have produced the mineral, there are at least two distinct sources.  The jade source debate is interesting because it shows that although statistical analysis is a powerful tool, it can be very misleading.</p>     
+					
+			<div class="image5">
+				<img src="jade2.jpg" width="250" height="400" alt="Olmec Figurine Depicting the God "Earth Quake" Denoted by the Cleft Head."></p>
+				<p id="cap">Figure 5: Olmec Figurine Depicting the God "Earth Quake".</p>
+			</div>
+		
+					<p id="a2">Figure 6 is a stability diagram for various minerals showing the pressure and temperature conditions necessary for jadeite formation.  The high pressure and low temperature conditions needed for the mineral's formation are relatively rare throughout the world, occurring predominantly at locations where ocean plates are subducting under continental crust.</p>
+			
+			<div class="image6">
+				<p><img src="stable.jpg" width="400" height="500" alt="Stability field of jadeite and similar minerals."></p>						
+			</div>
+				
+					<p id="cap2">Figure 6: Stability field of jadeite and similar minerals.</p>			
+			
+									<address>Bill Brown wbrown@unm.edu</address>
+							<p id="b"><a href="http://129.24.63.138/~wbrown/Lab9.html">Back to Top</a></p>					
+	
+		</body>
+</html>
+			
+	
