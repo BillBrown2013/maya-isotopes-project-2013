@@ -9,8 +9,8 @@
 
 
 
-			<title>Geography 591 Problems: Mapping Maya Isotopes</title>
-                <style type=text/css>		
+			
+               	
 				
 //=========DEFINE GLOBAL VARIABLES==============		
 		var lon = -89.0;
@@ -49,9 +49,24 @@
 				{opacity:.8});
 						map.addLayer(wms_water_depth);
 				
-				body {color:black; background:black}							  				
+//==========ADD MAP CONTROLS FIRST MAP==============		
+				map.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
+				map.addControl(new OpenLayers.Control.MousePosition());			
+				map.addControl(new OpenLayers.Control.LayerSwitcher({}));
+				map.addControl(new OpenLayers.Control.OverviewMap() );
+				map.addControl(new OpenLayers.Control.PanZoomBar() );
+				map.addControl(new OpenLayers.Control.Scale() );
+				map.addControl(new OpenLayers.Control.ScaleLine() );	
+			
+					
+//==========CENTER THE FIRST MAP==============
+				map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
+				
+				
+				 <style type=text/css>
+				body {color:black; background:black}
+				
 				a:link {color: white;
-	
 				text-decoration:none;}
 				a:visited {color: darkgray;}
 				a:active {color: black;}
