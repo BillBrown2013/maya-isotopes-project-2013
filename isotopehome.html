@@ -1,11 +1,55 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+ <head>	
+	<script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+			<script type="text/javascript">
+
+
+
+
+
 			<title>Geography 591 Problems: Mapping Maya Isotopes</title>
                 <style type=text/css>		
-					body {color:black; background:black}							  				
+				
+//=========DEFINE GLOBAL VARIABLES==============		
+		var lon = -89.0;
+		var lat = 15.0;
+		var zoom = 6;
+		var map, map_2;
+		var Layers = new Object ();
+		var landsatLayer, bmngLayer;
+		
+//==========INITIALIZATION FUNCTION==============		
+		function init(){
+			map = new OpenLayers.Map('map',
+			{numZoomLevels: 20
+			});
+			
+//==========CREATE LAYERS FIRST MAP==============				
+		base= new OpenLayers.Layer.WMS(
+				'Gray Earth',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',				
+				{layers:'BillBrown_final_exam:GRAY_HR_SR', transparent:true},
+				{isBaseLayer: true});
+						map.addLayer(base);
+
+		sites = new OpenLayers.Layer.WMS(
+				'All Known Maya Sites',
+				'http://129.24.63.138:8080/geoserver/BillBrown_wbrown/wms',			
+				{layers:'BillBrown_wbrown:arch_sites', transparent:true}, {visibility:false},
+				{isBaseLayer: false});
+						map.addLayer(sites);						
+
+		wms_water_depth = new OpenLayers.Layer.WMS(
+				'Water Depth Contours',
+				'http://labs.metacarta.com/wms/vmap0',
+				{layers: 'depthcontour',
+				transparent: true},
+				{opacity:.8});
+						map.addLayer(wms_water_depth);
+				
+				body {color:black; background:black}							  				
 				a:link {color: white;
 	
 				text-decoration:none;}
