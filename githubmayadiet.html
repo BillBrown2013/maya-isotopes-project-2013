@@ -1,36 +1,64 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<title>Geography 585 Lab Assignment 3</title>
-		<style type=text/css>
-		html {height: 100%}
-body {height: 100%; 
-margin: 0px; 
-padding: 0px; 
-background-color: black; 
-color: #CCCCCC; 
-text-align: center}
-#map_canvas {width:80%; 
-height:90%;
-margin-left: auto;
-margin-right: auto}	
-</style>
-
-<script type="text/javascript"
-src="http://maps.google.com/maps/api/js?v=3.2&sensor=false">
-</script>
-<script type="text/javascript">
-function initialize ( ) {
-
-</script>
+ <head>	
+	<script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+			<script type="text/javascript">   
+			</script>
+			
+			<style type ="text/css">
+			html {height: 100%;}					
+				body {height: 100%;
+					margin: 2px; 
+					padding: 2px;
+					text-align: justify;						
+					
+					background-color: black;}	
+					
+				a:link {color: white; text-decoration:none;}
+				a:visited {color: darkgray;}
+				a:active {color: black;}
+			
+				#header {margin-bottom: 36px;				 									    
+					margin-left:5%;
+					margin-right:15%;
+					text-align:center;
+					background-color: black;} 								
+				
+				#header img {position:absolute; left:10px; top:10px;}																																																												
+				  
+				h1 {color: #A80000;
+					background-color: black;
+					font-family: arial;
+					font-size: 46px;					
+					text-align: center; 
+					margin-bottom:0;
+					margin-left:45px;
+					float:right;
+					padding-left:3em;
+					padding-right:2em;}		
+					
+					
+						address {
+				color:#A80000;				
+				clear: left;
+				text-align: center;
+				padding-top: 36px;
+				font-family: courier,monospace; font-size: 24px; font-weight: bold;
+				 }
+				 
+			</style>
 
 </head>
 
-<body onload="initialize()">
-<h1>Maya Diet and Subsistence</h1>
+//===============ORDER THE WEB CONTENT==========================
+		
+	<body onload="init()">			
+		<div id="header"><img src="maya2.png" width="400" height="450" alt="maya2"/><h1>Maya Diet and Subsistence</h1></div>								
+			
 
-</body>
+	<address>Bill Brown wbrown@unm.edu</address>
+		
+		<p id="b"><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/isotopehome.html">Back to Top</a></p>		
+	</body>
 </html>
 
