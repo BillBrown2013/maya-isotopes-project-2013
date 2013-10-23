@@ -16,7 +16,23 @@
 					
 				a:link {color: white; text-decoration:none;}
 				a:visited {color: darkgray;}
-				a:active {color: black;}
+				a:link,a:visited
+{
+display:block;
+font-weight:bold;
+color:#white;
+background-color:#A80000;
+width:120px;
+text-align:center;
+padding:4px;
+text-decoration:none;
+}
+a:hover,a:active
+{
+background-color:darkgray;
+}
+
+				
 				
 			div.sidebar {height: 550px; float: left;  width: 650px; margin-top:300px; margin-left:5%; background-color: #A80000; border-style: outset; border-width: thick; border-color:darkgray;}	
 
@@ -61,7 +77,7 @@ document.getElementById("demo").innerHTML="My First JavaScript Function";
 			</div>
 			
 		<address>Bill Brown wbrown@unm.edu</address>
-		<button type="button" onclick="myFunction()">Try it</button
+		
 		<p id="b"><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/isotopehome.html">Back to Top</a></p>		
 	</body>
 </html>
