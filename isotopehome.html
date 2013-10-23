@@ -20,10 +20,10 @@
 			});
 			
 //==========CREATE LAYERS FIRST MAP==============				
-		base= new OpenLayers.Layer.WMS(
-				'Gray Earth',
-				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',				
-				{layers:'BillBrown_final_exam:GRAY_HR_SR', transparent:true},
+		base= new OpenLayers.Layer.Google(
+				'Google Terrain',
+				{type: google.maps.MapTypeId.TERRAIN, numZoomLevels: 15});		
+						map.addLayer(terrain);
 				{isBaseLayer: true});
 						map.addLayer(base);
 
