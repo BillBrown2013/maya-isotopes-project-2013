@@ -1,241 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<title>Geography 585 Lab Assignment 3</title>
-		<style type=text/css>
-		html {height: 100%}
-body {height: 100%; 
-margin: 0px; 
-padding: 0px; 
-background-color: black; 
-color: #CCCCCC; 
-text-align: center}
-#map_canvas {width:80%; 
-height:90%;
-margin-left: auto;
-margin-right: auto}	
-</style>
+ <head>	
+	<script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+			<script type="text/javascript">         	
 
-<script type="text/javascript"
-src="http://maps.google.com/maps/api/js?v=3.2&sensor=false">
-</script>
-<script type="text/javascript">
-function initialize ( ) {
-var NNmap = new google.maps.LatLng(17.93000,-88.90000)
-var Datum2 = new google.maps.LatLng(17.95465,-89.04795)
-var Ixnoha = new google.maps.LatLng(17.954499,-89.012643)
-var AltunHa = new google.maps.LatLng(17.76394,-88.34705)
-var GranCacao = new google.maps.LatLng(17.99369, -88.900217)
-var Bedrock = new google.maps.LatLng(17.908496,-89.017402)
-var BlueCreek = new google.maps.LatLng(17.869235,-88.892481)
-var SayKa = new google.maps.LatLng(17.805109,-89.033999)
-var ArroyoNegro = new google.maps.LatLng(17.865666,-89.238692)
-var Lamanai = new google.maps.LatLng(17.768346,-88.651858)
-var LaMilpa = new google.maps.LatLng(17.833781,-89.053392)
-var BlueCreekCaves = new google.maps.LatLng(17.901358,-88.860358)
-var LaMilpaEast = new google.maps.LatLng(17.832353,-89.019127)
-var Datum1 = new google.maps.LatLng(17.95445,-89.0479)
-var WariCamp = new google.maps.LatLng(17.843775,-88.945602)
-var Chocoha = new google.maps.LatLng(17.969172,-88.885342)
-var BetsonBank = new google.maps.LatLng(17.807935,-88.964939)
-var Hunal = new google.maps.LatLng(17.827923,-88.977312)
-var OsHlut = new google.maps.LatLng(17.843151,-88.964939)
-var NojolNah = new google.maps.LatLng(17.947757,-89.035248)
-var Datum3 = new google.maps.LatLng(17.95449,-89.04781)
-var ElPalaciowolfdat2 = new google.maps.LatLng(17.95434,-89.04717)
-var myOptions = {
-zoom: 12,
-center: new google.maps.LatLng(17.869235,-88.892481),
-mapTypeId: google.maps.MapTypeId.TERRAIN
-};
-var map = new google.maps.Map(document.getElementById("map_canvas"),
-myOptions);
+//===============DEFINE STYLE==========================
+		<style type ="text/css">
+			html {height: 100%;}					
+				body {height: 100%;
+					margin: 2px; 
+					padding: 2px;
+					text-align: justify;						
+					background-color: black;}	
+					
+				a:link {color: white; text-decoration:none;}
+				a:visited {color: darkgray;}
+				a:active {color: black;}
+			
+				#header {margin-bottom: 36px; margin-left:5%; margin-right:15%;	text-align:center; background-color: black;} 							    
+					
+				#header img {position:absolute; left:10px; top:10px;}																																																												
+				  
+				h1 {color: #A80000;	background-color: black; font-family: arial; font-size: 46px; text-align: center; margin-bottom:0; margin-left:45px; float:right; padding-bottom:2em; padding-left:5em; padding-right:2em;}
+					
+				div.sidebar {height: 550px; float: left;  width: 650px; margin-top:300px; margin-left:5%; background-color: #A80000; border-style: outset; border-width: thick; border-color:darkgray;}	
 
-var Datum2Marker = new google.maps.Marker({
-position: new google.maps.LatLng(17.95465,-89.04795),
-title: "El Palacio Datum 2"
-});
-Datum2Marker.setMap(map);
+				div.sidebar li {font-family: arial; font-size: 24px; text-align: center; padding-bottom: 1.5em; padding-right: 1em; list-style: none;}
+					
+				address {color:#A80000; clear: left; text-align: center; padding-top: 36px; font-family: courier,monospace; font-size: 24px; font-weight: bold;}
 
-var BlueCreekCavesMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.901358,-88.860358),
-title: "Blue Creek Caves"
-});
-BlueCreekCavesMarker.setMap(map);
+				.image1 {float:right; margin-right:5%; border-style: outset; border-width: thick; border-color:#A80000; background-color:darkgray;}			
+				
+				#cap {color:#A80000; font-size:18px; font-family: arial; font-weight: bold; margin-bottom: 3em; text-align: center;}
+					
+			</style>
+		</head>
+		
+//===============ORDER THE WEB CONTENT==========================
+		
+	<body onload="init()">			
+		<div id="header"><img src="maya2.png" width="400" height="450" alt="maya2"/><h1>Caries: A "Disease Process"</h1></div>		
 
-var Marker = new google.maps.Marker({
-position: new google.maps.LatLng(17.901358,-88.860358),
-title: "Blue Creek Caves"
-});
-BlueCreekCavesMarker.setMap(map);
-
-
-
-var OsHlutMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.843151,-88.964939),
-title: "OSHLUT"
-});
-OsHlutMarker.setMap(map);
-
-var BentsonBankMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.807935,-88.964939),
-title: "Bentson Bank"
-});
-BentsonBankMarker.setMap(map);
-
-var BlueCreekMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.869235,-88.892481),
-title: "Blue Creek Site Core"
-});
-BlueCreekMarker.setMap(map);
-
-var SayKaMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.805109,-89.033999),
-title: "Say Ka"
-});
-SayKaMarker.setMap(map);
-
-var HunalMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.827923,-88.977312),
-title: "Hunal"
-});
-HunalMarker.setMap(map);
-
-var AltunHaMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.76394,-88.34705),
-title: "Altun Ha"
-});
-AltunHaMarker.setMap(map);
-
-var NojolNahMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.947757,-89.035248),
-title: "Nojol Nah"
-});
-NojolNahMarker.setMap(map);
-
-var GranCacaoMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.99369, -88.900217),
-title: "Gran Cacao"
-});
-GranCacaoMarker.setMap(map);
-
-var LamanaiMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.768346,-88.651858),
-title: "Lamanai"
-});
-LamanaiMarker.setMap(map);
-
-var LaMilpaMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.833781,-89.053392),
-title: "La Milpa"
-});
-LaMilpaMarker.setMap(map);
-
-var IxnohaMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.954499,-89.012643),
-title: "Ixnoha"
-});
-IxnohaMarker.setMap(map);
-
-var WariCampMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.843775,-88.945602),
-title: "Wari Camp"
-});
-WariCampMarker.setMap(map);
-
-var ArroyoNegroMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.865666,-89.238692),
-title: "Arroyo Negro"
-});
-ArroyoNegroMarker.setMap(map);
-
-var BedrockMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.908496,-89.017402),
-title: "Ak Witz/Bedrock"
-});
-BedrockMarker.setMap(map);
-
-var ChocohaMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.969172,-88.885342),
-title: "Chocoha"
-});
-ChocohaMarker.setMap(map);
-
-var Datum3Marker = new google.maps.Marker({
-position: new google.maps.LatLng(17.95449,-89.04781),
-title: "El Palacio Datum 3"
-});
-Datum3Marker.setMap(map);
-
-var Datum1Marker = new google.maps.Marker({
-position: new google.maps.LatLng(17.95445,-89.0479),
-title: "El Palacio Datum 1"
-});
-Datum1Marker.setMap(map);
-}
-</script>
-
-</head>
-
-<body onload="initialize()">
-<h1>Caries: A "Disease Process"</h1>
-<p id="answer8">This page describes how I want to use GIS and geographical theory in order to better understand Maya settlement and disease patterns in northwestern Belize.  Note the answers to the Lab Assignment are provided at the bottom of the page.</p>
-<div id="map_canvas"></div>
-<h2>Figure 1: GoogleMap of Late Classic Maya Settlements in Northwestern Belize</h2>
-<p><img src="Belizesitesandriver.jpg" width="750" height="800" alt="Sites in Northern Belize"></p>
-<h3>Figure 2: Distribution of Maya Sites in Northern Belize: My study area is approximated in the yellow box (the yellow box is roughly what is shown above in Figure 1</h3>
-<p><img src="SiteMap.jpg" width="1100" height="700" alt="Sites in Northern Belize"></p>
-<h4>Figure 3: Close-up of Maya Sites in and Around My Study Area: Note the relative agreement between the GoogleMap and the site distribution map</h4>		
-<p><img src="4C12.JPG" width="1100" height="700" alt="Structure 4C12, El Palacio"></p>
-<h5>Figure 4: Structure 4C12, El Palacio Courtyard, latest architecutral phase</h5>
-<p id="answer10">Structure 4C12 shown in Figure 4 is a common architectural style seen at Nojol Nah. In anthropological theory, the size, living area, and other architectural features are seen as a reflection of important social parameters such as the size and the nature of the group inhabiting the structure.  These kinds of data have important implications for how ancient societies were organized, so one of my primary goals is to derive accurate geospatial data reflecting the distribution of Maya households across the landscape.</p> 
-<p><img src="teeth.JPG" width="600" height="800" alt="Modified Teeth"></p>
-<h5>Figure 5: Inlaid teeth from an elite burial at Nojol Nah</h5>
-<p><img src="modteeth.jpg" width="740" height="800" alt="Modified Teeth"></p>
-<h6>Figure 6: Modified Upper Central Teeth from a Burial at Nojol Nah</h6>
-<p id="answer9">After over 100 years of research, people don't understand dental and cranial modification.  Figures 5 and 6 show examples of dental modification.  Various researchers have tried to link modification patterns with social status, sex, or geographic location, but to no avail.  Perhaps GIS could help understand these trends.  At La Milpa, which is another site shown on my maps and very close to Nojol Nah, researhers report only two incidences of inlaid teeth, whereas at Nojol Nah, we have found around ten instances of inlaid teeth.  GIS theory could potentially explain the spatial and temporal distribution of dental and cranial modification.
-<p><img src="PH1.jpg" width="1100" height="800" alt="Porotic Hyperostosis"></p>
-<h7>Figure 7: Porotic hyperostosis from a Burial at Nojol Nah</h7>
-<p id="answer11">Another bioarchaeological aspect that can be addressed with GIS is nutritionally related disease in ancient communities.  Figure 7 shows a case of porotic hyperostosis from an individual from Nojol Nah; conditions such as porotic hyperostosis, high rates of dental cavities, and short stature have been associated with a maize-rich diet.  There is a lot of debate on the nature of health of Maya people at the end of the Late Classic; whereas some researchers see the end of Maya society as a "collapse" associated with environmental degradation, others (especially osteologists working in Belize) see the terminal Maya populations as being relatively healthy.  Again, use of GIS would be a good way to model Maya health trends, which is what I hope to do.</p>
-<style type=text/css>
-		h1 {color:lime; font-size:40px; font-weight: bold}
-		h2 {color:lime; font-size:18px; font-weight: bold}
-		h3 {color:lime; font-size:18px; font-weight: bold}
-		h4 {color:lime; font-size:18px; font-weight: bold}
-		h5 {color:lime; font-size:18px; font-weight: bold}
-		h6 {color:lime; font-size:18px; font-weight: bold}
-		h7 {color:lime; font-size:18px; font-weight: bold}
- img {margin-left:1%}
-</style>
-<p id="question3a">Lab Assignment 3, January 31, 2013</p>
-		<p id="question3">Question 1: What area do you want to depict in your map?  Why?</p>
-		<p id="answer3">My map depicts my archaeological study area in Belize, chosen because I have led excavations here since 2008 and will continue to do so for a while.  I need different ways to visualize the geospatial data at the site.  Specifically the site is called Nojol Nah (northern place) but the courtyard I am currently excavating is called El Palacio.</p>
-		<p id="question4">Question 2: What is the center point (latitude and longitude) of your area of interest?</p>
-		<p id="answer4">The center point of this map is the Blue Creek site core.  Although I work to the west of this site, Blue Creek was a small city and was the nucleus for settlement for a significant period of the Classic Maya occupation in the area. The coordinates are 17.869235N and -88.892481W.</p>
-		<p id="question5">Question 3: What style of map (roads, satellite, hybrid, terrain) is appropriate for your map?  Why?</p>
-		<p id="answer5">I chose the terrain option because this is a very important aspect of Maya settlement patterns.  Typically the elite residences are located on the higher portions of the landscape, and these tend to be focused around low areas called bajos where they grew their crops.  One major question in Maya settlement patterns is if the residences were temple-centric or bajo centric.</p>
-		<p id="question6">Question 4: What is the scale of your map (local, regional, continental, global)?  How will this translate into your selection of appropriate default zoom level for your map?</p>
-		<p id="answer6">The map is local in scale therefore I chose a relatively high zoom level (12); I want to show some of the region because archaeologicl sites are never in a vacuum and other nearby sites could have been very important in understanding the location of Nojol Nah. One problem that I am having is that the scale is so small that although I added several markers, they are so close together that they can hardly be distinguished.  Also, although I have a lot of spatial data for Nojol Nah, until I learn more script then I can't add it and my map is a little boring right now.</p>
-		<p id="question7">Question 5: Embed a Google Map in the write-up based upon responses to Questions 1-4 above.</p>
-                		
-		<style type=text/css>		
-		#question3 {color:lime; font-size:20px; font-style: italic; font-weight: bold; margin-left: 2%}
-                #question3a {color:lime; font-size:40px; font-weight: bold; margin-left: 2%}
-		#question4 {color:lime; font-size:20px; font-style: italic; font-weight: bold; margin-left: 2%}
-		#question5 {color:lime; font-size:20px; font-style: italic; font-weight: bold; margin-left: 2%}
-		#question6 {color:lime; font-size:20px; font-style: italic; font-weight: bold; margin-left: 2%}
-		#question7 {color:lime; font-size:20px; font-style: italic; font-weight: bold; margin-left: 2%}
-		#answer3 {color:#777777; font-size:24px; margin-left: 5%}
-		#answer4 {color:#777777; font-size:24px; margin-left: 5%}
-		#answer5 {color:#777777; font-size:24px; margin-left: 5%}
-		#answer6 {color:#777777; font-size:24px; margin-left: 5%}
-		#answer7 {color:#777777; font-size:24px; margin-left: 5%}
-		#answer8 {color:#777777; font-size:24px}
-		#answer9 {color:#777777; font-size:24px}
-		#answer10 {color:#777777; font-size:24px}
-		#answer11 {color:#777777; font-size:24px}
-</body>
-</html>
-
+<address>Bill Brown wbrown@unm.edu</address>
+		<p id="b"><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/isotopehome.html">Back to Top</a></p>		
+	</body>
+</html>		
