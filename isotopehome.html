@@ -20,12 +20,7 @@
 			});
 			
 //==========CREATE LAYERS FIRST MAP==============				
-		base= new OpenLayers.Layer.Google(
-				'Google Terrain',
-				{type: google.maps.MapTypeId.TERRAIN, numZoomLevels: 15});		
-						map.addLayer(terrain);
-				{isBaseLayer: true});
-						map.addLayer(base);
+		
 
 		sites = new OpenLayers.Layer.WMS(
 				'All Known Maya Sites',
