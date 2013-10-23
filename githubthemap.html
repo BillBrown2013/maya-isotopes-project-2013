@@ -7,55 +7,7 @@
 				<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 					<script type="text/javascript">         	
 				
-//=========DEFINE GLOBAL VARIABLES==============		
-		var lon = -89.0;
-		var lat = 15.0;
-		var zoom = 6;
-		var map;
-		var Layers = new Object ();
-		var base;
 		
-//==========INITIALIZATION FUNCTION==============		
-		function init(){
-			map = new OpenLayers.Map('map',
-			{numZoomLevels: 20
-			});
-			
-//==========CREATE LAYERS FIRST MAP==============				
-		
-
-		sites = new OpenLayers.Layer.WMS(
-				'All Known Maya Sites',
-				'http://129.24.63.138:8080/geoserver/BillBrown_wbrown/wms',			
-				{layers:'BillBrown_wbrown:arch_sites', transparent:true}, {visibility:false},
-				{isBaseLayer: false});
-						map.addLayer(sites);						
-
-		wms_water_depth = new OpenLayers.Layer.WMS(
-				'Water Depth Contours',
-				'http://labs.metacarta.com/wms/vmap0',
-				{layers: 'depthcontour',
-				transparent: true},
-				{opacity:.8});
-						map.addLayer(wms_water_depth);
-				
-//==========ADD MAP CONTROLS FIRST MAP==============		
-				map.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
-				map.addControl(new OpenLayers.Control.MousePosition());			
-				map.addControl(new OpenLayers.Control.LayerSwitcher({}));
-				map.addControl(new OpenLayers.Control.OverviewMap() );
-				map.addControl(new OpenLayers.Control.PanZoomBar() );
-				map.addControl(new OpenLayers.Control.Scale() );
-				map.addControl(new OpenLayers.Control.ScaleLine() );	
-			
-					
-//==========CENTER THE FIRST MAP==============
-				map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
-
-//==========THE CURLEY BRACKET BELOW ENDS INITIALIZATION FUNCTION==============				
-		}
-						
-			</script>			
 			
 //===============DEFINE STYLE==========================
 		<style type ="text/css">
