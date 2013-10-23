@@ -1,49 +1,62 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>	
-	<script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
-		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-			<script type="text/javascript">   
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<title>Geog 591 Mapping Information</title>
+			<script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
+				<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+					<script type="text/javascript">   
 			</script>
+//===============APPLY STYLE WITH CSS==========================	
+			<style type ="text/css">
 			
-			<style type ="text/css">
-			<style type ="text/css">
-			html {height: 100%;}					
-				body {height: 100%;
-					margin: 2px; 
-					padding: 2px;
-					text-align: justify;						
-					background-color: black;}	
+				html {height: 100%;}					
+				
+				body {height: 100%; margin: 2px; padding: 2px; text-align: justify;	background-color: black;}	
 					
 				a:link {color: white; text-decoration:none;}
+				
 				a:visited {color: darkgray;}
-				a:active {color: black;}
-			
-				#header {margin-bottom: 36px; margin-left:5%; margin-right:15%;	text-align:center; background-color: black;} 							    
-					
+				
+				#b {display:block; font-weight:bold; color:white; background-color:#A80000; font-family:arial; font-size: 18px; margin-left:45%; width:160px; text-align:center; padding:4px; text-decoration:none;}
+				
+				a:hover,a:active{background-color:darkgray;}
+
+				div.sidebar {height: 550px; float: left;  width: 650px; margin-top:300px; margin-left:5%; background-color: #A80000; border-style: outset; border-width: thick; border-color:darkgray;}	
+
+				div.sidebar li {font-family: arial; font-size: 24px; text-align: center; padding-bottom: 1.5em; padding-right: 1em; list-style: none;}
+	
 				#header img {position:absolute; left:10px; top:10px;}																																																												
 				  
-				h1 {color: #A80000;	background-color: black; font-family: arial; font-size: 46px; text-align: center; margin-bottom:0; margin-left:45px; float:right; padding-bottom:2em; padding-left:5em; padding-right:2em;}
-					
-				
-					
+				h1 {color: #A80000;	background-color: black; font-family: arial; font-size: 46px; text-align: center; margin-bottom:0; margin-left:30px; padding-bottom:2em; padding-left:3em; padding-right:2em;}
+
 				address {color:#A80000; clear: left; text-align: center; padding-top: 36px; font-family: courier,monospace; font-size: 24px; font-weight: bold;}
-
-			
-					
-				 
+		 
 			</style>
-
-</head>
+ </head>
 
 //===============ORDER THE WEB CONTENT==========================
 		
-	<body onload="init()">			
-		<div id="header"><img src="maya2.png" width="400" height="450" alt="maya2"/><h1>Mapping Information</h1></div>								
-			
-
-	<address>Bill Brown wbrown@unm.edu</address>
+	<body onload="init()">	
+	
+			<p id="b"><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/isotopehome.html">Home</a></p>
 		
-		<p><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubmayamapinfo.html">Back to Top</a></p>		
+			<div id="header"><img src="maya2.png" width="400" height="450" alt="maya2"/><h1>Mapping Information</h1></div>	
+		
+			<div class="sidebar">
+					<ul>
+						<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubmayadiet.html">Maya Diet and Subsistence</a></li>
+						<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubmayamapinfo.html">Caries: A "Disease Process"</a></li>
+						<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubmayaid.html">Iron Deficiency and Anemia: Porotic Hyperostosis and Cribra Orbitalia</a></li>
+						<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubiso.html">Stable Isotopes: Chemical Signatures of Ancient Diet</a></li>
+						<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubthemap.html">The Map</a></li>
+						<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubimhp.html">Link to Geography 585 Internet Mapping, Spring 2013 Home Page</a></li>
+					</ul></li>
+			</div>
+			
+			<address>Bill Brown wbrown@unm.edu</address>
+		
+			<p id="b"><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubmayamapinfo.html">Top</a></p>		
 	</body>
 </html>
+
 
