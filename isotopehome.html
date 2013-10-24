@@ -30,8 +30,8 @@ var NojolNah = new google.maps.LatLng(17.947757,-89.035248)
 var Datum3 = new google.maps.LatLng(17.95449,-89.04781)
 var ElPalaciowolfdat2 = new google.maps.LatLng(17.95434,-89.04717)
 var myOptions = {
-zoom: 12,
-center: new google.maps.LatLng(17.869235,-88.892481),
+zoom: 6,
+center: new google.maps.LatLng(15.000000,-89.000000),
 mapTypeId: google.maps.MapTypeId.TERRAIN
 };
 var map = new google.maps.Map(document.getElementById("map_canvas"),
@@ -54,8 +54,6 @@ position: new google.maps.LatLng(17.901358,-88.860358),
 title: "Blue Creek Caves"
 });
 BlueCreekCavesMarker.setMap(map);
-
-
 
 var OsHlutMarker = new google.maps.Marker({
 position: new google.maps.LatLng(17.843151,-88.964939),
@@ -202,6 +200,7 @@ Datum1Marker.setMap(map);
 					float: left;  
 					width: 450px; 
 					margin-top:300px;
+					padding-bottom:3em;
 					background-color: #A80000; 
 					border-style: outset; 
 					border-width: thick; 
@@ -210,7 +209,7 @@ Datum1Marker.setMap(map);
 				div.sidebar li {font-family: arial; 
 					font-size: 24px; 
 					text-align: center; 
-					padding-bottom: 3em; 
+					padding-bottom: .5em; 
 					padding-right: 1em; 
 					list-style: none;}
 					
