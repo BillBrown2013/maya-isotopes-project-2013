@@ -3,99 +3,270 @@
  <head>	
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		 <title>Geog 591 Home</title>
-			<script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
-				<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-			<script type="text/javascript">         	
-				
-//=========DEFINE GLOBAL VARIABLES==============		
-		var lon = -89.0;
-		var lat = 15.0;
-		var zoom = 6;
-		var map;
-		var Layers = new Object ();
-		var base;
-		
-//==========INITIALIZATION FUNCTION==============		
-		function init(){
-			map = new OpenLayers.Map('map',
-			{numZoomLevels: 20
-			});
-			
-//==========CREATE LAYERS FIRST MAP==============				
-		
+		 	<script type="text/javascript"src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+				<script type="text/javascript">
+		       	
+				function initialize ( ) {
+var NNmap = new google.maps.LatLng(17.93000,-88.90000)
+var Datum2 = new google.maps.LatLng(17.95465,-89.04795)
+var Ixnoha = new google.maps.LatLng(17.954499,-89.012643)
+var AltunHa = new google.maps.LatLng(17.76394,-88.34705)
+var GranCacao = new google.maps.LatLng(17.99369, -88.900217)
+var Bedrock = new google.maps.LatLng(17.908496,-89.017402)
+var BlueCreek = new google.maps.LatLng(17.869235,-88.892481)
+var SayKa = new google.maps.LatLng(17.805109,-89.033999)
+var ArroyoNegro = new google.maps.LatLng(17.865666,-89.238692)
+var Lamanai = new google.maps.LatLng(17.768346,-88.651858)
+var LaMilpa = new google.maps.LatLng(17.833781,-89.053392)
+var BlueCreekCaves = new google.maps.LatLng(17.901358,-88.860358)
+var LaMilpaEast = new google.maps.LatLng(17.832353,-89.019127)
+var Datum1 = new google.maps.LatLng(17.95445,-89.0479)
+var WariCamp = new google.maps.LatLng(17.843775,-88.945602)
+var Chocoha = new google.maps.LatLng(17.969172,-88.885342)
+var BetsonBank = new google.maps.LatLng(17.807935,-88.964939)
+var Hunal = new google.maps.LatLng(17.827923,-88.977312)
+var OsHlut = new google.maps.LatLng(17.843151,-88.964939)
+var NojolNah = new google.maps.LatLng(17.947757,-89.035248)
+var Datum3 = new google.maps.LatLng(17.95449,-89.04781)
+var ElPalaciowolfdat2 = new google.maps.LatLng(17.95434,-89.04717)
+var myOptions = {
+zoom: 12,
+center: new google.maps.LatLng(17.869235,-88.892481),
+mapTypeId: google.maps.MapTypeId.TERRAIN
+};
+var map = new google.maps.Map(document.getElementById("map_canvas"),
+myOptions);
 
-		sites = new OpenLayers.Layer.WMS(
-				'All Known Maya Sites',
-				'http://129.24.63.138:8080/geoserver/BillBrown_wbrown/wms',			
-				{layers:'BillBrown_wbrown:arch_sites', transparent:true}, {visibility:false},
-				{isBaseLayer: false});
-						map.addLayer(sites);						
+var Datum2Marker = new google.maps.Marker({
+position: new google.maps.LatLng(17.95465,-89.04795),
+title: "El Palacio Datum 2"
+});
+Datum2Marker.setMap(map);
 
-		wms_water_depth = new OpenLayers.Layer.WMS(
-				'Water Depth Contours',
-				'http://labs.metacarta.com/wms/vmap0',
-				{layers: 'depthcontour',
-				transparent: true},
-				{opacity:.8});
-						map.addLayer(wms_water_depth);
-				
-//==========ADD MAP CONTROLS FIRST MAP==============		
-				map.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
-				map.addControl(new OpenLayers.Control.MousePosition());			
-				map.addControl(new OpenLayers.Control.LayerSwitcher({}));
-				map.addControl(new OpenLayers.Control.OverviewMap() );
-				map.addControl(new OpenLayers.Control.PanZoomBar() );
-				map.addControl(new OpenLayers.Control.Scale() );
-				map.addControl(new OpenLayers.Control.ScaleLine() );	
-			
-					
-//==========CENTER THE FIRST MAP==============
-				map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
+var BlueCreekCavesMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.901358,-88.860358),
+title: "Blue Creek Caves"
+});
+BlueCreekCavesMarker.setMap(map);
 
-//==========THE CURLEY BRACKET BELOW ENDS INITIALIZATION FUNCTION==============				
-		}
-						
-</script>			
+var Marker = new google.maps.Marker({
+position: new google.maps.LatLng(17.901358,-88.860358),
+title: "Blue Creek Caves"
+});
+BlueCreekCavesMarker.setMap(map);
+
+
+
+var OsHlutMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.843151,-88.964939),
+title: "OSHLUT"
+});
+OsHlutMarker.setMap(map);
+
+var BentsonBankMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.807935,-88.964939),
+title: "Bentson Bank"
+});
+BentsonBankMarker.setMap(map);
+
+var BlueCreekMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.869235,-88.892481),
+title: "Blue Creek Site Core"
+});
+BlueCreekMarker.setMap(map);
+
+var SayKaMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.805109,-89.033999),
+title: "Say Ka"
+});
+SayKaMarker.setMap(map);
+
+var HunalMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.827923,-88.977312),
+title: "Hunal"
+});
+HunalMarker.setMap(map);
+
+var AltunHaMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.76394,-88.34705),
+title: "Altun Ha"
+});
+AltunHaMarker.setMap(map);
+
+var NojolNahMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.947757,-89.035248),
+title: "Nojol Nah"
+});
+NojolNahMarker.setMap(map);
+
+var GranCacaoMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.99369, -88.900217),
+title: "Gran Cacao"
+});
+GranCacaoMarker.setMap(map);
+
+var LamanaiMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.768346,-88.651858),
+title: "Lamanai"
+});
+LamanaiMarker.setMap(map);
+
+var LaMilpaMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.833781,-89.053392),
+title: "La Milpa"
+});
+LaMilpaMarker.setMap(map);
+
+var IxnohaMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.954499,-89.012643),
+title: "Ixnoha"
+});
+IxnohaMarker.setMap(map);
+
+var WariCampMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.843775,-88.945602),
+title: "Wari Camp"
+});
+WariCampMarker.setMap(map);
+
+var ArroyoNegroMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.865666,-89.238692),
+title: "Arroyo Negro"
+});
+ArroyoNegroMarker.setMap(map);
+
+var BedrockMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.908496,-89.017402),
+title: "Ak Witz/Bedrock"
+});
+BedrockMarker.setMap(map);
+
+var ChocohaMarker = new google.maps.Marker({
+position: new google.maps.LatLng(17.969172,-88.885342),
+title: "Chocoha"
+});
+ChocohaMarker.setMap(map);
+
+var Datum3Marker = new google.maps.Marker({
+position: new google.maps.LatLng(17.95449,-89.04781),
+title: "El Palacio Datum 3"
+});
+Datum3Marker.setMap(map);
+
+var Datum1Marker = new google.maps.Marker({
+position: new google.maps.LatLng(17.95445,-89.0479),
+title: "El Palacio Datum 1"
+});
+Datum1Marker.setMap(map);
+}
+</script>
+								
 			
 //===============DEFINE STYLE==========================
 		<style type ="text/css">
 				
 				html {height: 100%;}					
 				
-				body {height: 100%; margin: 2px; padding: 2px; text-align: justify;	background-color: black;}	
+				body {height: 100%; 
+					margin: 2px; 
+					padding: 2px; 
+					text-align: justify;	
+					background-color: black;}	
 					
 				a:link {color: white; text-decoration:none;}
-				
 				a:visited {color: darkgray;}
-				
 				a:active {color: black;}
 			
-				#header {margin-bottom: 36px; margin-left:5%; margin-right:15%;	text-align:center; background-color: black;} 							    
+				#header {margin-bottom: 36px; 
+					margin-left:5%; 
+					margin-right:15%;	
+					text-align:center; 
+					background-color: black;} 							    
 					
-				#header img {position:absolute; left:10px; top:10px;}																																																												
+				#header img {position:absolute; 
+					left:10px; top:10px;}																																																												
 				  
-				h1 {color: #A80000;	background-color: black; font-family: arial; font-size: 46px; text-align: center; margin-bottom:0; margin-left:45px; float:right; padding-bottom:2em; padding-left:5em; padding-right:2em;}
+				h1 {color: #A80000;	
+					background-color: black; 
+					font-family: arial; 
+					font-size: 46px; 
+					text-align: center; 
+					margin-bottom:0; 
+					margin-left:45px; 
+					float:right; 
+					padding-bottom:2em; 
+					padding-left:5em; 
+					padding-right:2em;}
 					
-				div.sidebar {height: 550px; float: left;  width: 650px; margin-top:300px; margin-left:5%; background-color: #A80000; border-style: outset; border-width: thick; border-color:darkgray;}	
+				div.sidebar {height: 650px; 
+					float: left;  
+					width: 1100px; 
+					background-color: #A80000; 
+					border-style: outset; 
+					border-width: thick; 
+					border-color:darkgray;}	
 
-				div.sidebar li {font-family: arial; font-size: 24px; text-align: center; padding-bottom: 1.5em; padding-right: 1em; list-style: none;}
+				div.sidebar li {font-family: arial; 
+					font-size: 24px; 
+					text-align: center; 
+					padding-bottom: 1.5em; 
+					padding-right: 1em; 
+					list-style: none;}
 					
-				address {color:#A80000; clear: left; text-align: center; padding-top: 36px; font-family: courier,monospace; font-size: 24px; font-weight: bold;}
+				address {color:#A80000; 
+					clear: left; 
+					text-align: center; 
+					padding-top: 36px; 
+					font-family: courier,monospace; 
+					font-size: 24px; 
+					font-weight: bold;}
 
-				.image1 {float:right; margin-right:5%; border-style: outset; border-width: thick; border-color:#A80000; background-color:darkgray;}			
+				.image1 {float:right; 
+					margin-right:5%; 
+					border-style: outset; 
+					border-width: thick; 
+					border-color:#A80000; 
+					background-color:darkgray;}			
 				
-				#cap {color:#A80000; font-size:18px; font-family: arial; font-weight: bold; margin-bottom: 3em; text-align: center;}
+				#cap {color:#A80000; 
+					font-size:18px; 
+					font-family: arial; 
+					font-weight: bold; 
+					margin-bottom: 3em; 
+					text-align: center;}
 				
-				#b {display:block; font-weight:bold; color:white; background-color:#A80000; font-family:arial; font-size: 18px; margin-left:45%; width:160px; text-align:center; padding:4px; text-decoration:none;}
+				#b {display:block; 
+					font-weight:bold; 
+					color:white; 
+					background-color:#A80000; 
+					font-family:arial; 
+					font-size: 18px; 
+					margin-left:45%; 
+					width:160px; 
+					text-align:center; 
+					padding:4px; 
+					text-decoration:none;}
 
 				a:hover,a:active {background-color:darkgray;}
 				
+				#map_canvas {height: 650px; 
+					float: left;
+					width:450px; 
+					padding-left: 5em; 
+					padding-right: 5em; 
+					padding-bottom: 25em; 
+					margin-left: 30%; 
+					border-style: outset; 
+					border-width: thick; 
+					border-color:darkgray;}	
+			
 			</style>
 		</head>
 		
 //===============ORDER THE WEB CONTENT==========================
 		
-	<body onload="init()">			
+	
+<body onload="initialize()">		
 		
 		<div id="header"><img src="maya2.png" width="400" height="450" alt="maya2"/><h1>Geography 591 Problems: Mapping Maya Isotopes</h1></div>								
 			
@@ -111,10 +282,7 @@
 					</ul></li>
 			</div>
 			
-							<div class="image1">
-								
-								<img src="map1.jpg" width="750" height="600" alt="mayamap"/><p id="cap">Figure 1: The Maya world: the yellow dots represent prehistoric settlements.</p></div>
-									
+					<div id="map_canvas"></div>		
 									<address>Bill Brown wbrown@unm.edu</address>
 										
 										<p id="b"><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/isotopehome.html">Back to Top</a></p>		
