@@ -5,158 +5,848 @@
 		 <title>Geog 591 Home</title>
 		 	<script type="text/javascript"src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
 				<script type="text/javascript">
-		       	
-				function initialize ( ) {
-var NNmap = new google.maps.LatLng(17.93000,-88.90000)
-var Datum2 = new google.maps.LatLng(17.95465,-89.04795)
-var Ixnoha = new google.maps.LatLng(17.954499,-89.012643)
-var AltunHa = new google.maps.LatLng(17.76394,-88.34705)
-var GranCacao = new google.maps.LatLng(17.99369, -88.900217)
-var Bedrock = new google.maps.LatLng(17.908496,-89.017402)
-var BlueCreek = new google.maps.LatLng(17.869235,-88.892481)
-var SayKa = new google.maps.LatLng(17.805109,-89.033999)
-var ArroyoNegro = new google.maps.LatLng(17.865666,-89.238692)
-var Lamanai = new google.maps.LatLng(17.768346,-88.651858)
-var LaMilpa = new google.maps.LatLng(17.833781,-89.053392)
-var BlueCreekCaves = new google.maps.LatLng(17.901358,-88.860358)
-var LaMilpaEast = new google.maps.LatLng(17.832353,-89.019127)
-var Datum1 = new google.maps.LatLng(17.95445,-89.0479)
-var WariCamp = new google.maps.LatLng(17.843775,-88.945602)
-var Chocoha = new google.maps.LatLng(17.969172,-88.885342)
-var BetsonBank = new google.maps.LatLng(17.807935,-88.964939)
-var Hunal = new google.maps.LatLng(17.827923,-88.977312)
-var OsHlut = new google.maps.LatLng(17.843151,-88.964939)
-var NojolNah = new google.maps.LatLng(17.947757,-89.035248)
-var Datum3 = new google.maps.LatLng(17.95449,-89.04781)
-var ElPalaciowolfdat2 = new google.maps.LatLng(17.95434,-89.04717)
-var myOptions = {
-zoom: 6,
-center: new google.maps.LatLng(15.000000,-89.000000),
-mapTypeId: google.maps.MapTypeId.TERRAIN
-};
-var map = new google.maps.Map(document.getElementById("map_canvas"),
-myOptions);
+		       	function initialize() {
+				var Colha = new google.maps.LatLng(17.97212,-88.40034)
+				var Ixnoha = new google.maps.LatLng(17.954499,-89.012643)
+				var AltunHa = new google.maps.LatLng(17.76394,-88.34705)
+				var GranCacao = new google.maps.LatLng(17.79704,-88.898132)
+				var Calakmul = new google.maps.LatLng(18.1045,-89.810333)
+				var ThompsonsGroup= new google.maps.LatLng(17.830373,-89.079562)
+				var TresBanderas= new google.maps.LatLng(17.830903,-89.166930)
+				var TwoHundredMeterRdige= new google.maps.LatLng(17.811841,-89.014962)
+				var MedicinalTrail= new google.maps.LatLng(17.839734,-89.013883)
+				var CourtyardGroup= new google.maps.LatLng(17.839437,-89.011504)
+				var PlazuelaGroup= new google.maps.LatLng(17.838917,-89.009422)
+				var No281975= new google.maps.LatLng(17.841816,-89.003176)
+				var No291977= new google.maps.LatLng(17.84170,-88.968079)
+				var Guijarral= new google.maps.LatLng(17.845385,-88.973433)
+				var ElIntenso= new google.maps.LatLng(17.849252,-88.974325)
+				var No2919710= new google.maps.LatLng(17.851334,-88.975515)
+				var ElArroyo= new google.maps.LatLng(17.851929,-88.991278)
+				var CabezaVerde= new google.maps.LatLng(17.787386,-88.974622)
+				var GreatSavanna= new google.maps.LatLng(17.746340,-88.900264)
+				var No281962= new google.maps.LatLng(17.777273,-89.008232)
+				var LasAbejas= new google.maps.LatLng(17.784114,-89.011801)
+				var RB7= new google.maps.LatLng(17.782032,-89.015965)
+				var RB6= new google.maps.LatLng(17.783817,-89.015964)
+				var AprilFools= new google.maps.LatLng(17.790360,-89.016560)
+				var MyLady= new google.maps.LatLng(17.797499,89.013586)
+				var DosBarbaras= new google.maps.LatLng(17.767458,-89.013289)
+				var BeTanChinam= new google.maps.LatLng(17.743663,-89.020427)
+				var BolsaVerde= new google.maps.LatLng(17.753181,-89.030837)
+				var MaaxTe= new google.maps.LatLng(17.757643,-89.031432)
+				var HunPih= new google.maps.LatLng(17.761212,-89.036488)
+				var PapelOlvidado= new google.maps.LatLng(17.763889,-89.042734)
+				var Graceland= new google.maps.LatLng(17.763591,-89.051062)
+				var Bedrock = new google.maps.LatLng(17.908496,-89.017402)
+				var BlueCreek = new google.maps.LatLng(17.869235,-88.892481)
+				var SayKa = new google.maps.LatLng(17.805109,-89.033999)
+				var Lamanai = new google.maps.LatLng(17.768346,-88.651858)
+				var LaMilpa = new google.maps.LatLng(17.833781,-89.053392)
+				var Tikal = new google.maps.LatLng(17.21732,-89.63163)
+				var SouthLaMilpa = new google.maps.LatLng(17.801132,-89.047753)
+				var BlueCreekCaves = new google.maps.LatLng(17.901358,-88.860358)
+				var Kaminaljuyu = new google.maps.LatLng(14.632833,-90.549)
+				var EastLaMilpa = new google.maps.LatLng(17.831287,-89.018606)
+				var Uaxactun = new google.maps.LatLng(17.39795,-89.63775)
+				var Cuello = new google.maps.LatLng(18.07073,-88.603469)
+				var Cerros = new google.maps.LatLng(18.35905,-88.35181)
+				var Datum1 = new google.maps.LatLng(17.95445,-89.0479)
+				var WariCamp = new google.maps.LatLng(17.843775,-88.945602)
+				var Palenque = new google.maps.LatLng(17.484,-92.045833)
+				var Bonampak = new google.maps.LatLng(16.7045,-91.064833)
+				var Yaxchilan = new google.maps.LatLng(16.896167,-90.9675)
+				var Chocoha = new google.maps.LatLng(17.969172,-88.885342)
+				var BetsonBank = new google.maps.LatLng(17.807935,-88.964939)
+				var RioHondo = new google.maps.LatLng(18.117915,-88.96357)
+				var Tipu = new google.maps.LatLng(17.078682,-89.080973)
+				var Xunantunich = new google.maps.LatLng(17.08926,-89.14145)
+				var BartonRamie = new google.maps.LatLng(17.21869,-88.96357)
+				var Pacbitun = new google.maps.LatLng(17.094130,-88.944302)
+				var Hunal = new google.maps.LatLng(17.827923,-88.977312)
+				var DosHombres = new google.maps.LatLng(17.730714,-89.005640)
+				var Holmul = new google.maps.LatLng(17.307329,-89,270655)
+				var BlackmanEddy = new google.maps.LatLng(17.209295,-88.917068)
+				var NochiChe = new google.maps.LatLng(17.799004,-89.028245)
+				var AltardeSacrificios = new google.maps.LatLng(16.47268,-90.5307)
+				var MaaxNa = new google.maps.LatLng(17.764264,-89.064174)
+				var OshLut = new google.maps.LatLng(17.843151,-88.964939)
+				var LasPiedras = new google.maps.LatLng(17.767595,-89.022296)
+				var NojolNah = new google.maps.LatLng(17.947757,-89.035248)
+				var Caracol = new google.maps.LatLng(16.76395,-89.1176)
+				var Kichpanha = new google.maps.LatLng(17.988131,-88.457583)
+				var Copan = new google.maps.LatLng(14.84107,-89.13885)
+				var ElMirador = new google.maps.LatLng(15.766477,-91.850992)
+				var Kaxob = new google.maps.LatLng(18.195596,-88.524653)
+				var Nakbe = new google.maps.LatLng(17.67269,-89.83778)
+				var RioAzul = new google.maps.LatLng(17.781634,-89.282604)
+				var ArroyoNegro = new google.maps.LatLng(17.857182,-89.244538)
+				var LosAlacranes = new google.maps.LatLng(17.969117,-89.211225)
+				var Pushilla = new google.maps.LatLng(16.10464,-89.24288)
+				var Yaxuna = new google.maps.LatLng(20.539967,-88.662724)
+				var ElNaranjo = new google.maps.LatLng(15.70838,-91.18816)
+				var ElCerrito = new google.maps.LatLng(14.81286,-92.10126)
+				var ElPilar = new google.maps.LatLng(17.220326,-89.144015)
+				var BakingPot = new google.maps.LatLng(17.202624,-89.005658)
+				var Tulum = new google.maps.LatLng(20.214317,-87.428767)
+				var Seibal = new google.maps.LatLng(16.53175,-90.08511)
+				var Yaxha = new google.maps.LatLng(16.40039,-91.98201)
+				var RioBec = new google.maps.LatLng(18.33961,-89.3797)
+				var Yalbac = new google.maps.LatLng(17.381423,-88.918239)
+				var Dzibilchultun = new google.maps.LatLng(21.090414,-89.597228)
+				var Kakabish = new google.maps.LatLng(17.812622,-88.728270)
+				var ChanChich = new google.maps.LatLng(17.563519,-89.092847)
+				var Uxmal = new google.maps.LatLng(20.36031,-89.77066)
+				var PlayadelCarmen = new google.maps.LatLng(20.61854,-87.07812)
+				var ChichenItza = new google.maps.LatLng(20.68287,-88.5686)
+				var ElPozito = new google.maps.LatLng(17.936354,-88.680681)
+				
+				var myOptions = {
+					zoom: 10,
+					center: new google.maps.LatLng(17.843775,-88.945602),
+					mapTypeId: google.maps.MapTypeId.TERRAIN,
+					scaleControl: true,
+					scaleControlOptions: {
+					position: google.maps.ControlPosition.TOP},
+					disableDefaultUI: true,
+					mapTypeControl: true,
+					mapTypeControlOptions: {
+					style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+					styles: [
+									{
+										featureType: "water",
+											stylers: [
+												{ visibility: "on" },
+												{ hue: "#3300ff" }
+											]
+									
+									},{
+										
+										featureType: "road.highway",
+											stylers: [
+												{ visibility: "on" },
+												{ hue: "#ff001a" }											
+											]
+              
+									},{
+                
+										featureType: "road.arterial",
+											stylers: [
+												{ visibility: "on" },
+												{ hue: "#fff700" }
+                
+											]
+              
+									},{
+                
+										featureType: "road.local",
+											stylers: [
+												{ visibility: "on" },
+												{ hue: "#ff00f6" }
+											]
+              
+									},{
+                
+										featureType: "administrative",
+											stylers: [
+												{ visibility: "on" },
+												{ hue: "#ff0033" }
+											]
+              
+									},{
+                
+										featureType: "poi",
+											stylers: [
+												{ visibility: "on" },
+												{ hue: "#00ffff" }
+											]
+              
+									},{
+                
+										featureType: "poi",
+											stylers: [
+												{ visibility: "on" }
+											]
+									}
+								]
 
-var Datum2Marker = new google.maps.Marker({
-position: new google.maps.LatLng(17.95465,-89.04795),
-title: "El Palacio Datum 2"
-});
-Datum2Marker.setMap(map);
+							};
+				var map = new google.maps.Map(document.getElementById("map_canvas"),
+					myOptions);
+					var EastLaMilpaMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.831287,-89.018606),
+						title: "La Milpa East"
+						});
+						EastLaMilpaMarker.setMap(map);
 
-var BlueCreekCavesMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.901358,-88.860358),
-title: "Blue Creek Caves"
-});
-BlueCreekCavesMarker.setMap(map);
+					var RioAzulMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.781634,-89.282604),
+						title: "Rio Azul"
+						});
+						RioAzulMarker.setMap(map);
 
-var Marker = new google.maps.Marker({
-position: new google.maps.LatLng(17.901358,-88.860358),
-title: "Blue Creek Caves"
-});
-BlueCreekCavesMarker.setMap(map);
+					var UxmalMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(20.36031,-89.77066),
+						title: "Uxmal"
+						});
+						UxmalMarker.setMap(map);
 
-var OsHlutMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.843151,-88.964939),
-title: "OSHLUT"
-});
-OsHlutMarker.setMap(map);
+					var ThompsonsGroupMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.830373,-89.079562),
+						title: "Thompsons Group"
+						});
+						ThompsonsGroupMarker.setMap(map);
 
-var BentsonBankMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.807935,-88.964939),
-title: "Bentson Bank"
-});
-BentsonBankMarker.setMap(map);
+					var TresBanderasMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.830903,-89.166930),
+						title: "Tres Banderas"
+						});
+						TresBanderasMarker.setMap(map);
 
-var BlueCreekMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.869235,-88.892481),
-title: "Blue Creek Site Core"
-});
-BlueCreekMarker.setMap(map);
+					var TwoHundredMeterRdigeMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.811841,-89.014962),
+						title: "Two Hundred Meter Rdige"
+						});
+						TwoHundredMeterRdigeMarker.setMap(map);
 
-var SayKaMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.805109,-89.033999),
-title: "Say Ka"
-});
-SayKaMarker.setMap(map);
+					var MedicinalTrailMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.839734,-89.013883),
+						title: "Medicinal Trail"
+						});
+						MedicinalTrailMarker.setMap(map);
 
-var HunalMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.827923,-88.977312),
-title: "Hunal"
-});
-HunalMarker.setMap(map);
+					var CourtyardGroupMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.839437,-89.011504),
+						title: "Courtyard Group"
+						});
+						CourtyardGroupMarker.setMap(map);
 
-var AltunHaMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.76394,-88.34705),
-title: "Altun Ha"
-});
-AltunHaMarker.setMap(map);
+					var PlazuelaGroupMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.838917,-89.009422),
+						title: "Plazuela Group"
+						});
+						PlazuelaGroupMarker.setMap(map);
 
-var NojolNahMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.947757,-89.035248),
-title: "Nojol Nah"
-});
-NojolNahMarker.setMap(map);
+					var No281975Marker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.841816,-89.003176),
+						title: "No 281975"
+						});
+						No281975Marker.setMap(map);
 
-var GranCacaoMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.99369, -88.900217),
-title: "Gran Cacao"
-});
-GranCacaoMarker.setMap(map);
+					var No291977Marker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.84170,-88.968079),
+						title: "No 291977"
+						});
+						No291977Marker.setMap(map);
 
-var LamanaiMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.768346,-88.651858),
-title: "Lamanai"
-});
-LamanaiMarker.setMap(map);
+					var GuijarralMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.845385,-88.973433),
+						title: "Guijarral"
+						});
+						GuijarralMarker.setMap(map);
 
-var LaMilpaMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.833781,-89.053392),
-title: "La Milpa"
-});
-LaMilpaMarker.setMap(map);
+					var ElIntensoMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.849252,-88.974325),
+						title: "El Intenso"
+						});
+						ElIntensoMarker.setMap(map);
 
-var IxnohaMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.954499,-89.012643),
-title: "Ixnoha"
-});
-IxnohaMarker.setMap(map);
+					var No2919710Marker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.851334,-88.975515),
+						title: "No 2919710"
+						});
+						No2919710Marker.setMap(map);
 
-var WariCampMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.843775,-88.945602),
-title: "Wari Camp"
-});
-WariCampMarker.setMap(map);
+					var ElArroyoMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.851929,-88.991278),
+						title: "El Arroyo"
+						});
+						ElArroyoMarker.setMap(map);
 
-var ArroyoNegroMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.865666,-89.238692),
-title: "Arroyo Negro"
-});
-ArroyoNegroMarker.setMap(map);
+					var CabezaVerdeMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.787386,-88.974622),
+						title: "Cabeza Verde"
+						});
+						CabezaVerdeMarker.setMap(map);
 
-var BedrockMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.908496,-89.017402),
-title: "Ak Witz/Bedrock"
-});
-BedrockMarker.setMap(map);
+					var GreatSavannaMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.746340,-88.900264),
+						title: "Great Savanna"
+						});
+						GreatSavannaMarker.setMap(map);
 
-var ChocohaMarker = new google.maps.Marker({
-position: new google.maps.LatLng(17.969172,-88.885342),
-title: "Chocoha"
-});
-ChocohaMarker.setMap(map);
+					var No281962Marker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.777273,-89.008232),
+						title: "No 281962"
+						});
+						No281962Marker.setMap(map);
 
-var Datum3Marker = new google.maps.Marker({
-position: new google.maps.LatLng(17.95449,-89.04781),
-title: "El Palacio Datum 3"
-});
-Datum3Marker.setMap(map);
+					var LasAbejasMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.784114,-89.011801),
+						title: "Las Abejas"
+						});
+						LasAbejasMarker.setMap(map);
 
-var Datum1Marker = new google.maps.Marker({
-position: new google.maps.LatLng(17.95445,-89.0479),
-title: "El Palacio Datum 1"
-});
-Datum1Marker.setMap(map);
-}
+					var RB7Marker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.782032,-89.015965),
+						title: "RB7"
+						});
+						RB7Marker.setMap(map);
+
+					var RB6Marker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.783817,-89.015964),
+						title: "RB6"
+						});
+						RB6Marker.setMap(map);
+
+					var AprilFoolsMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.790360,-89.016560),
+						title: "April Fools"
+						});
+						AprilFoolsMarker.setMap(map);
+
+					var MyLadyMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.797499,89.013586),
+						title: "My Lady"
+						});
+						MyLadyMarker.setMap(map);
+
+					var DosBarbarasMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.767458,-89.013289),
+						title: "Dos Barbaras"
+						});
+						DosBarbarasMarker.setMap(map);
+
+					var BeTanChinamMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.743663,-89.020427),
+						title: "Be Tan Chinam"
+						});
+						BeTanChinamMarker.setMap(map);
+
+					var BolsaVerdeMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.753181,-89.030837),
+						title: "Bolsa Verde"
+						});
+						BolsaVerdeMarker.setMap(map);
+
+					var MaaxTeMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.757643,-89.031432),
+						title: "Maax Te"
+						});
+						MaaxTeMarker.setMap(map);
+
+					var  GracelandMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.763591,-89.051062),
+						title: " Graceland"
+						});
+						GracelandMarker.setMap(map);
+
+					var HunPihMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.761212,-89.036488),
+						title: "Hun Pih"
+						});
+						HunPihMarker.setMap(map);
+
+					var PapelOlvidadoMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.763889,-89.042734),
+						title: "Papel Olvidado"
+						});
+						PapelOlvidadoMarker.setMap(map);
+
+					var PlayadelCarmenMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(20.61854,-87.07812),
+						title: "Playa del Carmen"
+						});
+						PlayadelCarmenMarker.setMap(map);
+
+					var ChichenItzaMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(20.68287,-88.5686),
+						title: "Chichen Itza"
+						});
+						ChichenItzaMarker.setMap(map);
+
+					var DzibilchultunMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(21.090414,-89.597228),
+						title: "Dzibilchultun"
+						});
+						DzibilchultunMarker.setMap(map);
+
+					var YalbacMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.381423,-88.918239),
+						title: "Yalbac"
+						});
+						YalbacMarker.setMap(map);
+
+					var RioBecMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(18.33961,-89.3797),
+						title: "Rio Bec"
+						});
+						RioBecMarker.setMap(map);
+
+					var YaxhaMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(16.40039,-91.98201),
+						title: "Yaxha"
+						});
+						YaxhaMarker.setMap(map);
+
+					var SeibalMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(16.53175,-90.08511),
+						title: "Seibal"
+						});
+						SeibalMarker.setMap(map);
+
+					var ArroyoNegroMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.857182,-89.244538),
+						title: "Arroyo Negro"
+						});
+						ArroyoNegroMarker.setMap(map);
+
+					var LosAlacranesMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.969117,-89.211225),
+						title: "Los Alacranes"
+						});
+						LosAlacranesMarker.setMap(map);
+
+					var PushillaMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(16.10464,-89.24288),
+						title: "Pushilla"
+						});
+						PushillaMarker.setMap(map);
+
+					var YaxunaMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(20.539967,-88.662724),
+						title: "Yaxuna"
+						});
+						YaxunaMarker.setMap(map);
+
+					var ElNaranjoMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(15.70838,-91.18816),
+						title: "El Naranjo"
+						});
+						ElNaranjoMarker.setMap(map);
+
+					var ElCerritoMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(14.81286,-92.10126),
+						title: "El Cerrito"
+						});
+						ElCerritoMarker.setMap(map);
+
+					var CopanMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(14.84107,-89.13885),
+						title: "Copan"
+						});
+						CopanMarker.setMap(map);
+
+					var KaxobMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(18.195596,-88.524653),
+						title: "Kaxob"
+						});
+						KaxobMarker.setMap(map);
+
+					var NakbeMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.67269,-89.83778),
+						title: "Nakbe"
+						});
+						NakbeMarker.setMap(map);
+
+					var TulumMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(20.214317,-87.428767),
+						title: "Tulum"
+						});
+						TulumMarker.setMap(map);
+
+					var ElPilarMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.220326,-89.144015),
+						title: "El Pilar"
+						});
+						ElPilarMarker.setMap(map);
+
+					var BakingPotMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.202624,-89.005658),
+						title: "Baking Pot"
+						});
+						BakingPotMarker.setMap(map);
+
+					var ElMiradorMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(15.766477,-91.850992),
+						title: "El Mirador"
+						});
+						ElMiradorMarker.setMap(map);
+
+					var BlueCreekCavesMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.901358,-88.860358),
+						title: "Blue Creek Caves",
+						icon: "http://gmaps-samples.googlecode.com/svn/trunk/markers/blue/marker2.png"
+						});
+						BlueCreekCavesMarker.setMap(map);
+
+					var HolmulMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.307329,-89,270655),
+						title: "Holmul"
+						});
+						HolmulMarker.setMap(map);
+
+					var AltardeSacrificiosMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(16.47268,-90.5307),
+						title: "Altar de Sacrificios"
+						});
+						AltardeSacrificiosMarker.setMap(map);
+
+					var LasPiedrasMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.307329,-89,270655),
+						title: "Las Piedras"
+						});
+						LasPiedrasMarker.setMap(map);
+
+					var BlackmanEddyMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.209295,-88.917068),
+						title: "Blackman Eddy"
+						});
+						BlackmanEddyMarker.setMap(map);
+
+					var NochiCheMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.799004,-89.028245),
+						title: "Nochi Che"
+						});
+						NochiCheMarker.setMap(map);
+
+					var KaminaljuyuMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(14.632833,-90.549),
+						title: "Kaminaljuyu"
+						});
+						KaminaljuyuMarker.setMap(map);
+
+					var MaaxNaMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.764264,-89.064174),
+						title: "Maax Nah"
+						});
+						MaaxNaMarker.setMap(map);
+
+					var UaxactunMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.39795,-89.63775),
+						title: "Uaxactun"
+						});
+						UaxactunMarker.setMap(map);
+
+					var RioHondoMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(18.117915,-88.661763),
+						title: "Rio Hondo"
+						});
+						RioHondoMarker.setMap(map);
+
+					var CuelloMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(18.07073,-88.603469),
+						title: "Cuello"
+						});
+						CuelloMarker.setMap(map);
+
+					var CerrosMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(18.35905,-88.35181),
+						title: "Cerros"
+						});
+						CerrosMarker.setMap(map);
+
+					var SouthLaMilpaMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.801132,-89.047753),
+						title: "La Milpa South"
+						});
+						SouthLaMilpaMarker.setMap(map);
+
+					var PacbitunMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(18.117915,-88.661763),
+						title: "Pacbitun"
+						});
+						PacbitunMarker.setMap(map);
+
+					var PalenqueMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.484,-92.045833),
+						title: "Palenque"
+						});
+						PalenqueMarker.setMap(map);
+
+					var BonampakMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(16.7045,-91.064833),
+						title: "Bonampak"
+						});
+						BonampakMarker.setMap(map);
+
+					var YaxchilanMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(16.896167,-90.9675),
+						title: "Yaxchilan"
+						});
+						YaxchilanMarker.setMap(map);
+
+					var TipuMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.078682,-89.080973),
+						title: "Tipu"
+						});
+						TipuMarker.setMap(map);
+
+					var ChanChichMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.563319,-89.092847),
+						title: "Chan Chich"
+						});
+						ChanChichMarker.setMap(map);
+
+					var DosHombresMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.730714,-89.005640),
+						title: "Dos Hombres"
+						});
+						DosHombresMarker.setMap(map);
+
+					var CaracolMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(16.76395,-89.1176),
+						title: "Caracol"
+						});
+						CaracolMarker.setMap(map);
+
+					var BartonRamieMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.21869,-88.96357),
+						title: "Barton Ramie"
+						});
+						BartonRamieMarker.setMap(map);
+
+					var XunantunichMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.08926,-89.14145),
+						title: "Xunantunich"
+						});
+						XunantunichMarker.setMap(map);
+
+					var ColhaMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.97212,-88.40034),
+						title: "Colha"
+						});
+						ColhaMarker.setMap(map);
+
+					var OshLutMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.843151,-88.964939),
+						title: "Osh LUT"
+						});
+						OshLutMarker.setMap(map);
+
+					var BentsonBankMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.807935,-88.964939),
+						title: "Bentson Bank"
+						});
+						BentsonBankMarker.setMap(map);
+
+					var BlueCreekMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.869235,-88.892481),
+						title: "Blue Creek Site Core",
+						icon: "http://gmaps-samples.googlecode.com/svn/trunk/markers/blue/marker1.png"
+						});
+						BlueCreekMarker.setMap(map);
+
+					var ElPozitoMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.936354,-88.680681),
+						title: "El Pozito"
+						});
+						ElPozitoMarker.setMap(map);
+
+					var SayKaMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.805109,-89.033999),
+						title: "Say Ka"
+						});
+						SayKaMarker.setMap(map);
+
+					var HunalMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.827923,-88.977312),
+						title: "Hunal"
+						});
+						HunalMarker.setMap(map);
+
+					var AltunHaMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.76394,-88.34705),
+						title: "Altun Ha",
+						icon: "http://gmaps-samples.googlecode.com/svn/trunk/markers/red/marker1.png"
+						});
+						AltunHaMarker.setMap(map);
+
+					var NojolNahMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.947757,-89.035248),
+						title: "Nojol Nah",
+						icon: "http://gmaps-samples.googlecode.com/svn/trunk/markers/green/marker2.png"
+						});
+						NojolNahMarker.setMap(map);
+
+					var KichpanhaMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.988131,-88.457583),
+						title: "Kichpanha"
+						});
+						KichpanhaMarker.setMap(map);
+
+					var TikalMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.21732,-89.63163),
+						title: "Tikal"
+						});
+						TikalMarker.setMap(map);
+
+					var GranCacaoMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.79704,-88.898132),
+						title: "Gran Cacao"
+						});
+						GranCacaoMarker.setMap(map);
+
+					var KakabishMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.812622,-88.728270),
+						title: "Kakabish"
+						});
+						KakabishMarker.setMap(map);
+
+					var LamanaiMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.768346,-88.651858),
+						title: "Lamanai",
+						icon: "http://gmaps-samples.googlecode.com/svn/trunk/markers/red/marker2.png"
+						});
+						LamanaiMarker.setMap(map);
+
+					var LaMilpaMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.833781,-89.053392),
+						title: "La Milpa",
+						icon: "http://gmaps-samples.googlecode.com/svn/trunk/markers/red/marker3.png"
+						});
+						LaMilpaMarker.setMap(map);
+
+					var CalakmulMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(18.1045,-89.810333),
+						title: "Calakmul"
+						});
+						CalakmulMarker.setMap(map);
+
+					var IxnohaMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.954499,-89.012643),
+						title: "Ixnoha"
+						});
+						IxnohaMarker.setMap(map);
+
+					var WariCampMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.843775,-88.945602),
+						title: "Wari Camp"
+						});
+						WariCampMarker.setMap(map);
+
+					var BedrockMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.908496,-89.017402),
+						title: "Ak Witz/Bedrock",
+						icon: "http://gmaps-samples.googlecode.com/svn/trunk/markers/green/marker3.png"
+						});
+						BedrockMarker.setMap(map);
+
+					var ChocohaMarker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.969172,-88.885342),
+						title: "Chocoha"
+						});
+						ChocohaMarker.setMap(map);
+
+					var Datum3Marker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.95449,-89.04781),
+						title: "El Palacio Datum 3"
+						});
+						Datum3Marker.setMap(map);
+
+					var Datum1Marker = new google.maps.Marker({
+						position: new google.maps.LatLng(17.95445,-89.0479),
+						title: "El Palacio Datum 1",
+						icon: "http://gmaps-samples.googlecode.com/svn/trunk/markers/green/marker1.png"
+						});
+						Datum1Marker.setMap(map);
+
+						var BedrockInfoContent = '<div class="infoBox">' +
+								'<h2>Ak Witz/Bedrock</h2>' +              
+								'<img src="Bedrock.jpg" width = "200" height = "240" alt = "Bedrock Building"/>' +             
+								'<p>Bedrock is a large site near Nojol Nah, but has very different architectural patterns, notably a lack of benches.  Note well-preserved plaster still on the walls.</p>' 
+								'</div>';
+							var BedrockInfoWindow = new google.maps.InfoWindow({
+								content: BedrockInfoContent
+								});
+								google.maps.event.addListener(BedrockMarker, "click", function() {
+								BedrockInfoWindow.open(map,BedrockMarker);
+								});
+						
+						var Datum1InfoContent = '<div class="infoBox">' +
+								'<h2>El Palacio</h2>' +              
+								'<img src="NN1201_Bu54_2.JPG" width = "200" height = "240" alt = "Nojol Nah Burial 54"/>' +              
+								'<p>Burial 54 on the floor of Str. 4C12, El Palacio.  This large courtyard would have been one of the most important households at Nojol Nah.  Note the sloping skull; prehistoric Maya practiced cranial and dental modification.</p>' 
+								'</div>';
+							var Datum1InfoWindow = new google.maps.InfoWindow({
+								content: Datum1InfoContent
+								});
+								google.maps.event.addListener(Datum1Marker, "click", function() {
+								Datum1InfoWindow.open(map,Datum1Marker);
+								});
+								
+						var NojolNahInfoContent = '<div class="infoBox">' +
+								'<h2>Nojol Nah</h2>' +              
+								'<img src="NNburnreal.JPG" width = "350" height = "240" alt = "NN burned fields"/>' +             
+								'<p>Nojol Nah is a large community with one central temple and several clusters of elite residences, one of which is El Palacio.  Much of the site has been destroyed by modern farming, seen in the picture.  In the foreground are several destroyed buildings and in the background is the portion of the site still under cover of the forest; El Palacio lies about 150 meters north of the treeline.</p>' 
+								'</div>';
+							var NojolNahInfoWindow = new google.maps.InfoWindow({
+								content: NojolNahInfoContent
+								});
+								google.maps.event.addListener(NojolNahMarker, "click", function() {
+								NojolNahInfoWindow.open(map,NojolNahMarker);
+								});
+
+						var BlueCreekCavesInfoContent = '<div class="infoBox">' +
+								'<h2>Sacred Caves of Blue Creek</h2>' +              
+								'<img src="caves.JPG" width = "300" height = "240" alt = "BC Caves"/>' +              
+								'<p>Along the north coast of the Rio Hondo are a series of caves utilized by the prehistoric Maya of the Blue Creek region.  Caves were sacred spaces to these ancient people and current researchers suggest an ideological link between caves and Xibablba, the mythological underworld of the Maya.  Thousands of artifacts and human burials in the caves attest to the sacred nature of these spaces and undoubtedly caves were the loci of specific rituals.</p>' 
+								'</div>';
+							var BlueCreekCavesInfoWindow = new google.maps.InfoWindow({
+								content: BlueCreekCavesInfoContent
+								});
+								google.maps.event.addListener(BlueCreekCavesMarker, "click", function() {
+								BlueCreekCavesInfoWindow.open(map,BlueCreekCavesMarker);
+								});
+								
+						var LaMilpaInfoContent = '<div class="infoBox">' +
+								'<h2>La Milpa</h2>' +              
+								'<img src="lamilpa.jpg" width = "400" height = "240" alt = "La Milpa"/>' +              
+								'<p>La Milpa is another large prehistoric community near the Maya city of Blue Creek.  Researchers from the University of Texas have found very different patterns of dental modification than those seen at Nojol Nah.</p>' 
+								'</div>';
+							var LaMilpaInfoWindow = new google.maps.InfoWindow({
+								content: LaMilpaInfoContent
+								});
+								google.maps.event.addListener(LaMilpaMarker, "click", function() {
+								LaMilpaInfoWindow.open(map,LaMilpaMarker);
+								});
+								
+						var BlueCreekInfoContent = '<div class="infoBox">' +
+								'<h2>Blue Creek: An Ancient Maya City</h2>' +              
+								'<img src="BlueCreek.jpg" width = "240" height = "200" alt = "Tom Lecturing at BC"/>' +              
+								'<p>Dr. Tom Guderjan, President of the Maya Research Program, guides a tour of the prehistoric center at Blue Creek.  Dr. Guderjan began work at the site in 1992, making the MRP the longest continually running archaeological project in the country of Belize.</p>' 
+								'</div>';
+							var BlueCreekInfoWindow = new google.maps.InfoWindow({
+								content: BlueCreekInfoContent
+								});
+								google.maps.event.addListener(BlueCreekMarker, "click", function() {
+								BlueCreekInfoWindow.open(map,BlueCreekMarker);
+								});
+
+						var LamanaiInfoContent = '<div class="infoBox">' +
+								'<h2>Lamanai: One of the Largest Maya Centers in Belize</h2>' +              
+								'<img src="lamanai.jpg" width = "240" height = "200" alt = "Mask at Lamanai"/>' +             
+								'<p>This photo is a frieze of a face of a Maya ruler.  Lamanai, one of the largest prehistoric sites in Belize, was once a major trade hub on the banks of the New River.</p>' 
+								'</div>';
+							var LamanaiInfoWindow = new google.maps.InfoWindow({
+								content: LamanaiInfoContent
+								});
+								google.maps.event.addListener(LamanaiMarker, "click", function() {
+								LamanaiInfoWindow.open(map,LamanaiMarker);
+								});	
+						var AltunHaInfoContent = '<div class="infoBox">' +
+								'<h2>Altun Ha</h2>' +              
+								'<img src="BELIKIN.jpg" width = "300" height = "250"/ alt = "Belikin: the Beer of Belize"/>' +              
+								'<p>If you drink beer in Belize, it will probably be Belikin.<br/> A little known fact is that the temple shown on the front of the Belikin bottle is a depiction of the main temple at Altun Ha.</p>' 
+								'</div>';
+							var AltunHaInfoWindow = new google.maps.InfoWindow({
+								content: AltunHaInfoContent
+								});
+								google.maps.event.addListener(AltunHaMarker, "click", function() {
+								AltunHaInfoWindow.open(map,AltunHaMarker);
+								});
+						}		
+				
 </script>
 								
 			
