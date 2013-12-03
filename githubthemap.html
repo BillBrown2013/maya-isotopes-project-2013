@@ -30,12 +30,7 @@
 				{isBaseLayer: true});
 						map.addLayer(baseLayer);								
        
-			geology = new OpenLayers.Layer.WMS(		
-				'Rock Types',
-				'http://mrdata.usgs.gov/services/worldgeol',
-				{layers:'geology', transparent:true},		
-				{visibility: false, opacity: .5});
-						map.addLayer(geology);	
+			
 					
 			labels = new OpenLayers.Layer.WMS(
 				'Location Labels',
@@ -45,18 +40,9 @@
 				{visibility: false, opacity:0.5});
 						map.addLayer(labels);
 					
-			contacts = new OpenLayers.Layer.WMS(
-				'Lithologic Contacts',
-				'http://mrdata.usgs.gov/services/worldgeol',
-				{layers:'contacts', transparent:true}, {visibility:false});
-						map.addLayer(contacts);
+			
 					
-			landsat = new OpenLayers.Layer.WMS(
-				'Landsat Image',
-				'http://129.24.63.138:8080/geoserver/BillBrown_wbrown/wms',			
-				{layers:'BillBrown_wbrown:landsat_img2', transparent:true},
-				{isBaseLayer: true});
-						map.addLayer(landsat);
+		
 			
 			sites = new OpenLayers.Layer.WMS(
 				'All Known Maya Sites',
@@ -67,29 +53,11 @@
 			
 			
 						
-			bzewatarea = new OpenLayers.Layer.WMS(
-				'Water Polygons Belize',
-				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
-				{layers:'BillBrown_final_exam:BLZ_water_areas_dcw',
-				transparent: true}, {visibility:false},
-				{isBaseLayer: false});
-						map.addLayer(bzewatarea);
+			
 						
-			bzewatline = new OpenLayers.Layer.WMS(
-				'Streams in Belize',
-				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
-				{layers:'BillBrown_final_exam:BLZ_water_lines_dcw',
-				transparent: true}, {visibility:false},
-				{isBaseLayer: false});
-						map.addLayer(bzewatline);
+			
 						
-			guatwatarea = new OpenLayers.Layer.WMS(
-				'Water Polygons Guatemala',
-				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
-				{layers:'BillBrown_final_exam:GTM_water_areas_dcw',
-				transparent: true}, {visibility:false},
-				{isBaseLayer: false});
-						map.addLayer(guatwatarea);	
+			
 
 			guatwatline = new OpenLayers.Layer.WMS(
 				'Streams in Guatemala',
@@ -231,10 +199,10 @@
 				Layers.pop = new OpenLayers.Layer.Vector("Guatemala KML", {
 					projection: map.displayProjection,
 					visibility: false,
-					style: kmlStyle,
+					
 					strategies: [new OpenLayers.Strategy.Fixed()],
 					protocol: new OpenLayers.Protocol.HTTP({
-					url: "gpop.kml",
+					url: "doc.kml",
 					format: new OpenLayers.Format.KML({
 					extractAttributes: true
 							})
