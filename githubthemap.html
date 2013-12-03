@@ -29,6 +29,13 @@
 				{isBaseLayer: true});
 						map.addLayer(bmngLayer);
 			
+			base1= new OpenLayers.Layer.WMS(
+				'Alternate Base Layer',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',				
+				{layers:'BillBrown_final_exam:HYP_HR_SR_OB_DR', transparent:true},
+				{isBaseLayer: true});
+						map.addLayer(base1);
+			
 			baseLayer = new OpenLayers.Layer.WMS(			
 				'Open Layer Base Map',
 				'http://vmap0.tiles.osgeo.org/wms/vmap0',
