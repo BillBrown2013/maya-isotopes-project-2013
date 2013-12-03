@@ -21,7 +21,13 @@
 			});
 			
 //==========CREATE LAYERS FIRST MAP==============		
-			
+			bmngLayer = new OpenLayers.Layer.WMS(							
+				"Blue Marble Base Map",
+				"http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?",
+				{layers:
+				"bmng8km,bmng2km,bmng500mA1,bmng500mA2,bmng500mB1,bmng500mB2,bmng500mC1,bmng500mC2,bmng500mD1,bmng500mD2",version: '1.3.0', transparent: 'TRUE'},
+				{isBaseLayer: true});
+						map.addLayer(bmngLayer);
 			
 			baseLayer = new OpenLayers.Layer.WMS(			
 				'Open Layer Base Map',
