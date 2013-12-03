@@ -44,12 +44,7 @@
 					
 		
 			
-			sites = new OpenLayers.Layer.WMS(
-				'All Known Maya Sites',
-				'http://129.24.63.138:8080/geoserver/BillBrown_wbrown/wms',			
-				{layers:'BillBrown_wbrown:arch_sites', transparent:true}, {visibility:false},
-				{isBaseLayer: false});
-						map.addLayer(sites);
+			
 			
 			
 						
@@ -59,45 +54,7 @@
 						
 			
 
-			guatwatline = new OpenLayers.Layer.WMS(
-				'Streams in Guatemala',
-				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
-				{layers:'BillBrown_final_exam:GTM_water_lines_dcw',
-				transparent: true}, {visibility:false},
-				{isBaseLayer: false});
-						map.addLayer(guatwatline);	
-						
-			hondwatarea = new OpenLayers.Layer.WMS(
-				'Water Polygons Honduras',
-				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
-				{layers:'BillBrown_final_exam:HND_water_areas_dcw',
-				transparent: true}, {visibility:false},
-				{isBaseLayer: false});
-						map.addLayer(hondwatarea);	
-
-			hondwatline = new OpenLayers.Layer.WMS(
-				'Streams in Honduras',
-				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
-				{layers:'BillBrown_final_exam:HND_water_lines_dcw',
-				transparent: true}, {visibility:false},
-				{isBaseLayer: false});
-						map.addLayer(hondwatline);
-						
-			mexwatarea = new OpenLayers.Layer.WMS(
-				'Water Polygons Mexico',
-				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
-				{layers:'BillBrown_final_exam:MEX_water_areas_dcw',
-				transparent: true}, {visibility:false},
-				{isBaseLayer: false});
-						map.addLayer(mexwatarea);	
-						
-			mexwatline = new OpenLayers.Layer.WMS(
-				'Streams in Mexico',
-				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
-				{layers:'BillBrown_final_exam:MEX_water_lines_dcw',
-				transparent: true}, {visibility:false},
-				{isBaseLayer: false});
-						map.addLayer(mexwatline);	
+			
 						
 			coast = new OpenLayers.Layer.WMS(
 				'Global Coastlines',
@@ -107,13 +64,7 @@
 				{isBaseLayer: false});
 						map.addLayer(coast);
 						
-			structures = new OpenLayers.Layer.WMS(
-				'Structures in Blue Creek',
-				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
-				{layers:'BillBrown_final_exam:structures',
-				transparent: true},
-				{isBaseLayer: false});
-						map.addLayer(structures);
+			
 						
 			gmin = new OpenLayers.Layer.WMS(
 				'Distribution of Guatemalan Jade',
@@ -123,13 +74,7 @@
 				{isBaseLayer: false});
 					map.addLayer(gmin);
 			
-			wms_water_depth = new OpenLayers.Layer.WMS(
-				'Water Depth Contours',
-				'http://labs.metacarta.com/wms/vmap0',
-				{layers: 'depthcontour',
-				transparent: true},
-				{opacity:.8});
-						map.addLayer(wms_water_depth);
+			
 
 //==========CREATE VECTOR FEATURES AND LAYERS FIRST MAP==============
 
