@@ -83,7 +83,64 @@
 			
 			
 
+//==========CREATE VECTOR FEATURES AND LAYERS FIRST MAP==============
 
+			//==========CREATE VECTOR LAYERS FIRST MAP==============			
+				Layers.localFeatures1 = new OpenLayers.Layer.Vector('Source of Olmec Blue Jade');
+					map.addLayer(Layers.localFeatures1);
+			
+				Layers.polyg = new OpenLayers.Layer.Vector('Source of Motagua Green Jade');
+					map.addLayer(Layers.polyg);
+			
+				Layers.sites = new OpenLayers.Layer.Vector('Major Archaeological Sites');
+					map.addLayer(Layers.sites);
+				
+			//==========CREATE STYLES FOR VECTOR LAYERS FIRST MAP==============
+				myRedPointStyle = {pointRadius: 4, fillColor: "#CC0000", fillOpacity: .5, strokeOpacity: .5}
+				mbStyle = {fillColor: "yellow", fillOpacity: .9, strokeOpacity: .5, strokeColor: "yellow"}
+				ypStyle1 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Tikal"}
+				ypStyle2 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Kaminaljuyu"}
+				ypStyle3 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Uaxactun"}
+				ypStyle4 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Calakmul"}
+				ypStyle5 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Nojol Nah"}
+				ypStyle6 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "El Mirador"}
+			
+			//==========CREATE VECTOR GEOMETRIES FIRST MAP==============
+				var point = new OpenLayers.Geometry.Point (-89.821383, 14.827881);
+				var tikal = new OpenLayers.Geometry.Point (-89.63163, 17.21732);
+				var kaminaljuyu = new OpenLayers.Geometry.Point (-90.549, 14.632833);
+				var uaxactun = new OpenLayers.Geometry.Point (-89.63775, 17.39795);
+				var calakmul = new OpenLayers.Geometry.Point (-89.810333, 18.1045);  
+				var nn = new OpenLayers.Geometry.Point (-89.035248, 17.947757); 
+				var emd = new OpenLayers.Geometry.Point (-91.850992, 15.766477);  
+			
+			//==========CREATE POLYGON FOR MOTAGUA GREEN JADE SOURCE FIRST MAP==============
+				var ppoints = [
+				new OpenLayers.Geometry.Point(-89.995164, 14.955405),
+				new OpenLayers.Geometry.Point(-89.692805, 15.053435),
+				new OpenLayers.Geometry.Point(-89.712800, 14.99954),
+				new OpenLayers.Geometry.Point(-89.919042, 14.932275)];					
+				var ring = new OpenLayers.Geometry.LinearRing(ppoints);
+				var polygon = new OpenLayers.Geometry.Polygon([ring])
+				var pfeature = new OpenLayers.Feature.Vector(polygon,null,mbStyle);
+			
+			//==========CREATE VECTOR FEATURES FIRST MAP==============
+				var feature_point = new OpenLayers.Feature.Vector(point,name,myRedPointStyle);
+				var feature_tikal = new OpenLayers.Feature.Vector(tikal,null,ypStyle1);
+				var feature_kaminaljuyu = new OpenLayers.Feature.Vector(kaminaljuyu,null,ypStyle2);
+				var feature_uaxactun = new OpenLayers.Feature.Vector(uaxactun,null,ypStyle3);
+				var feature_calakmul = new OpenLayers.Feature.Vector(calakmul,null,ypStyle4);
+				var feature_nn = new OpenLayers.Feature.Vector(nn,null,ypStyle5);
+				var feature_emd = new OpenLayers.Feature.Vector(emd,null,ypStyle6);
+			
+			//==========ADD VECTOR LAYERS FIRST MAP==============	
+				Layers["localFeatures1"].addFeatures([feature_point]);
+				Layers["polyg"].addFeatures([pfeature]);
+				Layers["sites"].addFeatures([feature_tikal,feature_kaminaljuyu,feature_uaxactun,feature_calakmul,feature_nn,feature_emd]);		
+	
+			//==========CREATE VECTOR EDITOR CONTROLS FIRST MAP==============
+				var vector_layer = new OpenLayers.Layer.Vector(
+					'Editable Vectors');
 
 	//==========CREATE KML LAYERS FIRST MAP==============
 	
@@ -110,7 +167,7 @@
 					visibility: false,				
 					strategies: [new OpenLayers.Strategy.Fixed()],
 					protocol: new OpenLayers.Protocol.HTTP({
-					url: "doc.kml",
+					url: "kml\test\doc.kml",
 					format: new OpenLayers.Format.KML({
 					extractStyles: true,
 					extractAttributes: true
