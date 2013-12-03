@@ -21,43 +21,7 @@
 			});
 			
 //==========CREATE LAYERS FIRST MAP==============		
-			bmngLayer = new OpenLayers.Layer.WMS(							
-				"Blue Marble Base Map",
-				"http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?",
-				{layers:
-				"bmng8km,bmng2km,bmng500mA1,bmng500mA2,bmng500mB1,bmng500mB2,bmng500mC1,bmng500mC2,bmng500mD1,bmng500mD2",version: '1.3.0', transparent: 'TRUE'},
-				{isBaseLayer: true});
-						map.addLayer(bmngLayer);
 			
-			base2= new OpenLayers.Layer.WMS(
-				'Gray Earth',
-				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',				
-				{layers:'BillBrown_final_exam:GRAY_HR_SR', transparent:true},
-				{isBaseLayer: true});
-						map.addLayer(base2);
-						
-			base1= new OpenLayers.Layer.WMS(
-				'Alternate Base Layer',
-				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',				
-				{layers:'BillBrown_final_exam:HYP_HR_SR_OB_DR', transparent:true},
-				{isBaseLayer: true});
-						map.addLayer(base1);
-			
-			
-			bmngLayer = new OpenLayers.Layer.WMS(							
-				"Blue Marble Base Map",
-				"http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?",
-				{layers:
-				"bmng8km,bmng2km,bmng500mA1,bmng500mA2,bmng500mB1,bmng500mB2,bmng500mC1,bmng500mC2,bmng500mD1,bmng500mD2",version: '1.3.0', transparent: 'TRUE'},
-				{isBaseLayer: true});
-						map.addLayer(bmngLayer);
-									
-			bmngLayer2 = new OpenLayers.Layer.WMS(			
-				'BMNG Vegetation',
-				'http://129.24.63.138:8080/geoserver/BillBrown_wbrown/wms',
-				{layers: 'BillBrown_wbrown:bmng8km'},
-				{isBaseLayer: true});
-						map.addLayer(bmngLayer2);
 			
 			baseLayer = new OpenLayers.Layer.WMS(			
 				'Open Layer Base Map',
