@@ -187,21 +187,20 @@
 					});
 						map.addLayer(ph)
 						
-						
-						
-				mountains = new OpenLayers.Layer.Vector("Maya Mountains Biology KML", {
+										
+				sites = new OpenLayers.Layer.Vector("Maya Sites", {
 					projection: map.displayProjection,
 					visibility: false,					
 					strategies: [new OpenLayers.Strategy.Fixed()],
 					protocol: new OpenLayers.Protocol.HTTP({
-					url: "mizbiz.kml",
+					url: "sites.kml",
 					format: new OpenLayers.Format.KML({
 					extractStyles: true,
 					extractAttributes: true
 							})
 						})
 					});
-						map.addLayer(mountains)
+						map.addLayer(sites)
 			
 			//==========ADD MAP CONTROLS FIRST MAP==============		
 				map.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
