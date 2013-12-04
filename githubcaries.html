@@ -7,8 +7,8 @@
 					<script type="text/javascript">   
 		
 //=========DEFINE GLOBAL VARIABLES==============		
-		var lon = -89.0;
-		var lat = 15.0;
+		var lon = -90.0;
+		var lat = 16.7;
 		var zoom = 6;
 		var map, map_2;
 		var Layers = new Object ();
@@ -42,8 +42,7 @@
 				{layers: 'basic'},
 				{isBaseLayer: true});
 						map.addLayer(baseLayer);								
-       
-					
+				
 			labels = new OpenLayers.Layer.WMS(
 				'Location Labels',
 				'http://vmap0.tiles.osgeo.org/wms/vmap0',
@@ -52,71 +51,14 @@
 				{visibility: false, opacity:0.5});
 						map.addLayer(labels);
 					
-						
-			
-
-
-//==========CREATE VECTOR FEATURES AND LAYERS FIRST MAP==============
-
-			//==========CREATE VECTOR LAYERS FIRST MAP==============			
-	
-				
-				
-			//==========CREATE STYLES FOR VECTOR LAYERS FIRST MAP==============
-				myRedPointStyle = {pointRadius: 4, fillColor: "#CC0000", fillOpacity: .5, strokeOpacity: .5}
-				mbStyle = {fillColor: "yellow", fillOpacity: .9, strokeOpacity: .5, strokeColor: "yellow"}
-				ypStyle1 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Tikal"}
-				ypStyle2 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Kaminaljuyu"}
-				ypStyle3 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Uaxactun"}
-				ypStyle4 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Calakmul"}
-				ypStyle5 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Nojol Nah"}
-				ypStyle6 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "El Mirador"}
-			
-			//==========CREATE VECTOR GEOMETRIES FIRST MAP==============
-				var point = new OpenLayers.Geometry.Point (-89.821383, 14.827881);
-				var tikal = new OpenLayers.Geometry.Point (-89.63163, 17.21732);
-				var kaminaljuyu = new OpenLayers.Geometry.Point (-90.549, 14.632833);
-				var uaxactun = new OpenLayers.Geometry.Point (-89.63775, 17.39795);
-				var calakmul = new OpenLayers.Geometry.Point (-89.810333, 18.1045);  
-				var nn = new OpenLayers.Geometry.Point (-89.035248, 17.947757); 
-				var emd = new OpenLayers.Geometry.Point (-91.850992, 15.766477);  
-			
-			//==========CREATE POLYGON FOR MOTAGUA GREEN JADE SOURCE FIRST MAP==============
-				var ppoints = [
-				new OpenLayers.Geometry.Point(-89.995164, 14.955405),
-				new OpenLayers.Geometry.Point(-89.692805, 15.053435),
-				new OpenLayers.Geometry.Point(-89.712800, 14.99954),
-				new OpenLayers.Geometry.Point(-89.919042, 14.932275)];					
-				var ring = new OpenLayers.Geometry.LinearRing(ppoints);
-				var polygon = new OpenLayers.Geometry.Polygon([ring])
-				var pfeature = new OpenLayers.Feature.Vector(polygon,null,mbStyle);
-			
-			//==========CREATE VECTOR FEATURES FIRST MAP==============
-				var feature_point = new OpenLayers.Feature.Vector(point,name,myRedPointStyle);
-				var feature_tikal = new OpenLayers.Feature.Vector(tikal,null,ypStyle1);
-				var feature_kaminaljuyu = new OpenLayers.Feature.Vector(kaminaljuyu,null,ypStyle2);
-				var feature_uaxactun = new OpenLayers.Feature.Vector(uaxactun,null,ypStyle3);
-				var feature_calakmul = new OpenLayers.Feature.Vector(calakmul,null,ypStyle4);
-				var feature_nn = new OpenLayers.Feature.Vector(nn,null,ypStyle5);
-				var feature_emd = new OpenLayers.Feature.Vector(emd,null,ypStyle6);
-			
-			//==========ADD VECTOR LAYERS FIRST MAP==============	
-			
-				
-					
-	
 			//==========CREATE VECTOR EDITOR CONTROLS FIRST MAP==============
 				var vector_layer = new OpenLayers.Layer.Vector(
 					'Editable Vectors');
-
-	//==========CREATE KML LAYERS FIRST MAP==============
 	
 			//==========CREATE KML STYLE FIRST MAP==============
 				kmlStyle = {fillColor: "#0000ff", fillOpacity: .2, strokeOpacity: .5, strokeColor: "#0000ff"}	
 				
 			//==========CREATE KML LAYERS FIRST MAP==============		
-				
-																						
 				caries = new OpenLayers.Layer.Vector("Percentage of Burials with Caries", {
 					projection: map.displayProjection,
 					visibility: true,				
@@ -130,8 +72,6 @@
 						})
 					});
 						map.addLayer(caries)
-						
-				
 			
 			//==========ADD MAP CONTROLS FIRST MAP==============		
 				map.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
@@ -141,19 +81,16 @@
 				map.addControl(new OpenLayers.Control.PanZoomBar() );
 				map.addControl(new OpenLayers.Control.Scale() );
 				map.addControl(new OpenLayers.Control.ScaleLine() );	
-			
 					
 			//==========CENTER THE FIRST MAP==============
 				map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
 					
 		
-//==========CREATE SECOND MAP==============		
-	map_2 = new OpenLayers.Map('map_2', {});				
-	var baseLayer2 = base1.clone();				
+			//==========CREATE SECOND MAP==============		
+				map_2 = new OpenLayers.Map('map_2', {});				
+				var baseLayer2 = base1.clone();				
 						map_2.addLayer(baseLayer2);		 
 			
-		//==========CREATE MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============			
-		
 			//==========CREATE LAYER FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============	
 				Layers.localFeatures2 = new OpenLayers.Layer.Vector('The Study Area');
 						map_2.addLayer(Layers.localFeatures2);
@@ -194,10 +131,11 @@
 				
 				body 
 					{height: 100%; 
-					margin: 2px; padding: 2px; 
+					margin: 2px; 
+					padding: 2px; 
 					text-align: justify;	
-					background-color: black;}
-								
+					background-color: black;}	
+					
 				a:link {color: white; text-decoration:none;}
 				
 				a:visited {color: darkgray;}
@@ -220,15 +158,24 @@
 					text-align: justify;
 					padding-left: 3em;
 					padding-right: 3em;
-					margin-top:700px;
+					margin-top:500px;
 					padding-top:1.5em;
 					margin-bottom: 2em;}
 				
+				#introb
+					{color:lightgray; 
+					font-size:20px; 
+					font-family: arial,sans-serif; 
+					text-align: center;
+					padding-left: 3em;
+					padding-right: 3em;}
+									
 				a:link,a:visited 
-					{display:block; width:170px; 
+					{display:block; 
+					width:170px; 
 					font-weight:bold; 
 					color:white; 
-					background-color:#A80000; 
+					background-color:#A80000;
 					text-align:center; 
 					padding:4px; 
 					text-decoration:none; 
@@ -239,7 +186,8 @@
 				#b 
 					{display:block; 
 					font-weight:bold; 
-					color:white; background-color:#A80000; 
+					color:white; 
+					background-color:#A80000; 
 					font-family:arial; 
 					font-size: 18px; 
 					margin-left:45%; 
@@ -252,44 +200,41 @@
 
 				#header img {position:absolute; left:10px; top:10px;}																																																												
 				  
-				h1 
-					{color: #A80000;	
+				h1 {color: #A80000;	
 					background-color: black; 
 					font-family: arial; 
-					font-size: 46px; 
-					text-align: center;
+					font-size: 42px; 
+					text-align: center; 
 					margin-bottom:0; 
-					clear:left; 
-					padding-bottom:4em; 
-					padding-top:2em;}
-
+					clear:left;} 
+					 
 				address 
 					{color:#A80000; 
 					clear: left; 
-					text-align: center;
+					text-align:center; 
 					padding-top: 36px; 
 					font-family: courier,monospace; 
 					font-size: 24px; 
 					font-weight: bold;}
 				
-				#map 
-					{height: 650px; 
-					float: left;
+				#map {height: 500px; float: left;
 					margin-top:500px;
 					width: 1100px;
 					background-color: white;
-					border-style: outset; border-width: thick; border-color:#A80000;
+					border-style: outset; 
+					border-width: thick; 
+					border-color:#A80000;
 					padding-right: 3em;}
 				
 				#map_2 
-					{height: 650px; 
-					float: left; 
+					{height: 500px; 
+					float: left;
 					width:450px; 
 					padding-left: 5em; 
 					padding-right: 5em; 
 					padding-bottom: 25em; 
 					margin-left: 30%; 
-					border-style: outset; 
+					border-style: outset;
 					border-width: thick; 
 					border-color:#A80000; 
 					margin-top:500px;}
@@ -304,7 +249,6 @@
 					bottom: 5px !important}
 				
 				.olControlScaleLine {background: white; color:black;}
-				
 		 
 			</style>
  </head>
@@ -322,12 +266,12 @@
 			<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubmayamapinfo.html">References</a></li>
 		</ul>
 		
-				<div id="header"><img src="maya2.png" width="300" height="350" alt="maya2"/><h1>Caries: A "Disease Process"</h1></div>		
-			
+				<p id="introb"><b>GEOGRAPHY 591 <i>PROBLEMS</i><br>FALL 2013</b></p>
+				<div id="header"><img src="maya2.png" width="150" height="200" alt="maya2"/><h1>Diet, Health, and Stature</h1></div>	
 					<div id='map'></div>
-				
 						<div id='map_2'></div>
-							<p id="intro"><b>FALL 2013 GEOGRAPHY 591 PROBLEMS CLASS</b><br> <i>BACKGROUND: Agriculture, Tooth Decay, and Prehistoric Health</i><br></br><br>Plaque and Plaque-Related Disease 
+							<p id="intro"><i>DIET</i><br>
+							BACKGROUND: Agriculture, Tooth Decay, and Prehistoric Health</i><br></br><br>Plaque and Plaque-Related Disease 
 Plaque consists of micro-organisms that accumulate in the mouth, surrounded by a matrix of the bodies of the organisms themselves and from proteins in the saliva (Buikstra and Ubelaker 1994:56; Roberts and Manchester 1995:55). Food remains and plant phytoliths are frequently trapped within the calculus, and thus calcified plaque can also yield information on past diets. The surfaces of all teeth contain plaque; when the plaque mineralizes it forms tartar, or dental calculus. Concentrations of bacteria and other microorganisms next to the gums leads to an immune response, and the pattern of inflammation of the gums and subsequent healing is lifelong, and leads to the loss of tooth and bone tissue, loss of support for the affected teeth, and remodeling of the bone supporting the teeth resulting in a progressive decrease in the height of the alveoli and eventually the loss of teeth (Hillson 2000:258). Concentrations of microorganisms also leads to the production of organic acids that result in localized demineralization of the tooth, producing carious lesions (Hillson 2000:259). 
 
 Sugars, particularly sucrose, have been blamed as the main factor in caries frequencies (Navia 1994; Sheiham 1983). Sucrose in the diet speeds up the accumulation rate of these micro-organisms in the mouth, leading to more plaque buildup. Plaque becomes mineralized into calculus; two types are identified, subgingival and supragingival calculus. Subgingival calculus occurs below the gums and is commonly present on tooth roots. The below-gum calculus in harder than the supragingival variety and is usually black or green in color (Roberts and Manchester 1995:55). Supragingival calculus is more common than subgingival and is thicker and brown or grey in color (Roberts and Manchester 1995:55). The teeth nearest the salivary glands (the lingual aspects of the lower incisors and the buccal side of the upper molars) are the most frequent sites for plaque and calculus accumulation (Roberts and Manchester 1995:55).
