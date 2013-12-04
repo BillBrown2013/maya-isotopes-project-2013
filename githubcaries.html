@@ -6,6 +6,268 @@
 				<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 					<script type="text/javascript">   
 			</script>
+			//=========DEFINE GLOBAL VARIABLES==============		
+		var lon = -89.0;
+		var lat = 15.0;
+		var zoom = 6;
+		var map, map_2;
+		var Layers = new Object ();
+		var landsatLayer, bmngLayer;
+		
+//==========INITIALIZATION FUNCTION==============		
+		function init(){
+			map = new OpenLayers.Map('map',
+			{numZoomLevels: 20
+			});
+			
+//==========CREATE LAYERS FIRST MAP==============		
+			bmngLayer = new OpenLayers.Layer.WMS(							
+				"Blue Marble Base Map",
+				"http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?",
+				{layers:
+				"bmng8km,bmng2km,bmng500mA1,bmng500mA2,bmng500mB1,bmng500mB2,bmng500mC1,bmng500mC2,bmng500mD1,bmng500mD2",version: '1.3.0', transparent: 'TRUE'},
+				{isBaseLayer: true});
+						map.addLayer(bmngLayer);
+			
+			base1= new OpenLayers.Layer.WMS(
+				'Alternate Base Layer',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',				
+				{layers:'BillBrown_final_exam:HYP_HR_SR_OB_DR', transparent:true},
+				{isBaseLayer: true});
+						map.addLayer(base1);
+			
+			baseLayer = new OpenLayers.Layer.WMS(			
+				'Open Layer Base Map',
+				'http://vmap0.tiles.osgeo.org/wms/vmap0',
+				{layers: 'basic'},
+				{isBaseLayer: true});
+						map.addLayer(baseLayer);								
+       
+			
+					
+			labels = new OpenLayers.Layer.WMS(
+				'Location Labels',
+				'http://vmap0.tiles.osgeo.org/wms/vmap0',
+				{layers: 'clabel,ctylabel,statelabel',
+				transparent: true},
+				{visibility: false, opacity:0.5});
+						map.addLayer(labels);
+					
+			
+					
+		
+			
+			
+			
+			
+						
+			
+						
+			
+						
+			
+
+			
+						
+			coast = new OpenLayers.Layer.WMS(
+				'Global Coastlines',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
+				{layers:'BillBrown_final_exam:ne_10m_coastline',
+				transparent: true},
+				{isBaseLayer: false});
+						map.addLayer(coast);
+						
+			
+						
+			
+			
+			
+
+//==========CREATE VECTOR FEATURES AND LAYERS FIRST MAP==============
+
+			//==========CREATE VECTOR LAYERS FIRST MAP==============			
+				
+			
+				
+			
+				
+				
+			//==========CREATE STYLES FOR VECTOR LAYERS FIRST MAP==============
+				myRedPointStyle = {pointRadius: 4, fillColor: "#CC0000", fillOpacity: .5, strokeOpacity: .5}
+				mbStyle = {fillColor: "yellow", fillOpacity: .9, strokeOpacity: .5, strokeColor: "yellow"}
+				ypStyle1 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Tikal"}
+				ypStyle2 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Kaminaljuyu"}
+				ypStyle3 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Uaxactun"}
+				ypStyle4 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Calakmul"}
+				ypStyle5 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Nojol Nah"}
+				ypStyle6 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "El Mirador"}
+			
+			//==========CREATE VECTOR GEOMETRIES FIRST MAP==============
+				var point = new OpenLayers.Geometry.Point (-89.821383, 14.827881);
+				var tikal = new OpenLayers.Geometry.Point (-89.63163, 17.21732);
+				var kaminaljuyu = new OpenLayers.Geometry.Point (-90.549, 14.632833);
+				var uaxactun = new OpenLayers.Geometry.Point (-89.63775, 17.39795);
+				var calakmul = new OpenLayers.Geometry.Point (-89.810333, 18.1045);  
+				var nn = new OpenLayers.Geometry.Point (-89.035248, 17.947757); 
+				var emd = new OpenLayers.Geometry.Point (-91.850992, 15.766477);  
+			
+			//==========CREATE POLYGON FOR MOTAGUA GREEN JADE SOURCE FIRST MAP==============
+				var ppoints = [
+				new OpenLayers.Geometry.Point(-89.995164, 14.955405),
+				new OpenLayers.Geometry.Point(-89.692805, 15.053435),
+				new OpenLayers.Geometry.Point(-89.712800, 14.99954),
+				new OpenLayers.Geometry.Point(-89.919042, 14.932275)];					
+				var ring = new OpenLayers.Geometry.LinearRing(ppoints);
+				var polygon = new OpenLayers.Geometry.Polygon([ring])
+				var pfeature = new OpenLayers.Feature.Vector(polygon,null,mbStyle);
+			
+			//==========CREATE VECTOR FEATURES FIRST MAP==============
+				var feature_point = new OpenLayers.Feature.Vector(point,name,myRedPointStyle);
+				var feature_tikal = new OpenLayers.Feature.Vector(tikal,null,ypStyle1);
+				var feature_kaminaljuyu = new OpenLayers.Feature.Vector(kaminaljuyu,null,ypStyle2);
+				var feature_uaxactun = new OpenLayers.Feature.Vector(uaxactun,null,ypStyle3);
+				var feature_calakmul = new OpenLayers.Feature.Vector(calakmul,null,ypStyle4);
+				var feature_nn = new OpenLayers.Feature.Vector(nn,null,ypStyle5);
+				var feature_emd = new OpenLayers.Feature.Vector(emd,null,ypStyle6);
+			
+			//==========ADD VECTOR LAYERS FIRST MAP==============	
+			
+				
+					
+	
+			//==========CREATE VECTOR EDITOR CONTROLS FIRST MAP==============
+				var vector_layer = new OpenLayers.Layer.Vector(
+					'Editable Vectors');
+
+	//==========CREATE KML LAYERS FIRST MAP==============
+	
+			//==========CREATE KML STYLE FIRST MAP==============
+				kmlStyle = {fillColor: "#0000ff", fillOpacity: .2, strokeOpacity: .5, strokeColor: "#0000ff"}	
+				
+			//==========CREATE KML LAYERS FIRST MAP==============		
+				Layers.pop = new OpenLayers.Layer.Vector("Guatemala KML", {
+					projection: map.displayProjection,
+					visibility: false,
+					
+					strategies: [new OpenLayers.Strategy.Fixed()],
+					protocol: new OpenLayers.Protocol.HTTP({
+					url: "gpop.kml",
+					format: new OpenLayers.Format.KML({
+					extractAttributes: true
+							})
+						})
+					});
+						map.addLayer(Layers.pop)
+																						
+				caries = new OpenLayers.Layer.Vector("Percentage of Burials with Caries", {
+					projection: map.displayProjection,
+					visibility: false,				
+					strategies: [new OpenLayers.Strategy.Fixed()],
+					protocol: new OpenLayers.Protocol.HTTP({
+					url: "caries.kml",
+					format: new OpenLayers.Format.KML({
+					extractStyles: true,
+					extractAttributes: true
+							})
+						})
+					});
+						map.addLayer(caries)
+						
+				ph = new OpenLayers.Layer.Vector("Percent of Burials with Porotic Hyperostosis", {
+					projection: map.displayProjection,
+					visibility: false,				
+					strategies: [new OpenLayers.Strategy.Fixed()],
+					protocol: new OpenLayers.Protocol.HTTP({
+					url: "ph.kml",
+					format: new OpenLayers.Format.KML({
+					extractStyles: true,
+					extractAttributes: true
+							})
+						})
+					});
+						map.addLayer(ph)
+						
+							contour = new OpenLayers.Layer.Vector("Belize Contours", {
+					projection: map.displayProjection,
+					visibility: false,				
+					strategies: [new OpenLayers.Strategy.Fixed()],
+					protocol: new OpenLayers.Protocol.HTTP({
+					url: "contour.kml",
+					format: new OpenLayers.Format.KML({
+					extractStyles: true,
+					extractAttributes: true
+							})
+						})
+					});
+						map.addLayer(contour)
+										
+				sites = new OpenLayers.Layer.Vector("Maya Sites", {
+					projection: map.displayProjection,
+					visibility: false,					
+					strategies: [new OpenLayers.Strategy.Fixed()],
+					protocol: new OpenLayers.Protocol.HTTP({
+					url: "sites.kml",
+					format: new OpenLayers.Format.KML({
+					extractStyles: true,
+					extractAttributes: true
+							})
+						})
+					});
+						map.addLayer(sites)
+			
+			//==========ADD MAP CONTROLS FIRST MAP==============		
+				map.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
+				map.addControl(new OpenLayers.Control.MousePosition());			
+				map.addControl(new OpenLayers.Control.LayerSwitcher({}));
+				map.addControl(new OpenLayers.Control.OverviewMap() );
+				map.addControl(new OpenLayers.Control.PanZoomBar() );
+				map.addControl(new OpenLayers.Control.Scale() );
+				map.addControl(new OpenLayers.Control.ScaleLine() );	
+			
+					
+			//==========CENTER THE FIRST MAP==============
+				map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
+					
+		
+//==========CREATE SECOND MAP==============		
+	map_2 = new OpenLayers.Map('map_2', {});				
+	var baseLayer2 = base1.clone();				
+						map_2.addLayer(baseLayer2);		 
+			
+		//==========CREATE MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============			
+		
+			//==========CREATE LAYER FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============	
+				Layers.localFeatures2 = new OpenLayers.Layer.Vector('The Study Area');
+						map_2.addLayer(Layers.localFeatures2);
+			
+			//==========CREATE STYLE FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============
+				rpStyle = {pointRadius: 8, fillColor: "#CC0000", fillOpacity: .5, strokeOpacity: .5, label: "The Study Area"}
+			
+			//==========CREATE LOCATION FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============
+				var point2 = new OpenLayers.Geometry.Point (-89.8,14.91);
+				
+			//==========CREATE MARKER FEATURE FOR MOTAGUA FAULT ZONE SECOND MAP==============
+				var feature_point2 = new OpenLayers.Feature.Vector(point2,name,rpStyle);
+					feature_point2.attributes = {name: "Olmec"};
+          
+			//==========ADD VECTOR LAYER SECOND MAP==============		
+				Layers["localFeatures2"].addFeatures([feature_point2]);
+		   
+			//==========ADD MAP CONTROLS SECOND MAP==============	
+				map_2.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
+				map_2.addControl(new OpenLayers.Control.MousePosition());			
+				map_2.addControl(new OpenLayers.Control.LayerSwitcher({}));
+				map_2.addControl(new OpenLayers.Control.OverviewMap() );
+				map_2.addControl(new OpenLayers.Control.Scale() );
+				map_2.addControl(new OpenLayers.Control.ScaleLine() );
+			
+			//==========CENTER THE SECOND MAP==============
+				map_2.setCenter(new OpenLayers.LonLat(-83.0,-5.0), 3.2);
+				
+//==========THE CURLEY BRACKET BELOW ENDS INITIALIZATION FUNCTION==============
+		}
+						
+</script>			
 //===============APPLY STYLE WITH CSS==========================	
 			<style type ="text/css">
 			
