@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+`<html xmlns="http://www.w3.org/1999/xhtml">
  <head>	
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<title>Geog 591 Caries: A "Disease Process"</title>
@@ -6,72 +6,126 @@
 				<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 					<script type="text/javascript">   
 			</script>
-//===============APPLY STYLE WITH CSS==========================	
-			<style type ="text/css">
-			
+//===============DEFINE STYLE==========================
+		<style type ="text/css">
+				
 				html {height: 100%;}					
 				
 				body {height: 100%; 
-				margin: 2px; padding: 2px; 
-				text-align: justify;	
-				background-color: black;}	
+					margin: 2px; 
+					padding: 2px; 
+					text-align: justify;	
+					background-color: black;}	
 					
-				a:link {color: white; 
-				text-decoration:none;}			
-				a:visited {color: darkgray;}
-				
-				#b {display:block; 
-				font-weight:bold; 
-				color:white; 
-				background-color:#A80000; 
-				font-family:arial; 
-				font-size: 18px; 
-				margin-left:45%; 
-				width:160px; 
-				text-align:center; 
-				adding:4px; 
-				text-decoration:none;}
-				a:hover,a:active{background-color:darkgray;}
-
-				ul{list-style-type:none; 
-				margin-left: 30%; 
-				padding:0; 
-				overflow:hidden;}
-				
-				li {float:left;}
-
-				a:link,a:visited {display:block; 
-				width:170px; 
-				font-weight:bold; 
-				color:white; 
-				background-color:#A80000; 
-				text-align:center; 
-				padding:4px; 
-				text-decoration:none; 
-				text-transform:uppercase;}
-				a:hover,a:active {background-color:darkgray;}
-				
+				a:link {color: white; 			/* formats weblinks  */
+				text-decoration:none;}			/* gets rid of underline */
+				a:visited {color: darkgray;}	/* formats visited web links */
+				a:active {color: black;}
+			
+				#header {margin-bottom: 36px; 
+					margin-left:5%; 
+					margin-right:15%;	
+					text-align:center; 
+					background-color: black;} 							    
+					
 				#header img {position:absolute; 
-				left:10px; top:10px;}																																																												
+					left:10px; top:10px;}																																																												
 				  
 				h1 {color: #A80000;	
-				background-color: black; 
-				font-family: arial; 
-				font-size: 46px; 
-				text-align: center; 
-				margin-bottom:0; 
-				margin-left:25px; 
-				padding-bottom:2em; 
-				padding-left:3em; 
-				padding-right:2em;}
+					background-color: black; 
+					font-family: arial; 
+					font-size: 46px; 
+					text-align: center; 
+					margin-bottom:0; 
+					margin-left:45px; 
+					float:right; 
+					padding-bottom:.5em; 
+					padding-left:5em; 
+					padding-right:2em;}
+					
+				div.sidebar {height: 450px; 
+					float: left;  
+					width: 450px; 
+					margin-top:300px;
+					padding-bottom:3em;
+					background-color: #A80000; 
+					border-style: outset; 
+					border-width: thick; 
+					border-color:darkgray;}	
 
+				div.sidebar li {font-family: arial; 
+					font-size: 24px; 
+					text-align: center; 
+					padding-bottom: 1em; 
+					padding-right: 1em; 
+					list-style: none;}
+					
 				address {color:#A80000; 
-				clear: left; 
-				text-align: center; 
-				padding-top: 36px; 
-				font-family: courier,monospace; 
-				font-size: 24px; 
-				font-weight: bold;}
+					clear: left; 
+					text-align: center; 
+					padding-top: 36px; 
+					font-family: courier,monospace; 
+					font-size: 24px; 
+					font-weight: bold;}
+
+				.image1 {float:right; 
+					margin-right:5%; 
+					border-style: outset; 
+					border-width: thick; 
+					border-color:#A80000; 
+					background-color:darkgray;}			
+				
+				#cap {color:#A80000; 
+					font-size:18px; 
+					font-family: arial; 
+					font-weight: bold; 
+					margin-bottom: 3em; 
+					text-align: center;}
+				
+				#intro{color:lightgray; 
+					font-size:20px; 
+					font-family: arial,sans-serif; 
+					column-count:2;
+					-moz-column-count:2;		/* creates columns in Firefox */
+					-moz-column-gap:40px;
+					-moz-column-rule:4pxoutset #ff00ff;
+					-webkit-column-count:2;  	/*creates columns in Safari and Chrome */
+					-webkit-column-gap:40px;
+					-webkit-column-rule:4px outset #ff00ff;
+					text-align: justify;
+					padding-left: 3em;
+					padding-right: 3em;
+					margin-top:1100px;
+					padding-top:1.5em;
+					margin-bottom: 2em;}
+				
+				#b {display:block; 
+					font-weight:bold; 
+					color:white; 
+					background-color:#A80000; 
+					font-family:arial; 
+					font-size: 18px; 
+					margin-left:45%; 
+					width:160px; 
+					text-align:center; 
+					padding:4px; 
+					text-decoration:none;}
+
+				a:hover,a:active {background-color:darkgray;}
+				
+				#map_canvas {height: 850px; 
+					float: right;
+					width:1100px; 
+					padding-left: 1em; 
+					padding-right: 1em; 
+					padding-bottom: 1em;
+					margin-top:15px; 
+					margin-right:.5%; 
+					border-style: outset; 
+					border-width: thick; 
+					border-color:#A80000;}	
+			
+		
 		 
 			</style>
  </head>
@@ -90,6 +144,9 @@
 		</ul>
 		
 			<div id="header"><img src="maya2.png" width="400" height="450" alt="maya2"/><h1>Caries: A "Disease Process"</h1></div>	
+		<p id="intro"><b>FALL 2013 GEOGRAPHY 591 PROBLEMS CLASS</b><br> <i>PROJECT DESCRIPTION:</i><br></br><br>
+My goal for this project is to create an online GIS modeling the spatial distribution of rates of caries (dental cavities), porotic hyperostosis, ratios of the stable isotopes <sup>13</sup>C/<sup>12</sup>C and <sup>15</sup>N/<sup>14</sup>N, and unstable isotope ratios of Sr/Rb in the Classic Maya world.</p>
+	
 			
 						<address>Bill Brown wbrown@unm.edu</address>
 		
