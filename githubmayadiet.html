@@ -42,8 +42,7 @@
 				{layers: 'basic'},
 				{isBaseLayer: true});
 						map.addLayer(baseLayer);								
-       
-					
+				
 			labels = new OpenLayers.Layer.WMS(
 				'Location Labels',
 				'http://vmap0.tiles.osgeo.org/wms/vmap0',
@@ -52,28 +51,14 @@
 				{visibility: false, opacity:0.5});
 						map.addLayer(labels);
 					
-						
-			
-
-
-//==========CREATE VECTOR FEATURES AND LAYERS FIRST MAP==============
-
-			
-				
-					
-	
 			//==========CREATE VECTOR EDITOR CONTROLS FIRST MAP==============
 				var vector_layer = new OpenLayers.Layer.Vector(
 					'Editable Vectors');
-
-	//==========CREATE KML LAYERS FIRST MAP==============
 	
 			//==========CREATE KML STYLE FIRST MAP==============
 				kmlStyle = {fillColor: "#0000ff", fillOpacity: .2, strokeOpacity: .5, strokeColor: "#0000ff"}	
 				
 			//==========CREATE KML LAYERS FIRST MAP==============		
-				
-																						
 				caries = new OpenLayers.Layer.Vector("Percentage of Burials with Caries", {
 					projection: map.displayProjection,
 					visibility: true,				
@@ -87,8 +72,6 @@
 						})
 					});
 						map.addLayer(caries)
-						
-				
 			
 			//==========ADD MAP CONTROLS FIRST MAP==============		
 				map.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
@@ -98,19 +81,16 @@
 				map.addControl(new OpenLayers.Control.PanZoomBar() );
 				map.addControl(new OpenLayers.Control.Scale() );
 				map.addControl(new OpenLayers.Control.ScaleLine() );	
-			
 					
 			//==========CENTER THE FIRST MAP==============
 				map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
 					
 		
-//==========CREATE SECOND MAP==============		
-	map_2 = new OpenLayers.Map('map_2', {});				
-	var baseLayer2 = base1.clone();				
+			//==========CREATE SECOND MAP==============		
+				map_2 = new OpenLayers.Map('map_2', {});				
+				var baseLayer2 = base1.clone();				
 						map_2.addLayer(baseLayer2);		 
 			
-		//==========CREATE MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============			
-		
 			//==========CREATE LAYER FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============	
 				Layers.localFeatures2 = new OpenLayers.Layer.Vector('The Study Area');
 						map_2.addLayer(Layers.localFeatures2);
@@ -188,10 +168,8 @@
 					font-family: arial,sans-serif; 
 					text-align: center;
 					padding-left: 3em;
-					padding-right: 3em;
-				
-					}
-					
+					padding-right: 3em;}
+									
 				a:link,a:visited 
 					{display:block; 
 					width:170px; 
@@ -228,10 +206,8 @@
 					font-size: 42px; 
 					text-align: center; 
 					margin-bottom:0; 
-					clear:left; 
+					clear:left;} 
 					 
-					}
-
 				address 
 					{color:#A80000; 
 					clear: left; 
@@ -245,7 +221,9 @@
 					margin-top:500px;
 					width: 1100px;
 					background-color: white;
-					border-style: outset; border-width: thick; border-color:#A80000;
+					border-style: outset; 
+					border-width: thick; 
+					border-color:#A80000;
 					padding-right: 3em;}
 				
 				#map_2 
@@ -287,13 +265,11 @@
 			<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubthemap.html">The Map</a></li>
 			<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubmayamapinfo.html">References</a></li>
 		</ul>
-		<p id="introb"><b>GEOGRAPHY 591 <i>PROBLEMS</i><br>FALL 2013</b></p>
-			<div id="header"><img src="maya2.png" width="150" height="200" alt="maya2"/><h1>Diet, Health, and Stature</h1></div>	
-				
+			<p id="introb"><b>GEOGRAPHY 591 <i>PROBLEMS</i><br>FALL 2013</b></p>
+				<div id="header"><img src="maya2.png" width="150" height="200" alt="maya2"/><h1>Diet, Health, and Stature</h1></div>	
 					<div id='map'></div>
 						<div id='map_2'></div>
 							<p id="intro"><i>DIET</i><br>
-
 
 Archaeobotanical, bioarchaeological, zooarchaeological, and archaeological evidence suggests a great deal of diversity in the Maya diet, reflecting environmental 
 differences in quantities and types of food resources available, agricultural potential from region to region, as well as logistical aspects of food distribution systems 
