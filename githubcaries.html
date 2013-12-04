@@ -43,7 +43,6 @@
 				{isBaseLayer: true});
 						map.addLayer(baseLayer);								
        
-			
 					
 			labels = new OpenLayers.Layer.WMS(
 				'Location Labels',
@@ -53,21 +52,6 @@
 				{visibility: false, opacity:0.5});
 						map.addLayer(labels);
 					
-			
-					
-		
-			
-			
-			
-			
-						
-			
-						
-			
-						
-			
-
-			
 						
 			coast = new OpenLayers.Layer.WMS(
 				'Global Coastlines',
@@ -76,20 +60,12 @@
 				transparent: true},
 				{isBaseLayer: false});
 						map.addLayer(coast);
-						
-			
-						
-			
-			
-			
+
 
 //==========CREATE VECTOR FEATURES AND LAYERS FIRST MAP==============
 
 			//==========CREATE VECTOR LAYERS FIRST MAP==============			
-				
-			
-				
-			
+	
 				
 				
 			//==========CREATE STYLES FOR VECTOR LAYERS FIRST MAP==============
@@ -145,19 +121,7 @@
 				kmlStyle = {fillColor: "#0000ff", fillOpacity: .2, strokeOpacity: .5, strokeColor: "#0000ff"}	
 				
 			//==========CREATE KML LAYERS FIRST MAP==============		
-				Layers.pop = new OpenLayers.Layer.Vector("Guatemala KML", {
-					projection: map.displayProjection,
-					visibility: false,
-					
-					strategies: [new OpenLayers.Strategy.Fixed()],
-					protocol: new OpenLayers.Protocol.HTTP({
-					url: "gpop.kml",
-					format: new OpenLayers.Format.KML({
-					extractAttributes: true
-							})
-						})
-					});
-						map.addLayer(Layers.pop)
+				
 																						
 				caries = new OpenLayers.Layer.Vector("Percentage of Burials with Caries", {
 					projection: map.displayProjection,
@@ -173,47 +137,7 @@
 					});
 						map.addLayer(caries)
 						
-				ph = new OpenLayers.Layer.Vector("Percent of Burials with Porotic Hyperostosis", {
-					projection: map.displayProjection,
-					visibility: false,				
-					strategies: [new OpenLayers.Strategy.Fixed()],
-					protocol: new OpenLayers.Protocol.HTTP({
-					url: "ph.kml",
-					format: new OpenLayers.Format.KML({
-					extractStyles: true,
-					extractAttributes: true
-							})
-						})
-					});
-						map.addLayer(ph)
-						
-							contour = new OpenLayers.Layer.Vector("Belize Contours", {
-					projection: map.displayProjection,
-					visibility: false,				
-					strategies: [new OpenLayers.Strategy.Fixed()],
-					protocol: new OpenLayers.Protocol.HTTP({
-					url: "contour.kml",
-					format: new OpenLayers.Format.KML({
-					extractStyles: true,
-					extractAttributes: true
-							})
-						})
-					});
-						map.addLayer(contour)
-										
-				sites = new OpenLayers.Layer.Vector("Maya Sites", {
-					projection: map.displayProjection,
-					visibility: false,					
-					strategies: [new OpenLayers.Strategy.Fixed()],
-					protocol: new OpenLayers.Protocol.HTTP({
-					url: "sites.kml",
-					format: new OpenLayers.Format.KML({
-					extractStyles: true,
-					extractAttributes: true
-							})
-						})
-					});
-						map.addLayer(sites)
+				
 			
 			//==========ADD MAP CONTROLS FIRST MAP==============		
 				map.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
