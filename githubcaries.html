@@ -1,12 +1,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>	
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<title>Geog 591 Caries: A "Disease Process"</title>
+		<title>Geog 591 The Map</title>
 			<script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
 				<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 					<script type="text/javascript">   
-			</script>
-			//=========DEFINE GLOBAL VARIABLES==============		
+		
+//=========DEFINE GLOBAL VARIABLES==============		
 		var lon = -89.0;
 		var lat = 15.0;
 		var zoom = 6;
@@ -269,7 +269,7 @@
 						
 </script>			
 
-	//===============APPLY STYLE WITH CSS==========================	
+//===============APPLY STYLE WITH CSS==========================	
 			<style type ="text/css">
 			
 				html {height: 100%;}					
@@ -298,23 +298,6 @@
 
 				address {color:#A80000; clear: left; text-align: center; padding-top: 36px; font-family: courier,monospace; font-size: 24px; font-weight: bold;}
 				
-				#intro{color:lightgray; 
-					font-size:20px; 
-					font-family: arial,sans-serif; 
-					column-count:2;
-					-moz-column-count:2;		/* creates columns in Firefox */
-					-moz-column-gap:40px;
-					-moz-column-rule:4pxoutset #ff00ff;
-					-webkit-column-count:2;  	/*creates columns in Safari and Chrome */
-					-webkit-column-gap:40px;
-					-webkit-column-rule:4px outset #ff00ff;
-					text-align: justify;
-					padding-left: 3em;
-					padding-right: 3em;
-					margin-top:1100px;
-					padding-top:1.5em;
-					margin-bottom: 2em;}
-				
 				#map {height: 650px; float: left;
 					margin-top:500px;
 					width: 1100px;
@@ -334,15 +317,10 @@
 					bottom: 5px !important}
 				
 				.olControlScaleLine {background: white; color:black;}
-							 
-			
- 
-
-		
+				
 		 
 			</style>
  </head>
-
 
 //===============ORDER THE WEB CONTENT==========================
 		
@@ -351,35 +329,24 @@
 		<ul>
 			<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/isotopehome.html">Home</a></li>
 			<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubmayadiet.html">Maya Diet</a></li>
+			<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubcaries.html">Caries</a></li>
 			<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubmayaid.html">Anemia</a></li>
 			<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubiso.html">Stable Isotopes</a></li>
 			<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubmayamapinfo.html">Map Information</a></li>
-			<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubthemap.html">The Map</a></li>
 		</ul>
 		
-			<div id="header"><img src="maya2.png" width="300" height="350" alt="maya2"/><h1>Caries: A "Disease Process"</h1></div>	
+				<div id="header"><img src="maya2.png" width="300" height="350" alt="maya2"/><h1>The Map</h1></div>		
 			
-			<div id='map'></div>
+					<div id='map'></div>
 				
 						<div id='map_2'></div>
-			
-			<p id="intro"><b>FALL 2013 GEOGRAPHY 591 PROBLEMS CLASS</b><br> <b>BACKGROUND: Agriculture, Tooth Decay, and Prehistoric Health</b><br></br><br>Plaque and Plaque-Related Disease 
-Plaque consists of micro-organisms that accumulate in the mouth, surrounded by a matrix of the bodies of the organisms themselves and from proteins in the saliva (Buikstra and Ubelaker 1994:56; Roberts and Manchester 1995:55). Food remains and plant phytoliths are frequently trapped within the calculus, and thus calcified plaque can also yield information on past diets. The surfaces of all teeth contain plaque; when the plaque mineralizes it forms tartar, or dental calculus. Concentrations of bacteria and other microorganisms next to the gums leads to an immune response, and the pattern of inflammation of the gums and subsequent healing is lifelong, and leads to the loss of tooth and bone tissue, loss of support for the affected teeth, and remodeling of the bone supporting the teeth resulting in a progressive decrease in the height of the alveoli and eventually the loss of teeth (Hillson 2000:258). Concentrations of microorganisms also leads to the production of organic acids that result in localized demineralization of the tooth, producing carious lesions (Hillson 2000:259). 
-
-Sugars, particularly sucrose, have been blamed as the main factor in caries frequencies (Navia 1994; Sheiham 1983). Sucrose in the diet speeds up the accumulation rate of these micro-organisms in the mouth, leading to more plaque buildup. Plaque becomes mineralized into calculus; two types are identified, subgingival and supragingival calculus. Subgingival calculus occurs below the gums and is commonly present on tooth roots. The below-gum calculus in harder than the supragingival variety and is usually black or green in color (Roberts and Manchester 1995:55). Supragingival calculus is more common than subgingival and is thicker and brown or grey in color (Roberts and Manchester 1995:55). The teeth nearest the salivary glands (the lingual aspects of the lower incisors and the buccal side of the upper molars) are the most frequent sites for plaque and calculus accumulation (Roberts and Manchester 1995:55).
-
-As calculus gathers in the voids between the tooth, mandible or maxilla, and the soft tissues, it creates “periodontal pockets” that ultimately leads to periodontal disease (Roberts and Manchester 1995:56). Periodontal disease is one of the most common dental pathologies among modern populations and is a major cause of tooth loss in people over the age of 40 (Roberts and Manchester 1995:56). Periodontitis starts with gingivitis in the mandible that spreads to the bone; later, the bone is resorbed, the roots of the tooth are exposed, and the tooth eventually falls out. Although periodontitis is very common today and is commonly diagnosed in archaeological specimens, current thought suggests that the disease is over reported because it is difficult to distinguish the mandible’s natural reaction mechanism for marked attrition from the abnormal periodontal condition (Roberts and Manchester 1995:57). 
-
-Gum disease was most likely endemic in prehistoric Maya communities, given the carbohydrate-rich diet and lack of professional dentists.  Inflammation of the gums and the presence of bacteria associated with periodontal disease have serious ramifications for human health: bacteria involved in periodontitis spreads toxins through the bloodstream.  These bacteria cause plaque buildup in the arteries,   constricting the flow of blood forcing the heart to pump harder to move blood throughout the body, leading to cardiovascular disease, stroke, and erectile dysfunction (www.perio.org).  Inflammation of the gums causes the liver to produce C-reactive protein (CRP), and elevated levels of CRP are linked with an increase in the risk for heart attack and stroke. But that’s not all; The American Academy of Periodontology (www.perio.org) states that periodontal inflammation is correlated with other systemic chronic inflammatory condition including Alzheimer’s disease, type I and II diabetes, respiratory disease, pancreatic cancer, rheumatoid arthritis, and reproductive risks such as preterm births and underweight newborns   (www.webmd.com). 
-
-High rates of gum disease in the prehistoric Blue Creek and its environs may have had important paleodemographic implications, because not only does the condition increase the hazard for mortality, but it also could have lowered fertility rates through reducing men’s sex drives and increasing risks during childbirth and compromising the survival of newborns.  Further, periodontal disease is communicable through the transmission of saliva (www.perio.org), so it is possible that increased population densities associated with urbanization (in the case of the Blue Creek settlement proper) or centralization of population in more nucleated settlements would exacerbate periodontitis and thus a host of several debilitating illnesses.</p> 
-
-
-						<address>Bill Brown wbrown@unm.edu</address>
+										
+							<address>Bill Brown wbrown@unm.edu</address>
 		
-							<p id="b"><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubcaries.html">Top</a></p>		
+								<p id="b"><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubthemap.html">Top</a></p>				
+	
 	</body>
 </html>
 
 
-	
+
