@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.net/kml/2.2 http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd http://www.google.com/kml/ext/2.2 http://code.google.com/apis/kml/schema/kml22gx.xsd">
+<Document id="Percentage of Burials with Porotic Hyperostosis">
+  <name>Percentage of Burials with Porotic Hyperostosis</name>
+  <Snippet></Snippet>
+  <Folder id="FeatureLayer0">
+    <name>Percentage of Burials with Porotic Hyperostosis</name>
+    <Snippet></Snippet>
+    <Placemark id="ID_00000">
+      <name>San Juan I</name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td>San Juan I</td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>OBJECTID_1</td>
+<td>1</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>ObjectID</td>
+<td>3267</td>
+</tr>
+<tr>
+<td>USEPOINT</td>
+<td>1</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>BWRANK</td>
+<td>4</td>
+</tr>
+<tr>
+<td>BWNAME</td>
+<td>San Juan I</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>LATITUDE</td>
+<td>21.228951</td>
+</tr>
+<tr>
+<td>LONGITUDE</td>
+<td>-89.560772</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>rank</td>
+<td>4</td>
+</tr>
+<tr>
+<td>C_12C</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>SR_rat_1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Caries</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>LCMSTAT</td>
+<td>0</td>
+</tr>
+<tr>
+<td>LCFEMSTAT</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>PORHYP</td>
+<td>4.66</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#IconStyle00</styleUrl>
+      <Point>
+        <coordinates> -89.560772,21.228951</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="ID_00001">
+      <name>Tipu</name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td>Tipu</td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>OBJECTID_1</td>
+<td>2</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>ObjectID</td>
+<td>6172</td>
+</tr>
+<tr>
+<td>USEPOINT</td>
+<td>1</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>BWRANK</td>
+<td>4</td>
+</tr>
+<tr>
+<td>BWNAME</td>
+<td>Tipu</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>LATITUDE</td>
+<td>17.078118</td>
+</tr>
+<tr>
+<td>LONGITUDE</td>
+<td>-89.081048</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>rank</td>
+<td>4</td>
+</tr>
+<tr>
+<td>C_12C</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>SR_rat_1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Caries</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>LCMSTAT</td>
+<td>0</td>
+</tr>
+<tr>
+<td>LCFEMSTAT</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>PORHYP</td>
+<td>18</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#IconStyle01</styleUrl>
+      <Point>
+        <coordinates> -89.081048,17.078118</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="ID_00002">
+      <name>Piedras Negras</name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td>Piedras Negras</td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>OBJECTID_1</td>
+<td>3</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>ObjectID</td>
+<td>9882</td>
+</tr>
+<tr>
+<td>USEPOINT</td>
+<td>1</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>BWRANK</td>
+<td>1</td>
+</tr>
+<tr>
+<td>BWNAME</td>
+<td>Piedras Negras</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>LATITUDE</td>
+<td>17.16641</td>
+</tr>
+<tr>
+<td>LONGITUDE</td>
+<td>-91.26298</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>rank</td>
+<td>1</td>
+</tr>
+<tr>
+<td>C_12C</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>SR_rat_1</td>
+<td>0.708</td>
+</tr>
+<tr>
+<td>Caries</td>
+<td>76.800003</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>LCMSTAT</td>
+<td>0</td>
+</tr>
+<tr>
+<td>LCFEMSTAT</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>PORHYP</td>
+<td>90</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#IconStyle02</styleUrl>
+      <Point>
+        <coordinates> -91.262980,17.166410</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="ID_00003">
+      <name>Lamanai</name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td>Lamanai</td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>OBJECTID_1</td>
+<td>4</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>ObjectID</td>
+<td>9883</td>
+</tr>
+<tr>
+<td>USEPOINT</td>
+<td>1</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>BWRANK</td>
+<td>2</td>
+</tr>
+<tr>
+<td>BWNAME</td>
+<td>Lamanai</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>LATITUDE</td>
+<td>17.76752</td>
+</tr>
+<tr>
+<td>LONGITUDE</td>
+<td>-88.65251</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>rank</td>
+<td>2</td>
+</tr>
+<tr>
+<td>C_12C</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>SR_rat_1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Caries</td>
+<td>20.1</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>LCMSTAT</td>
+<td>0</td>
+</tr>
+<tr>
+<td>LCFEMSTAT</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>PORHYP</td>
+<td>18</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#IconStyle01</styleUrl>
+      <Point>
+        <coordinates> -88.652510,17.767520</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="ID_00004">
+      <name>Playa del Carmen</name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td>Playa del Carmen</td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>OBJECTID_1</td>
+<td>5</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>ObjectID</td>
+<td>9890</td>
+</tr>
+<tr>
+<td>USEPOINT</td>
+<td>1</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>BWRANK</td>
+<td>4</td>
+</tr>
+<tr>
+<td>BWNAME</td>
+<td>Playa del Carmen</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>LATITUDE</td>
+<td>20.61854</td>
+</tr>
+<tr>
+<td>LONGITUDE</td>
+<td>-87.07812</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>rank</td>
+<td>4</td>
+</tr>
+<tr>
+<td>C_12C</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>SR_rat_1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Caries</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>LCMSTAT</td>
+<td>0</td>
+</tr>
+<tr>
+<td>LCFEMSTAT</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>PORHYP</td>
+<td>45</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#IconStyle04</styleUrl>
+      <Point>
+        <coordinates> -87.078120,20.618540</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="ID_00005">
+      <name>Chichen Itza</name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td>Chichen Itza</td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>OBJECTID_1</td>
+<td>6</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>ObjectID</td>
+<td>9893</td>
+</tr>
+<tr>
+<td>USEPOINT</td>
+<td>1</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>BWRANK</td>
+<td>1</td>
+</tr>
+<tr>
+<td>BWNAME</td>
+<td>Chichen Itza</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>LATITUDE</td>
+<td>20.68287</td>
+</tr>
+<tr>
+<td>LONGITUDE</td>
+<td>-88.5686</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>rank</td>
+<td>1</td>
+</tr>
+<tr>
+<td>C_12C</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>SR_rat_1</td>
+<td>0.7087</td>
+</tr>
+<tr>
+<td>Caries</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>LCMSTAT</td>
+<td>0</td>
+</tr>
+<tr>
+<td>LCFEMSTAT</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>PORHYP</td>
+<td>50</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#IconStyle04</styleUrl>
+      <Point>
+        <coordinates> -88.568600,20.682870</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="ID_00006">
+      <name>Cuello</name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td>Cuello</td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>OBJECTID_1</td>
+<td>7</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>ObjectID</td>
+<td>9953</td>
+</tr>
+<tr>
+<td>USEPOINT</td>
+<td>1</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>BWRANK</td>
+<td>4</td>
+</tr>
+<tr>
+<td>BWNAME</td>
+<td>Cuello</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>LATITUDE</td>
+<td>18.07073</td>
+</tr>
+<tr>
+<td>LONGITUDE</td>
+<td>-88.603469</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>rank</td>
+<td>4</td>
+</tr>
+<tr>
+<td>C_12C</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>SR_rat_1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Caries</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>LCMSTAT</td>
+<td>0</td>
+</tr>
+<tr>
+<td>LCFEMSTAT</td>
+<td>0</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>PORHYP</td>
+<td>5</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#IconStyle06</styleUrl>
+      <Point>
+        <coordinates> -88.603469,18.070730</coordinates>
+      </Point>
+    </Placemark>
+  </Folder>
+  <Style id="IconStyle00">
+    <IconStyle>
+      <Icon><href>87a2f2c5-42c9-4edb-afce-5b18e0e2756d.png</href></Icon>
+      <scale>0.250000</scale>
+    </IconStyle>
+    <LabelStyle>
+      <color>00000000</color>
+      <scale>0.000000</scale>
+    </LabelStyle>
+    <PolyStyle>
+      <color>ff000000</color>
+      <outline>0</outline>
+    </PolyStyle>
+  </Style>
+  <Style id="IconStyle01">
+    <IconStyle>
+      <Icon><href>ab6f3312-7ffa-4c74-80eb-ff974ca428fd.png</href></Icon>
+      <scale>0.687500</scale>
+    </IconStyle>
+    <LabelStyle>
+      <color>00000000</color>
+      <scale>0.000000</scale>
+    </LabelStyle>
+    <PolyStyle>
+      <color>ff000000</color>
+      <outline>0</outline>
+    </PolyStyle>
+  </Style>
+  <Style id="IconStyle02">
+    <IconStyle>
+      <Icon><href>f15230c1-429c-4d98-8dc7-a198d0cad05f.png</href></Icon>
+      <scale>1.125000</scale>
+    </IconStyle>
+    <LabelStyle>
+      <color>00000000</color>
+      <scale>0.000000</scale>
+    </LabelStyle>
+    <PolyStyle>
+      <color>ff000000</color>
+      <outline>0</outline>
+    </PolyStyle>
+  </Style>
+  <Style id="IconStyle04">
+    <IconStyle>
+      <Icon><href>3796ab49-01c0-4f3d-be11-ffda0451ef6d.png</href></Icon>
+      <scale>0.906250</scale>
+    </IconStyle>
+    <LabelStyle>
+      <color>00000000</color>
+      <scale>0.000000</scale>
+    </LabelStyle>
+    <PolyStyle>
+      <color>ff000000</color>
+      <outline>0</outline>
+    </PolyStyle>
+  </Style>
+  <Style id="IconStyle06">
+    <IconStyle>
+      <Icon><href>82e3dd04-cfce-4e7a-84f5-e68bbb120f0d.png</href></Icon>
+      <scale>0.468750</scale>
+    </IconStyle>
+    <LabelStyle>
+      <color>00000000</color>
+      <scale>0.000000</scale>
+    </LabelStyle>
+    <PolyStyle>
+      <color>ff000000</color>
+      <outline>0</outline>
+    </PolyStyle>
+  </Style>
+</Document>
+</kml>

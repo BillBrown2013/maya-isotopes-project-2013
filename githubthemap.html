@@ -173,19 +173,19 @@
 					});
 						map.addLayer(caries)
 						
-				belize = new OpenLayers.Layer.Vector("Shipstern Biology KML", {
+				ph = new OpenLayers.Layer.Vector("Percent of Burials with Porotic Hyperostosis", {
 					projection: map.displayProjection,
 					visibility: false,				
 					strategies: [new OpenLayers.Strategy.Fixed()],
 					protocol: new OpenLayers.Protocol.HTTP({
-					url: "shizbiz.kml",
+					url: "ph.kml",
 					format: new OpenLayers.Format.KML({
 					extractStyles: true,
 					extractAttributes: true
 							})
 						})
 					});
-						map.addLayer(belize)
+						map.addLayer(ph)
 						
 				mountains = new OpenLayers.Layer.Vector("Maya Mountains Biology KML", {
 					projection: map.displayProjection,
