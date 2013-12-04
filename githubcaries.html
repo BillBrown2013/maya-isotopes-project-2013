@@ -125,7 +125,7 @@
 																						
 				caries = new OpenLayers.Layer.Vector("Percentage of Burials with Caries", {
 					projection: map.displayProjection,
-					visibility: false,				
+					visibility: true,				
 					strategies: [new OpenLayers.Strategy.Fixed()],
 					protocol: new OpenLayers.Protocol.HTTP({
 					url: "caries.kml",
