@@ -187,6 +187,19 @@
 					});
 						map.addLayer(ph)
 						
+							contour = new OpenLayers.Layer.Vector("Belize Contours", {
+					projection: map.displayProjection,
+					visibility: false,				
+					strategies: [new OpenLayers.Strategy.Fixed()],
+					protocol: new OpenLayers.Protocol.HTTP({
+					url: "contour.kml",
+					format: new OpenLayers.Format.KML({
+					extractStyles: true,
+					extractAttributes: true
+							})
+						})
+					});
+						map.addLayer(contour)
 										
 				sites = new OpenLayers.Layer.Vector("Maya Sites", {
 					projection: map.displayProjection,
