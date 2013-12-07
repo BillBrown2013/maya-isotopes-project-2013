@@ -1,0 +1,346 @@
+
+
+//==========CHANGE FONT FAMILY, COLOR, SIZE OF MOUSE POSITION==============
+  <style type="text/css">
+            p {
+                width: 500px;
+            }
+            div.olControlMousePosition {
+                font-family: Verdana;
+                font-size: 2em;
+                color: red;
+            }
+        </style>
+		
+		 function init(){
+                var options = {theme: null};
+                map = new OpenLayers.Map('map', options);
+                layer = new OpenLayers.Layer.WMS( "OpenLayers WMS",
+                        "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} );
+
+                map.addControl(new OpenLayers.Control.MousePosition());
+                map.addLayer(layer);
+                map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
+            }
+        </script>
+		
+//==========PUT IT ON AN IPHONE?==============	
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+		
+		
+
+	//==========HIT CONTROL AND DRAW A RECTANGLE==============		
+		  function init(){
+                map = new OpenLayers.Map('map');
+                layer = new OpenLayers.Layer.WMS( "OpenLayers WMS",
+                        "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} );
+
+                var control = new OpenLayers.Control();
+                OpenLayers.Util.extend(control, {
+                    draw: function () {
+                        // this Handler.Box will intercept the shift-mousedown
+                        // before Control.MouseDefault gets to see it
+                        this.box = new OpenLayers.Handler.Box( control,
+                            {"done": this.notice},
+                            {keyMask: OpenLayers.Handler.MOD_SHIFT});
+                        this.box.activate();
+                    },
+
+                    notice: function (bounds) {
+                        var ll = map.getLonLatFromPixel(new OpenLayers.Pixel(bounds.left, bounds.bottom)); 
+                        var ur = map.getLonLatFromPixel(new OpenLayers.Pixel(bounds.right, bounds.top)); 
+                        alert(ll.lon.toFixed(4) + ", " + 
+                              ll.lat.toFixed(4) + ", " + 
+                              ur.lon.toFixed(4) + ", " + 
+                              ur.lat.toFixed(4));
+                    }
+                });
+				
+				  map.addLayer(layer);
+                map.addControl(control);
+                map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
+            }
+        </script>
+		
+		
+		
+		 </head>
+    <body onload="init()">
+        <h1 id="title">Custom Control Example</h1>
+
+        <div id="tags">
+            control, panel, rectangle, light
+        </div>
+
+        <p id="shortdesc">
+            Demonstrate the addition of a rectangle to the OpenLayers window.
+        </p>
+		
+		
+		
+	//==========SET EXTENT==============		
+		<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<title>Setting a visual Extent</title>
+<link rel="stylesheet" href="../theme/default/style.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+<script src="../OpenLayers.js"></script>
+</head>
+<body>
+<h1 id="title">Setting a Visual Extent</h1>
+<div id="tags">
+    boxes, box, marker
+</div>
+<p id='shortdesc'>
+  Use a boxes layer to visually display the area of interest indicated by a user.
+</p>
+<p>
+  Because the ability to set the map to a given extent is limited by the 
+  current resolutions available, zoomToExtent will not always set the map to 
+  exactly the right extent. In order to visually annotate the actual extent, 
+  this example, will use the Boxes layer to visually describe the desired
+  extent as well as setting the map extent.
+</p>
+  <div style="width:100%; height:75%" id="map"></div>
+  <script defer="defer" type="text/javascript">
+    var map = new OpenLayers.Map('map');
+    var bounds = new OpenLayers.Bounds(-45,-45, 0, 45); 
+    var wms = new OpenLayers.Layer.WMS( "OpenLayers WMS", 
+        "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} );
+    map.addLayer(wms);
+    map.zoomToExtent(bounds);
+    var boxes = new OpenLayers.Layer.Boxes("boxes");
+    var box = new OpenLayers.Marker.Box(bounds);
+    boxes.addMarker(box);
+    map.addLayer(boxes);
+  </script>
+</body>
+</html>
+		
+
+//==========RESTRICT EXTENT==============
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>OpenLayers Restricted Extent Example</title>
+    <link rel="stylesheet" href="../theme/default/style.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="../lib/Firebug/firebug.js"></script>
+    <script src="../OpenLayers.js"></script>
+    <script type="text/javascript">
+        var map = null;
+        var extent = new OpenLayers.Bounds(8, 44.5, 19, 50);
+
+        function init() {
+            var options = {
+                restrictedExtent: extent
+            };
+            map = new OpenLayers.Map('map', options);
+
+            var wms = new OpenLayers.Layer.WMS(
+                "OpenLayers WMS", 
+                "http://vmap0.tiles.osgeo.org/wms/vmap0?",
+                {layers: 'basic'}
+            ); 
+
+            map.addLayers([wms]);
+            map.zoomToExtent(extent);
+            document.getElementById("toggle").checked = true;
+        }
+        
+        function toggleRestrictedExtent() {
+            if(map.restrictedExtent == null) {
+                map.setOptions({restrictedExtent: extent});
+            } else {
+                map.setOptions({restrictedExtent: null});
+            }
+        }
+    </script>
+  </head>
+  <body onload="init()">
+    <h1 id="title">OpenLayers Restricted Extent Example</h1>
+    <div id="tags">
+        map, restrict, restrictedextent, extent, light
+    </div>    
+    <p id="shortdesc">
+      Don't let users drag outside the map extent: instead, limit dragging such
+      that the extent of the layer is the maximum viewable area.
+    </p>
+    <div id="map" class="smallmap"></div>
+    <p>
+        Map navigation is limited by a combination of map and layer properties.
+        The base layer resolutions array controls the resolutions (or zoom
+        levels) available.  The resolutions can be limited by setting a
+        maxResolution property or by explicitly specifying a resolutions
+        array.
+    </p>
+    <p>
+        Navigation limited by the maxExtent property.  A map cannot be panned
+        so that the center of the viewport is outside of the bounds specified
+        in maxExtent.  If you wish to further restrict panning, use the
+        restrictedExtent property.  With restrictedExtent set, the map cannot
+        be panned beyond the given bounds.  If the maxResolution allows the
+        map to be zoomed to a resolution that displays an area bigger than
+        the restrictedExtent, the viewport will remain centered on the
+        restrictedExtent.
+    </p>
+    <p>
+        <input type="checkbox" id="toggle" checked="checked"
+               onclick="toggleRestrictedExtent();" />
+        <label for="toggle">
+            Toggle restricted extent (to [8, 44.5, 19, 50]).
+        </label>
+    
+  </body>
+</html>		
+				
+	
+//==========FULL SCREEN==============	
+var map = new OpenLayers.Map({
+    div: "map",
+    layers: [
+        new OpenLayers.Layer.OSM("OSM (without buffer)"),
+        new OpenLayers.Layer.OSM("OSM (with buffer)", null, {buffer: 2})
+    ],
+    controls: [
+        new OpenLayers.Control.Navigation({
+            dragPanOptions: {
+                enableKinetic: true
+            }
+        }),
+        new OpenLayers.Control.PanZoom(),
+        new OpenLayers.Control.Attribution()
+    ],
+    center: [0, 0],
+    zoom: 3
+});
+
+map.addControl(new OpenLayers.Control.LayerSwitcher());
+
+
+
+
+
+
+//==========ADDINGZOOM BOX==============	
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title>OpenLayers Map Controls Example</title>
+
+        <link rel="stylesheet" href="../theme/default/style.css" type="text/css">
+        <link rel="stylesheet" href="style.css" type="text/css">
+
+        <style>
+        /* round corners of layer switcher, and make it transparent */
+        .olControlLayerSwitcher .layersDiv {
+            border-radius: 10px 0 0 10px;
+            opacity: 0.75;
+            filter: alpha(opacity=75);
+        }
+        </style>
+
+        <script src="../OpenLayers.js"></script>
+        <script type="text/javascript">
+            var map;
+            function init(){
+                map = new OpenLayers.Map('map', {
+                    controls: [
+                        new OpenLayers.Control.Navigation(),
+                        new OpenLayers.Control.PanZoomBar(),
+                        new OpenLayers.Control.LayerSwitcher({'ascending':false}),
+                        new OpenLayers.Control.Permalink(),
+                        new OpenLayers.Control.ScaleLine(),
+                        new OpenLayers.Control.Permalink('permalink'),
+                        new OpenLayers.Control.MousePosition(),
+                        new OpenLayers.Control.OverviewMap(),
+                        new OpenLayers.Control.KeyboardDefaults()
+                    ],
+                    numZoomLevels: 6
+                    
+                });
+
+                var ol_wms = new OpenLayers.Layer.WMS(
+                    "OpenLayers WMS",
+                    "http://vmap0.tiles.osgeo.org/wms/vmap0",
+                    {layers: 'basic'} 
+                );
+
+                var gwc = new OpenLayers.Layer.WMS(
+                    "Global Imagery",
+                    "http://maps.opengeo.org/geowebcache/service/wms",
+                    {layers: "bluemarble"},
+                    {tileOrigin: new OpenLayers.LonLat(-180, -90)}
+                );
+                var dm_wms = new OpenLayers.Layer.WMS(
+                    "DM Solutions Demo",
+                    "http://www2.dmsolutions.ca/cgi-bin/mswms_gmap",
+                    {layers: "bathymetry,land_fn,park,drain_fn,drainage," +
+                             "prov_bound,fedlimit,rail,road,popplace",
+                     transparent: "true", format: "image/png"},
+                    {visibility: false}
+                );
+
+                map.addLayers([ol_wms, gwc, dm_wms]);
+
+                if (!map.getCenter()) {
+                    map.zoomToMaxExtent();
+                }
+            }
+        </script>
+    </head>
+    <body onload="init()">
+        <h1 id="title">Map Controls Example</h1>
+
+        <div id="tags">
+            control, basic
+        </div>
+
+        <p id="shortdesc">
+            Attach zooming, panning, layer switcher, overview map, and permalink map controls to an OpenLayers window.
+        </p>
+
+        <div id="map" class="smallmap"></div>
+        <a href="#" id="permalink">Permalink</a>
+
+        <div id="docs"></div>
+    </body>
+</html>
+
+
+
+
+
+<div id="OpenLayers.Control.PanZoomBar_3" class="olControlPanZoomBar olControlNoSelect" style="position: absolute; left: 4px; top: 4px; z-index: 1007; display: none;" unselectable="on">
+<div id="OpenLayers.Control.PanZoomBar_3_panup" style="position: absolute; left: 13px; top: 4px; width: 18px; height: 18px; cursor: pointer; display: none;">
+<img id="OpenLayers.Control.PanZoomBar_3_panup_innerImage" style="position: relative; width: 18px; height: 18px; display: none;" src="http://js.mapbox.com/theme/dark/north-mini.png">
+</div>
+<div id="OpenLayers.Control.PanZoomBar_3_panleft" style="position: absolute; left: 4px; top: 22px; width: 18px; height: 18px; cursor: pointer; display: none;">
+<img id="OpenLayers.Control.PanZoomBar_3_panleft_innerImage" style="position: relative; width: 18px; height: 18px; display: none;" src="http://js.mapbox.com/theme/dark/west-mini.png">
+</div>
+<div id="OpenLayers.Control.PanZoomBar_3_panright" style="position: absolute; left: 22px; top: 22px; width: 18px; height: 18px; cursor: pointer; display: none;">
+<img id="OpenLayers.Control.PanZoomBar_3_panright_innerImage" style="position: relative; width: 18px; height: 18px; display: none;" src="http://js.mapbox.com/theme/dark/east-mini.png">
+</div>
+<div id="OpenLayers.Control.PanZoomBar_3_pandown" style="position: absolute; left: 13px; top: 40px; width: 18px; height: 18px; cursor: pointer; display: none;">
+<img id="OpenLayers.Control.PanZoomBar_3_pandown_innerImage" style="position: relative; width: 18px; height: 18px; display: none;" src="http://js.mapbox.com/theme/dark/south-mini.png">
+</div>
+<div id="OpenLayers.Control.PanZoomBar_3_zoomin" style="position: absolute; left: 13px; top: 63px; width: 18px; height: 18px; cursor: pointer; display: none;">
+<img id="OpenLayers.Control.PanZoomBar_3_zoomin_innerImage" style="position: relative; width: 18px; height: 18px; display: none;" src="http://js.mapbox.com/theme/dark/zoom-plus-mini.png">
+</div>
+<div id="OpenLayers_Control_PanZoomBar_ZoombarOpenLayers.Map_9" style="background-image: url("http://js.mapbox.com/theme/dark/zoombar.png"); left: 13px; top: 81px; width: 18px; height: 99px; position: absolute; cursor: pointer;"></div>
+<div id="OpenLayers.Control.PanZoomBar_3_OpenLayers.Map_9" style="position: absolute; left: 12px; top: 148px; width: 20px; height: 9px; cursor: move; display: none;">
+<img id="OpenLayers.Control.PanZoomBar_3_OpenLayers.Map_9_innerImage" style="position: relative; width: 20px; height: 9px; display: none;" src="http://js.mapbox.com/theme/dark/slider.png">
+</div>
+<div id="OpenLayers.Control.PanZoomBar_3_zoomout" style="position: absolute; left: 13px; top: 180px; width: 18px; height: 18px; cursor: pointer; display: none;">
+<img id="OpenLayers.Control.PanZoomBar_3_zoomout_innerImage" style="position: relative; width: 18px; height: 18px; display: none;" src="http://js.mapbox.com/theme/dark/zoom-minus-mini.png">
+</div>
+</div>
