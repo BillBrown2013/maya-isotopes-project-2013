@@ -22,6 +22,13 @@ body {
     background: #fff;
     margin: 1em 1.5em;
 }
+
+ p {  width: 500px;
+            }
+            div.olControlMousePosition {
+                font-family: Verdana;
+                font-size: 2em;
+                color: white;
 pre, code {
     margin: 1.5em 0;
     white-space: pre;
@@ -140,3 +147,12 @@ h6 {
 body {
     -webkit-text-size-adjust: none;
 }
+
+
+ p {
+                width: 500px;
+            }
+            div.olControlMousePosition {
+                font-family: Verdana;
+                font-size: 2em;
+                color: red;
