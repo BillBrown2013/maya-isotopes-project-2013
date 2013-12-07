@@ -7,7 +7,8 @@
 					<link rel="stylesheet" href="new4.css" type="text/css">
 						<style type="text/css">
 						
-          p {
+         
+		 p {
                 width: 500px;
             }
             div.olControlMousePosition {
@@ -16,7 +17,6 @@
                 color: red;
             }
 		
-		</style>
 						
 						
 						
@@ -35,7 +35,7 @@
 		
 //==========INITIALIZATION FUNCTION==============		
 		function init(){
-			  var options = {theme: null};
+			 
                 map = new OpenLayers.Map('map', options);
                 layer = new OpenLayers.Layer.WMS( "OpenLayers WMS",
                         "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} );
