@@ -23,14 +23,10 @@
 //==========INITIALIZATION FUNCTION==============		
 		function init(){
 			 
-                map = new OpenLayers.Map('map', options);
-                layer = new OpenLayers.Layer.WMS( "OpenLayers WMS",
-                        "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} );
-
-                map.addControl(new OpenLayers.Control.MousePosition());
-                map.addLayer(layer);
-                map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
-            }
+                map = new OpenLayers.Map('map',{numZoomLevels: 20
+			}); 
+			
+			
 			
 //==========CREATE LAYERS FIRST MAP==============		
 			bmngLayer = new OpenLayers.Layer.WMS(							
