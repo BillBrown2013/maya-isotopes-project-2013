@@ -7,9 +7,19 @@
 					<link rel="stylesheet" href="new4.css" type="text/css">
 						<style type="text/css">
 						
-        </style>
+          p {
+                width: 500px;
+            }
+            div.olControlMousePosition {
+                font-family: Verdana;
+                font-size: 2em;
+                color: red;
+            }
+		
+		</style>
 						
-						</style>
+						
+						
 
  <script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -25,9 +35,15 @@
 		
 //==========INITIALIZATION FUNCTION==============		
 		function init(){
-			map = new OpenLayers.Map('map',
-			{numZoomLevels: 20
-			});
+			  var options = {theme: null};
+                map = new OpenLayers.Map('map', options);
+                layer = new OpenLayers.Layer.WMS( "OpenLayers WMS",
+                        "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} );
+
+                map.addControl(new OpenLayers.Control.MousePosition());
+                map.addLayer(layer);
+                map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
+            }
 			
 //==========CREATE LAYERS FIRST MAP==============		
 			bmngLayer = new OpenLayers.Layer.WMS(							
