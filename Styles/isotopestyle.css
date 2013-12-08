@@ -116,7 +116,7 @@
 			
 		//==========STYLE MAP CONTROLS===============	
 				.olControlMousePosition {
-					color: darkgray
+					color: red
 					right: 3px;
 					position: absolute;
 					font-size: smaller;
@@ -124,14 +124,7 @@
 					background-color: rgba(189,192,191,0.5);
 					bottom: 5px !important}
 					
-					p {
-                width: 500px;
-            }
-            div.olControlMousePosition {
-                font-family: Verdana;
-                font-size: 2em;
-                color: red;
-            }
+					
 				
 				.olControlScaleLine {background: white; color:black;}
 				
