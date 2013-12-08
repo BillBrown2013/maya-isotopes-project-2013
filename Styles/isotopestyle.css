@@ -123,6 +123,15 @@
 					padding: 2px 5px;
 					background-color: rgba(189,192,191,0.5);
 					bottom: 5px !important}
+					
+					p {
+                width: 500px;
+            }
+            div.olControlMousePosition {
+                font-family: Verdana;
+                font-size: 2em;
+                color: red;
+            }
 				
 				.olControlScaleLine {background: white; color:black;}
 				
