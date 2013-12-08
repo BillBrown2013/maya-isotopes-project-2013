@@ -131,7 +131,8 @@
             }
             div.olControlMousePosition {
                 font-family: arialblack;
-                font-size: 6em;
+                font-size: 10px;
+				font-weight: bold;
                 color: darkgray;
             }
 				
