@@ -139,7 +139,52 @@
 				.olControlScaleLine 
 					{background: white; color:black;}
 				
-				 
+				 .olAlphaImg {
+                opacity:0.45;
+                filter: alpha(opacity = 45);
+}
+
+.olControlLayerSwitcher .layersDiv {
+                opacity:0.85; 
+                filter: alpha(opacity = 85);
+                background-color: #D5D5D5;
+                -moz-border-radius: 15px 0px 0px 15px;
+                border-radius: 15px 0px 0px 15px;
+}
+
+.olControlLayerSwitcher {
+                color:#666666;
+                -moz-border-radius: 15px 0px 0px 15px;
+                border-radius: 15px 0px 0px 15px;
+                width:15em;
+}
+
+.olButton {
+                font-weight:500;
+}
+
+.labelSpan {
+                font-family: "Open Sans","Helvetica Neue","Helvetica","Arial,sans-serif";
+}
+
+.olControlLayerSwitcher br {
+                display:none;
+}
+
+.olControlLayerSwitcher input {
+                border-color:#d5d5d5;   
+                background-color: #d5d5d5;
+                padding-right: 0px;
+                padding-bottom: 10px;
+                margin-top: 7px;
+                margin-right:10px;
+                border-radius: 10px;
+                -moz-border-radius: 10px;
+                float:left;}
+
+.baseLbl {
+                display:none;
+} 
  
 
 			</style>
