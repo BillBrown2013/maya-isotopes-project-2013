@@ -31,12 +31,11 @@
 		var zoom = 6;
 		var map, map_2;
 		var Layers = new Object ();
-		
-		
+
 //==========INITIALIZATION FUNCTION==============		
 		function init(){
 			var options = {theme: null};
-			map = new OpenLayers.Map('map', options);
+			map = new OpenLayers.Map('map', 'options');
 			
 //==========CREATE LAYERS FIRST MAP==============		
 			bmngLayer = new OpenLayers.Layer.WMS(							
