@@ -1,0 +1,121 @@
+//===============APPLY STYLE WITH CSS==========================	
+			<style type ="text/css">
+			
+				html {height: 100%;}					
+				
+				body 
+					{height: 100%; 
+					margin: 2px; 
+					padding: 2px; 
+					text-align: justify;	
+					background-color: black;}	
+					
+				a:link {color: white; text-decoration:none;}
+				
+				a:visited {color: darkgray;}
+				
+				ul{list-style-type:none; margin-left: 30%; padding:0; overflow:hidden;}
+				
+				li {float:left;}
+
+				#intro
+					{color:lightgray; 
+					font-size:20px; 
+					font-family: arial,sans-serif; 
+					column-count:2;
+					-moz-column-count:2;		/* creates columns in Firefox */
+					-moz-column-gap:40px;
+					-moz-column-rule:4pxoutset #ff00ff;
+					-webkit-column-count:2;  	/*creates columns in Safari and Chrome */
+					-webkit-column-gap:40px;
+					-webkit-column-rule:4px outset #ff00ff;
+					text-align: justify;
+					padding-left: 3em;
+					padding-right: 3em;
+					margin-top:700px;
+					padding-top:1.5em;
+					margin-bottom: 2em;}
+				
+				#introb
+					{color:lightgray; 
+					font-size:16px; 
+					font-family: arial,sans-serif; 
+					text-align: center;
+					padding-left: 3em;
+					padding-right: 3em;}
+					
+				a:link,a:visited 
+					{display:block; 
+					width:170px; 
+					font-weight:bold; 
+					color:white; 
+					background-color:#A80000;
+					text-align:center; 
+					padding:4px; 
+					text-decoration:none; 
+					text-transform:uppercase;}
+
+				a:hover,a:active {background-color:darkgray;}
+				
+				#b 
+					{display:block; 
+					font-weight:bold; 
+					color:white; 
+					background-color:#A80000; 
+					font-family:arial; 
+					font-size: 18px; 
+					margin-left:45%; 
+					width:180px; 
+					text-align:center; 
+					padding:4px; 
+					text-decoration:none;}
+				
+				a:hover,a:active{background-color:darkgray;}
+
+				#header img {position:absolute; left:10px; top:10px;}																																																												
+				  
+				h1 {color: #A80000;	
+					background-color: black; 
+					font-family: arial; 
+					font-size: 42px; 
+					text-align: center; 
+					margin-bottom:0;
+					padding-bottom:.75em;
+					clear:left; 
+					 
+					}
+
+				address 
+					{color:#A80000; 
+					clear: left; 
+					text-align:center; 
+					padding-top: 36px; 
+					font-family: courier,monospace; 
+					font-size: 24px; 
+					font-weight: bold;}
+				
+				#map {height: 100%;
+					
+					width: 100%;
+					background-color: white;
+					border-style: outset; border-width: thick; border-color:#A80000;
+					}
+				
+			
+			
+		//==========STYLE MAP CONTROLS===============	
+				.olControlMousePosition {
+					right: 3px;
+					position: absolute;
+					font-size: larger;
+					padding: 2px 5px;
+					background-color: rgba(189,192,191,0.5);
+					bottom: 5px !important}
+					
+					
+				
+				.olControlScaleLine {background: white; color:black;}
+				
+            
+
+			</style>	
