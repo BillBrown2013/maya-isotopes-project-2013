@@ -53,22 +53,7 @@
 				{visibility: false, opacity:0.5});
 						map.addLayer(labels);
 					
-			
 					
-		
-			
-			
-			
-			
-						
-			
-						
-			
-						
-			
-
-			
-						
 			coast = new OpenLayers.Layer.WMS(
 				'Global Coastlines',
 				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',
@@ -83,58 +68,7 @@
 			
 			
 
-//==========CREATE VECTOR FEATURES AND LAYERS FIRST MAP==============
 
-			//==========CREATE VECTOR LAYERS FIRST MAP==============			
-				
-			
-				
-			
-				
-				
-			//==========CREATE STYLES FOR VECTOR LAYERS FIRST MAP==============
-				myRedPointStyle = {pointRadius: 4, fillColor: "#CC0000", fillOpacity: .5, strokeOpacity: .5}
-				mbStyle = {fillColor: "yellow", fillOpacity: .9, strokeOpacity: .5, strokeColor: "yellow"}
-				ypStyle1 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Tikal"}
-				ypStyle2 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Kaminaljuyu"}
-				ypStyle3 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Uaxactun"}
-				ypStyle4 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Calakmul"}
-				ypStyle5 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "Nojol Nah"}
-				ypStyle6 = {pointRadius: 3, fillColor: "yellow", fillOpacity: .9, strokeOpacity: .9, labelAlign: "bottom", label: "El Mirador"}
-			
-			//==========CREATE VECTOR GEOMETRIES FIRST MAP==============
-				var point = new OpenLayers.Geometry.Point (-89.821383, 14.827881);
-				var tikal = new OpenLayers.Geometry.Point (-89.63163, 17.21732);
-				var kaminaljuyu = new OpenLayers.Geometry.Point (-90.549, 14.632833);
-				var uaxactun = new OpenLayers.Geometry.Point (-89.63775, 17.39795);
-				var calakmul = new OpenLayers.Geometry.Point (-89.810333, 18.1045);  
-				var nn = new OpenLayers.Geometry.Point (-89.035248, 17.947757); 
-				var emd = new OpenLayers.Geometry.Point (-91.850992, 15.766477);  
-			
-			//==========CREATE POLYGON FOR MOTAGUA GREEN JADE SOURCE FIRST MAP==============
-				var ppoints = [
-				new OpenLayers.Geometry.Point(-89.995164, 14.955405),
-				new OpenLayers.Geometry.Point(-89.692805, 15.053435),
-				new OpenLayers.Geometry.Point(-89.712800, 14.99954),
-				new OpenLayers.Geometry.Point(-89.919042, 14.932275)];					
-				var ring = new OpenLayers.Geometry.LinearRing(ppoints);
-				var polygon = new OpenLayers.Geometry.Polygon([ring])
-				var pfeature = new OpenLayers.Feature.Vector(polygon,null,mbStyle);
-			
-			//==========CREATE VECTOR FEATURES FIRST MAP==============
-				var feature_point = new OpenLayers.Feature.Vector(point,name,myRedPointStyle);
-				var feature_tikal = new OpenLayers.Feature.Vector(tikal,null,ypStyle1);
-				var feature_kaminaljuyu = new OpenLayers.Feature.Vector(kaminaljuyu,null,ypStyle2);
-				var feature_uaxactun = new OpenLayers.Feature.Vector(uaxactun,null,ypStyle3);
-				var feature_calakmul = new OpenLayers.Feature.Vector(calakmul,null,ypStyle4);
-				var feature_nn = new OpenLayers.Feature.Vector(nn,null,ypStyle5);
-				var feature_emd = new OpenLayers.Feature.Vector(emd,null,ypStyle6);
-			
-			//==========ADD VECTOR LAYERS FIRST MAP==============	
-			
-				
-					
-	
 			//==========CREATE VECTOR EDITOR CONTROLS FIRST MAP==============
 				var vector_layer = new OpenLayers.Layer.Vector(
 					'Editable Vectors');
@@ -144,21 +78,6 @@
 			//==========CREATE KML STYLE FIRST MAP==============
 				kmlStyle = {fillColor: "#0000ff", fillOpacity: .2, strokeOpacity: .5, strokeColor: "#0000ff"}	
 				
-			//==========CREATE KML LAYERS FIRST MAP==============		
-				Layers.pop = new OpenLayers.Layer.Vector("Guatemala KML", {
-					projection: map.displayProjection,
-					visibility: false,
-					
-					strategies: [new OpenLayers.Strategy.Fixed()],
-					protocol: new OpenLayers.Protocol.HTTP({
-					url: "gpop.kml",
-					format: new OpenLayers.Format.KML({
-					extractAttributes: true
-							})
-						})
-					});
-						map.addLayer(Layers.pop)
-																						
 				caries = new OpenLayers.Layer.Vector("Percentage of Burials with Caries", {
 					projection: map.displayProjection,
 					visibility: false,				
@@ -229,40 +148,7 @@
 				map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
 					
 		
-//==========CREATE SECOND MAP==============		
-	map_2 = new OpenLayers.Map('map_2', {});				
-	var baseLayer2 = base1.clone();				
-						map_2.addLayer(baseLayer2);		 
-			
-		//==========CREATE MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============			
-		
-			//==========CREATE LAYER FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============	
-				Layers.localFeatures2 = new OpenLayers.Layer.Vector('The Study Area');
-						map_2.addLayer(Layers.localFeatures2);
-			
-			//==========CREATE STYLE FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============
-				rpStyle = {pointRadius: 8, fillColor: "#CC0000", fillOpacity: .5, strokeOpacity: .5, label: "The Study Area"}
-			
-			//==========CREATE LOCATION FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============
-				var point2 = new OpenLayers.Geometry.Point (-89.8,14.91);
-				
-			//==========CREATE MARKER FEATURE FOR MOTAGUA FAULT ZONE SECOND MAP==============
-				var feature_point2 = new OpenLayers.Feature.Vector(point2,name,rpStyle);
-					feature_point2.attributes = {name: "Olmec"};
-          
-			//==========ADD VECTOR LAYER SECOND MAP==============		
-				Layers["localFeatures2"].addFeatures([feature_point2]);
-		   
-			//==========ADD MAP CONTROLS SECOND MAP==============	
-				map_2.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
-				map_2.addControl(new OpenLayers.Control.MousePosition());			
-				map_2.addControl(new OpenLayers.Control.LayerSwitcher({}));
-				map_2.addControl(new OpenLayers.Control.OverviewMap() );
-				map_2.addControl(new OpenLayers.Control.Scale() );
-				map_2.addControl(new OpenLayers.Control.ScaleLine() );
-			
-			//==========CENTER THE SECOND MAP==============
-				map_2.setCenter(new OpenLayers.LonLat(-83.0,-5.0), 3.2);
+
 				
 //==========THE CURLEY BRACKET BELOW ENDS INITIALIZATION FUNCTION==============
 		}
@@ -298,7 +184,7 @@
 
 				address {color:#A80000; clear: left; text-align: center; padding-top: 36px; font-family: courier,monospace; font-size: 24px; font-weight: bold;}
 				
-				#map {height: 650px; float: left;
+				#map {height: 100%; float: left;
 					margin-top:500px;
 					width: 1100px;
 					background-color: white;
@@ -335,11 +221,11 @@
 			<li><a href="http://billbrown2013.github.io/maya-isotopes-project-2013/githubmayamapinfo.html">References</a></li>
 		</ul>
 		
-				<div id="header"><img src="maya2.png" width="300" height="350" alt="maya2"/><h1>The Map</h1></div>		
+				<div id="header"><img src="Mayaimages/maya2.png" width="300" height="350" alt="maya2"/><h1>The Map</h1></div>		
 			
 					<div id='map'></div>
 				
-						<div id='map_2'></div>
+						
 										
 							<address>Bill Brown wbrown@unm.edu</address>
 		
