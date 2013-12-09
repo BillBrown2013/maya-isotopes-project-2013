@@ -95,39 +95,7 @@
 				map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
 					
 		
-			//==========CREATE SECOND MAP==============		
-				map_2 = new OpenLayers.Map('map_2', {});				
-				var baseLayer2 = base1.clone();				
-						map_2.addLayer(baseLayer2);		 
 			
-			//==========CREATE LAYER FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============	
-				Layers.localFeatures2 = new OpenLayers.Layer.Vector('The Study Area');
-						map_2.addLayer(Layers.localFeatures2);
-			
-			//==========CREATE STYLE FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============
-				rpStyle = {pointRadius: 8, fillColor: "#CC0000", fillOpacity: .5, strokeOpacity: .5, label: "The Study Area"}
-			
-			//==========CREATE LOCATION FOR MARKER FOR MOTAGUA FAULT ZONE SECOND MAP==============
-				var point2 = new OpenLayers.Geometry.Point (-89.8,14.91);
-				
-			//==========CREATE MARKER FEATURE FOR MOTAGUA FAULT ZONE SECOND MAP==============
-				var feature_point2 = new OpenLayers.Feature.Vector(point2,name,rpStyle);
-					feature_point2.attributes = {name: "Olmec"};
-          
-			//==========ADD VECTOR LAYER SECOND MAP==============		
-				Layers["localFeatures2"].addFeatures([feature_point2]);
-		   
-			//==========ADD MAP CONTROLS SECOND MAP==============	
-				map_2.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
-				map_2.addControl(new OpenLayers.Control.MousePosition());			
-				map_2.addControl(new OpenLayers.Control.LayerSwitcher({}));
-				map_2.addControl(new OpenLayers.Control.OverviewMap() );
-				map_2.addControl(new OpenLayers.Control.Scale() );
-				map_2.addControl(new OpenLayers.Control.ScaleLine() );
-			
-			//==========CENTER THE SECOND MAP==============
-				map_2.setCenter(new OpenLayers.LonLat(-83.0,-5.0), 3.2);
-				
 //==========THE CURLEY BRACKET BELOW ENDS INITIALIZATION FUNCTION==============
 		}
 						
