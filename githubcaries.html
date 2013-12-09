@@ -14,7 +14,7 @@
             }
             div.olControlMousePosition {
                 font-family: Arial;
-                font-size: 12em;
+                font-size: 40em;
                 color: limegreen;
 				font-weight: bold;
             }
@@ -36,7 +36,7 @@
 //==========INITIALIZATION FUNCTION==============		
 		function init(){
 			var options = {theme: null};
-			map = new OpenLayers.Map('map',
+			map = new OpenLayers.Map('map', options)
 			{numZoomLevels: 20
 			});
 			
