@@ -8,19 +8,8 @@
 					 <link rel="stylesheet" href="../theme/default/style.css" type="text/css">
 					<link rel="stylesheet" href="Styles/isotopestyle.css" type="text/css">
 						<style type="text/css">
-						  
-            p {
-                width: 500px;
-            }
-            div.olControlMousePosition {
-                font-family: Arial;
-                font-size: 40em;
-                color: limegreen;
-				font-weight: bold;
-            }
-        </style>
+						</style>
 					
-						
  <script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 		<script type="text/javascript">     
@@ -28,7 +17,7 @@
 //=========DEFINE GLOBAL VARIABLES==============		
 		var lon = -90.0;
 		var lat = 16.7;
-		var zoom = 6;
+		var zoom = 5;
 		var map, map_2;
 		var Layers = new Object ();
 
@@ -129,9 +118,9 @@
 				map_2.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
 				map_2.addControl(new OpenLayers.Control.MousePosition());			
 				map_2.addControl(new OpenLayers.Control.LayerSwitcher({}));
-				map_2.addControl(new OpenLayers.Control.OverviewMap() );
-				map_2.addControl(new OpenLayers.Control.Scale() );
-				map_2.addControl(new OpenLayers.Control.ScaleLine() );
+				map_2.addControl(new OpenLayers.Control.OverviewMap());
+				map_2.addControl(new OpenLayers.Control.Scale());
+				map_2.addControl(new OpenLayers.Control.ScaleLine());
 			
 			//==========CENTER THE SECOND MAP==============
 				map_2.setCenter(new OpenLayers.LonLat(-83.0,-5.0), 3.2);

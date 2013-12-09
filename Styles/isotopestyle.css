@@ -114,10 +114,18 @@
 					border-color:#A80000; 
 					margin-top:500px;}
 			
-		
-					
-				
-				.olControlScaleLine {background: white; color:black;}
+		//==========STYLE MAP CONTROLS===============	
+				p 
+					{width: 500px;}
+            
+				div.olControlMousePosition 
+					{font-family: Arial;
+					font-size: 2em;
+					color: limegreen;
+					font-weight: bold;}
+ 			
+				.olControlScaleLine 
+					{background: white; color:black;}
 				
             
 
