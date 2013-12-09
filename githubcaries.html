@@ -20,7 +20,7 @@
 		var zoom = 5;
 		var map, map_2;
 		var Layers = new Object ();
-
+		
 //==========INITIALIZATION FUNCTION==============		
 		function init(){
 			var options = {theme: null};
@@ -56,6 +56,8 @@
 				transparent: true},
 				{visibility: false, opacity:0.5});
 						map.addLayer(labels);
+						
+			
 					
 			//==========CREATE VECTOR EDITOR CONTROLS FIRST MAP==============
 				var vector_layer = new OpenLayers.Layer.Vector(
@@ -84,7 +86,7 @@
 				map.addControl(new OpenLayers.Control.MousePosition());			
 				map.addControl(new OpenLayers.Control.LayerSwitcher({}));
 				map.addControl(new OpenLayers.Control.OverviewMap());
-				map.addControl(new OpenLayers.Control.PanZoomBar());
+				map.addControl(new OpenLayers.Control.ZoomSlider());
 				map.addControl(new OpenLayers.Control.Scale());
 				map.addControl(new OpenLayers.Control.ScaleLine());	
 					
