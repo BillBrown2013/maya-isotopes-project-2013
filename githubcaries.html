@@ -35,7 +35,7 @@
 //==========INITIALIZATION FUNCTION==============		
 		function init(){
 			var options = {theme: null};
-			map = new OpenLayers.Map('map', 'options');
+			map = new OpenLayers.Map('map', options);
 			
 //==========CREATE LAYERS FIRST MAP==============		
 			bmngLayer = new OpenLayers.Layer.WMS(							
@@ -94,10 +94,10 @@
 				map.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
 				map.addControl(new OpenLayers.Control.MousePosition());			
 				map.addControl(new OpenLayers.Control.LayerSwitcher({}));
-				map.addControl(new OpenLayers.Control.OverviewMap() );
-				map.addControl(new OpenLayers.Control.PanZoomBar() );
-				map.addControl(new OpenLayers.Control.Scale() );
-				map.addControl(new OpenLayers.Control.ScaleLine() );	
+				map.addControl(new OpenLayers.Control.OverviewMap());
+				map.addControl(new OpenLayers.Control.PanZoomBar());
+				map.addControl(new OpenLayers.Control.Scale());
+				map.addControl(new OpenLayers.Control.ScaleLine());	
 					
 			//==========CENTER THE FIRST MAP==============
 				map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
