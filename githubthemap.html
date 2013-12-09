@@ -8,7 +8,102 @@
 					 <link rel="stylesheet" href="../theme/default/style.css" type="text/css">
 					<link rel="stylesheet" href="Styles/isotopestyle.css" type="text/css">
 						<style type="text/css">
-						//===============APPLY STYLE WITH CSS==========================	
+						
+ 
+				
+						
+ <script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript">     
+			
+//=========DEFINE GLOBAL VARIABLES==============		
+		var lon = -90.0;
+		var lat = 16.7;
+		var zoom = 6;
+		var map, map_2;
+		var Layers = new Object ();
+		var landsatLayer, bmngLayer;
+		
+//==========INITIALIZATION FUNCTION==============		
+		function init(){
+			var options = {theme: null};
+			map = new OpenLayers.Map('map',
+			{numZoomLevels: 20
+			});
+			
+//==========CREATE LAYERS FIRST MAP==============		
+			bmngLayer = new OpenLayers.Layer.WMS(							
+				"Blue Marble Base Map",
+				"http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?",
+				{layers:
+				"bmng8km,bmng2km,bmng500mA1,bmng500mA2,bmng500mB1,bmng500mB2,bmng500mC1,bmng500mC2,bmng500mD1,bmng500mD2",version: '1.3.0', transparent: 'TRUE'},
+				{isBaseLayer: true});
+						map.addLayer(bmngLayer);
+			
+			base1= new OpenLayers.Layer.WMS(
+				'Alternate Base Layer',
+				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',				
+				{layers:'BillBrown_final_exam:HYP_HR_SR_OB_DR', transparent:true},
+				{isBaseLayer: true});
+						map.addLayer(base1);
+			
+			baseLayer = new OpenLayers.Layer.WMS(			
+				'Open Layer Base Map',
+				'http://vmap0.tiles.osgeo.org/wms/vmap0',
+				{layers: 'basic'},
+				{isBaseLayer: true});
+						map.addLayer(baseLayer);								
+				
+			labels = new OpenLayers.Layer.WMS(
+				'Location Labels',
+				'http://vmap0.tiles.osgeo.org/wms/vmap0',
+				{layers: 'clabel,ctylabel,statelabel',
+				transparent: true},
+				{visibility: false, opacity:0.5});
+						map.addLayer(labels);
+					
+			//==========CREATE VECTOR EDITOR CONTROLS FIRST MAP==============
+				var vector_layer = new OpenLayers.Layer.Vector(
+					'Editable Vectors');
+	
+			//==========CREATE KML STYLE FIRST MAP==============
+				kmlStyle = {fillColor: "#0000ff", fillOpacity: .2, strokeOpacity: .5, strokeColor: "#0000ff"}	
+				
+			//==========CREATE KML LAYERS FIRST MAP==============		
+				caries = new OpenLayers.Layer.Vector("Percentage of Burials with Caries", {
+					projection: map.displayProjection,
+					visibility: true,				
+					strategies: [new OpenLayers.Strategy.Fixed()],
+					protocol: new OpenLayers.Protocol.HTTP({
+					url: "kml/test/caries.kml",
+					format: new OpenLayers.Format.KML({
+					extractStyles: true,
+					extractAttributes: true
+							})
+						})
+					});
+						map.addLayer(caries)
+			
+			//==========ADD MAP CONTROLS FIRST MAP==============		
+				map.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
+				map.addControl(new OpenLayers.Control.MousePosition());			
+				map.addControl(new OpenLayers.Control.LayerSwitcher({}));
+				map.addControl(new OpenLayers.Control.OverviewMap() );
+				map.addControl(new OpenLayers.Control.PanZoomBar() );
+				map.addControl(new OpenLayers.Control.Scale() );
+				map.addControl(new OpenLayers.Control.ScaleLine() );	
+					
+			//==========CENTER THE FIRST MAP==============
+				map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
+					
+		
+			
+				
+//==========THE CURLEY BRACKET BELOW ENDS INITIALIZATION FUNCTION==============
+		}
+						
+	</script>	
+//===============APPLY STYLE WITH CSS==========================	
 			<style type ="text/css">
 			
 				html {height: 100%;}					
@@ -128,101 +223,7 @@
 				
             
 
-			</style>
- 
-				
-						
- <script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
-	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-		<script type="text/javascript">     
-			
-//=========DEFINE GLOBAL VARIABLES==============		
-		var lon = -90.0;
-		var lat = 16.7;
-		var zoom = 6;
-		var map, map_2;
-		var Layers = new Object ();
-		var landsatLayer, bmngLayer;
-		
-//==========INITIALIZATION FUNCTION==============		
-		function init(){
-			var options = {theme: null};
-			map = new OpenLayers.Map('map',
-			{numZoomLevels: 20
-			});
-			
-//==========CREATE LAYERS FIRST MAP==============		
-			bmngLayer = new OpenLayers.Layer.WMS(							
-				"Blue Marble Base Map",
-				"http://edacwms.unm.edu/cgi-bin/mapfiles/edacimagery?",
-				{layers:
-				"bmng8km,bmng2km,bmng500mA1,bmng500mA2,bmng500mB1,bmng500mB2,bmng500mC1,bmng500mC2,bmng500mD1,bmng500mD2",version: '1.3.0', transparent: 'TRUE'},
-				{isBaseLayer: true});
-						map.addLayer(bmngLayer);
-			
-			base1= new OpenLayers.Layer.WMS(
-				'Alternate Base Layer',
-				'http://129.24.63.138:8080/geoserver/BillBrown_final_exam/wms',				
-				{layers:'BillBrown_final_exam:HYP_HR_SR_OB_DR', transparent:true},
-				{isBaseLayer: true});
-						map.addLayer(base1);
-			
-			baseLayer = new OpenLayers.Layer.WMS(			
-				'Open Layer Base Map',
-				'http://vmap0.tiles.osgeo.org/wms/vmap0',
-				{layers: 'basic'},
-				{isBaseLayer: true});
-						map.addLayer(baseLayer);								
-				
-			labels = new OpenLayers.Layer.WMS(
-				'Location Labels',
-				'http://vmap0.tiles.osgeo.org/wms/vmap0',
-				{layers: 'clabel,ctylabel,statelabel',
-				transparent: true},
-				{visibility: false, opacity:0.5});
-						map.addLayer(labels);
-					
-			//==========CREATE VECTOR EDITOR CONTROLS FIRST MAP==============
-				var vector_layer = new OpenLayers.Layer.Vector(
-					'Editable Vectors');
-	
-			//==========CREATE KML STYLE FIRST MAP==============
-				kmlStyle = {fillColor: "#0000ff", fillOpacity: .2, strokeOpacity: .5, strokeColor: "#0000ff"}	
-				
-			//==========CREATE KML LAYERS FIRST MAP==============		
-				caries = new OpenLayers.Layer.Vector("Percentage of Burials with Caries", {
-					projection: map.displayProjection,
-					visibility: true,				
-					strategies: [new OpenLayers.Strategy.Fixed()],
-					protocol: new OpenLayers.Protocol.HTTP({
-					url: "kml/test/caries.kml",
-					format: new OpenLayers.Format.KML({
-					extractStyles: true,
-					extractAttributes: true
-							})
-						})
-					});
-						map.addLayer(caries)
-			
-			//==========ADD MAP CONTROLS FIRST MAP==============		
-				map.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
-				map.addControl(new OpenLayers.Control.MousePosition());			
-				map.addControl(new OpenLayers.Control.LayerSwitcher({}));
-				map.addControl(new OpenLayers.Control.OverviewMap() );
-				map.addControl(new OpenLayers.Control.PanZoomBar() );
-				map.addControl(new OpenLayers.Control.Scale() );
-				map.addControl(new OpenLayers.Control.ScaleLine() );	
-					
-			//==========CENTER THE FIRST MAP==============
-				map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
-					
-		
-			
-				
-//==========THE CURLEY BRACKET BELOW ENDS INITIALIZATION FUNCTION==============
-		}
-						
-	</script>			
+			</style>	
 </head>
 
 
