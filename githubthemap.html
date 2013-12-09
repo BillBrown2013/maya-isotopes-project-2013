@@ -17,7 +17,25 @@
 //==========INITIALIZATION FUNCTION==============		
 		function init(){
 			var map = new OpenLayers.Map({
-				div: "map";
+    div: "map",
+    layers: [
+        new OpenLayers.Layer.OSM("OSM (without buffer)"),
+        new OpenLayers.Layer.OSM("OSM (with buffer)", null, {buffer: 2})
+    ],
+    controls: [
+        new OpenLayers.Control.Navigation({
+            dragPanOptions: {
+                enableKinetic: true
+            }
+        }),
+        new OpenLayers.Control.PanZoom(),
+        new OpenLayers.Control.Attribution()
+    ],
+    center: [0, 0],
+    zoom: 3
+});
+
+map.addControl(new OpenLayers.Control.LayerSwitcher());
 			
 //==========CREATE LAYERS FIRST MAP==============		
 			bmngLayer = new OpenLayers.Layer.WMS(							
