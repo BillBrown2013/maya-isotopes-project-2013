@@ -130,9 +130,9 @@
 				p 
 					{width: 1500px;}
             
-				div.OpenLayers.Control.MousePosition
+				ol.ControlMousePosition
 					{font-family: Arial;
-					font-size: 4em;
+					font-size: 2em;
 					color: limegreen;
 					font-weight: bold;}
  			
