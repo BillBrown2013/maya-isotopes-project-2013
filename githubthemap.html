@@ -10,15 +10,14 @@
 		var lon = -89.0;
 		var lat = 15.0;
 		var zoom = 6;
-		var map, map_2;
+		var map;
 		var Layers = new Object ();
 		var landsatLayer, bmngLayer;
 		
 //==========INITIALIZATION FUNCTION==============		
 		function init(){
-			map = new OpenLayers.Map('map',
-			{numZoomLevels: 20
-			});
+			var map = new OpenLayers.Map({
+				div: "map";
 			
 //==========CREATE LAYERS FIRST MAP==============		
 			bmngLayer = new OpenLayers.Layer.WMS(							
