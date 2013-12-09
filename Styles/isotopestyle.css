@@ -130,62 +130,54 @@
 				p 
 					{width: 1500px;}
             
-				div.olControlMousePosition
+				ol.ControlMousePosition
 					{font-family: Arial;
-					font-size: 20px;
+					font-size: 2em;
 					color: limegreen;
 					font-weight: bold;}
  			
 				.olControlScaleLine 
 					{background: white; color:black;}
-				
-				 .olAlphaImg {
-                opacity:0.45;
-                filter: alpha(opacity = 45);
-}
+					
+				.olAlphaImg 
+					{opacity:0.45;
+					filter: alpha(opacity = 45);}
 
-.olControlLayerSwitcher .layersDiv {
-                opacity:0.85; 
-                filter: alpha(opacity = 85);
-                background-color: black;
-                -moz-border-radius: 25px 0px 0px 25px;
-                border-radius: 25px 0px 0px 25px;
-}
+				.olControlLayerSwitcher .layersDiv 
+					{opacity:0.85; 
+					filter: alpha(opacity = 85);
+					background-color: black;
+					-moz-border-radius: 25px 0px 0px 25px;
+					border-radius: 25px 0px 0px 25px;}
 
-.olControlLayerSwitcher {
-                color:white;
-                -moz-border-radius: 25px 0px 0px 25px;
-                border-radius: 25px 0px 0px 25px;
-                width:25em;
-}
+				.olControlLayerSwitcher 
+					{color:white;
+					-moz-border-radius: 25px 0px 0px 25px;
+					border-radius: 25px 0px 0px 25px;
+					width:25em;}
 
-.olButton {
-                font-weight:500;
-}
+				.olButton 
+					{font-weight:500;}
 
-.labelSpan {
-                font-family: "Open Sans","Helvetica Neue","Helvetica","Arial,sans-serif";
-}
+				.labelSpan 
+					{font-family: "Open Sans","Helvetica Neue","Helvetica","Arial,sans-serif";}
 
-.olControlLayerSwitcher br {
-                display:none;
-}
+				.olControlLayerSwitcher br 
+					{display:none;}
 
-.olControlLayerSwitcher input {
-                border-color:darkgray;   
-                background-color: black;
-                padding-right: 0px;
-                padding-bottom: 10px;
-                margin-top: 7px;
-                margin-right:10px;
-                border-radius: 10px;
-                -moz-border-radius: 10px;
-                float:left;}
+				.olControlLayerSwitcher input 
+					{border-color:darkgray;   
+					background-color: black;
+					padding-right: 0px;
+					padding-bottom: 10px;
+					margin-top: 7px;
+					margin-right:10px;
+					border-radius: 10px;
+					-moz-border-radius: 10px;
+					float:left;}
 
-.baseLbl {
-                display:none;
-} 
- 
+				.baseLbl 
+					{display:none;}
 
 			</style>
  
