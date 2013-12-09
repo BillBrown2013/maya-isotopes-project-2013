@@ -67,11 +67,11 @@
 					font-weight: bold;}
 				
 				#map {height: 100%;
-				
-					width: 100%;
-					background-color: white;
-					border-style: outset; border-width: thick; border-color:#A80000;
-					}
+					margin: 0;
+					width: 100%;}
+					
+					
+					
 				
 				
 			
