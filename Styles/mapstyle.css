@@ -1,20 +1,24 @@
 //===============APPLY STYLE WITH CSS==========================	
 			<style type ="text/css">
 			
-				html {height: 100%;}					
+				html 
+					{height: 100%;}					
 				
 				body 
 					{height: 100%; 
-					margin: 2px; 
-					padding: 2px; 
-					text-align: justify;	
 					background-color: black;}	
 					
-				a:link {color: white; text-decoration:none;}
+				a:link 
+					{color: white; text-decoration:none;}
 				
-				a:visited {color: darkgray;}
+				a:visited 
+					{color: darkgray;}
 				
-				ul{list-style-type:none; margin-left: 30%; padding:0; overflow:hidden;}
+				ul
+					{list-style-type:none; 
+					margin-left: 30%; 
+					padding:0; 
+					overflow:hidden;}
 				
 				li {float:left;}
 
@@ -38,7 +42,8 @@
 					text-decoration:none; 
 					text-transform:uppercase;}
 
-				a:hover,a:active {background-color:darkgray;}
+				a:hover,a:active 
+					{background-color:darkgray;}
 				
 				#b 
 					{display:block; 
@@ -53,7 +58,8 @@
 					padding:4px; 
 					text-decoration:none;}
 				
-				a:hover,a:active{background-color:darkgray;}
+				a:hover,a:active
+					{background-color:darkgray;}
 
 			
 
@@ -66,14 +72,12 @@
 					font-size: 24px; 
 					font-weight: bold;}
 				
-				#map {height: 1000px;
+				#map 
+					{height: 1000px;
 					margin: 0;
 					width: 1900px;}
 					
-					
-					
-				
-				
+
 			
 		//==========STYLE MAP CONTROLS===============	
 				.olControlMousePosition {
