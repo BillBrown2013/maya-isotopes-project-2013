@@ -130,7 +130,7 @@
 				p 
 					{width: 1500px;}
             
-				ol.ControlMousePosition
+				div.olControlMousePosition
 					{font-family: Arial;
 					font-size: 2em;
 					color: limegreen;
