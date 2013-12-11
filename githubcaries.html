@@ -8,38 +8,16 @@
 					 <link rel="stylesheet" href="../theme/default/style.css" type="text/css">
 					<link rel="stylesheet" href="Styles/isotopestyle.css" type="text/css">
 						<style type="text/css">
-						
-        #controlToggle li {
-            list-style: none;
-        }
-        p {
-            width: 512px;
-        }
-        #options {
-            position: relative;
-            width: 512px;
-        }
-        #output {
-            float: right;
-        }
-
-        /* avoid pink tiles */
-        .olImageLoadError {
-            background-color: transparent !important;
-        }
-    </style>
-						
-					
- <script type="text/javascript" src="http://openlayers.org/dev/OpenLayers.js"></script>
+						</style>
 	
+ <script type="text/javascript" src="http://openlayers.org/dev/OpenLayers.js"></script>
 		<script type="text/javascript">     
 			
 //=========DEFINE GLOBAL VARIABLES==============		
 		var lon = -90.0;
 		var lat = 16.7;
 		var zoom = 5;
-		
-		var map, map_2, measureControls; 
+		var map, map_2; 
 		var Layers = new Object ();
 		
 //==========INITIALIZATION FUNCTION==============		
@@ -103,120 +81,7 @@
 					});
 						map.addLayer(caries);
 						
-						 // style the sketch fancy
-            var sketchSymbolizers = {
-                "Point": {
-                    pointRadius: 4,
-                    graphicName: "square",
-                    fillColor: "white",
-                    fillOpacity: 1,
-                    strokeWidth: 1,
-                    strokeOpacity: 1,
-                    strokeColor: "#333333"
-                },
-                "Line": {
-                    strokeWidth: 3,
-                    strokeOpacity: 1,
-                    strokeColor: "#666666",
-                    strokeDashstyle: "dash"
-                },
-                "Polygon": {
-                    strokeWidth: 2,
-                    strokeOpacity: 1,
-                    strokeColor: "#666666",
-                    fillColor: "white",
-                    fillOpacity: 0.3
-                }
-            };
-            var style = new OpenLayers.Style();
-            style.addRules([
-                new OpenLayers.Rule({symbolizer: sketchSymbolizers})
-            ]);
-            var styleMap = new OpenLayers.StyleMap({"default": style});
-            
-            // allow testing of specific renderers via "?renderer=Canvas", etc
-            var renderer = OpenLayers.Util.getParameters(window.location.href).renderer;
-            renderer = (renderer) ? [renderer] : OpenLayers.Layer.Vector.prototype.renderers;
-
-            measureControls = {
-                line: new OpenLayers.Control.Measure(
-                    OpenLayers.Handler.Path, {
-                        persist: true,
-                        handlerOptions: {
-                            layerOptions: {
-                                renderers: renderer,
-                                styleMap: styleMap
-                            }
-                        }
-                    }
-                ),
-                polygon: new OpenLayers.Control.Measure(
-                    OpenLayers.Handler.Polygon, {
-                        persist: true,
-                        handlerOptions: {
-                            layerOptions: {
-                                renderers: renderer,
-                                styleMap: styleMap
-                            }
-                        }
-                    }
-                )
-            };
-            
-            var control;
-            for(var key in measureControls) {
-                control = measureControls[key];
-                control.events.on({
-                    "measure": handleMeasurements,
-                    "measurepartial": handleMeasurements
-                });
-                map.addControl(control);
-            }
-            
-            map.setCenter(new OpenLayers.LonLat(0, 0), 3);
-            
-            document.getElementById('noneToggle').checked = true;
-        }
-        
-        function handleMeasurements(event) {
-            var geometry = event.geometry;
-            var units = event.units;
-            var order = event.order;
-            var measure = event.measure;
-            var element = document.getElementById('output');
-            var out = "";
-            if(order == 1) {
-                out += "measure: " + measure.toFixed(3) + " " + units;
-            } else {
-                out += "measure: " + measure.toFixed(3) + " " + units + "<sup>2</" + "sup>";
-            }
-            element.innerHTML = out;
-        }
-
-        function toggleControl(element) {
-            for(key in measureControls) {
-                var control = measureControls[key];
-                if(element.value == key && element.checked) {
-                    control.activate();
-                } else {
-                    control.deactivate();
-                }
-            }
-        }
-        
-        function toggleGeodesic(element) {
-            for(key in measureControls) {
-                var control = measureControls[key];
-                control.geodesic = element.checked;
-            }
-        }
-        
-        function toggleImmediate(element) {
-            for(key in measureControls) {
-                var control = measureControls[key];
-                control.setImmediate(element.checked);
-            }
-        }
+						
 			
 			//==========ADD MAP CONTROLS FIRST MAP==============		
 				map.addControl(new OpenLayers.Control.EditingToolbar(vector_layer));				
@@ -285,40 +150,12 @@
 			<p id="introb"><b>GEOGRAPHY 591 <i>PROBLEMS</i><br> FALL 2013</b></p>
 				  <div id="header"><img src="Mayaimages/maya2.png" width="150" height="200" alt="maya2"/><h1>Caries: A "Disease Process"</h1></div>	
 					
-					<div id="tags">
-        measuring, geodesic, area, length, distance
-    </div>
+					
 	
 					<div id='map'></div>
 						<div id='map_2'></div>
 						
- <div id="options">
-        <div id="output">
-        </div>					
-					
-	 <ul id="controlToggle">
-            <li>
-                <input type="radio" name="type" value="none" id="noneToggle"
-                       onclick="toggleControl(this);" checked="checked" />
-                <label for="noneToggle">navigate</label>
-            </li>
-            <li>
-                <input type="radio" name="type" value="line" id="lineToggle" onclick="toggleControl(this);" />
-                <label for="lineToggle">measure distance</label>
-            </li>
-            <li>
-                <input type="radio" name="type" value="polygon" id="polygonToggle" onclick="toggleControl(this);" />
-                <label for="polygonToggle">measure area</label>
-            </li>
-            <li>
-                <input type="checkbox" name="geodesic" id="geodesicToggle" onclick="toggleGeodesic(this);" />
-                <label for="geodesicToggle">use geodesic measures</label>
-            </li>
-            <li>
-                <input type="checkbox" name="immediate" id="immediateToggle" onclick="toggleImmediate(this);" />
-                <label for="immediateToggle">use immediate measures</label>
-            </li>
-        </ul>
+ 
 							
 							<p id="intro"><i>DIET</i><br>
 		
