@@ -459,7 +459,7 @@ div.olControlZoom a, div.olControlTextButtonPanel .olButton {
     font-weight: bold;
     text-decoration: none;
     text-align: center;
-    background: #130085; /* fallback for IE - IE6 requires background shorthand*/
+    background: #A80000; /* fallback for IE - IE6 requires background shorthand*/
     background: rgba(0, 60, 136, 0.5);
     filter: alpha(opacity=80);
 }
