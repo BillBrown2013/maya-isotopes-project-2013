@@ -132,7 +132,7 @@
             
 				.olControlMousePosition
 					{font-family: Arial;
-					font-size: 2em;
+					font-size: larger;
 					color: lime;
 					font-weight: bold;}
  			
@@ -144,7 +144,7 @@
 					filter: alpha(opacity = 45);}
 
 				.olControlLayerSwitcher .layersDiv 
-					{opacity:0.85; 
+					{opacity:0.65; 
 					filter: alpha(opacity = 85);
 					background-color: black;
 					-moz-border-radius: 25px 0px 0px 25px;
