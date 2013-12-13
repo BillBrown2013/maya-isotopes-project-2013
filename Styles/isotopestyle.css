@@ -24,6 +24,13 @@
 					padding:0; 
 					overflow:hidden;}
 				
+				cap
+					{color:yellow; 
+					font-size:16px; 
+					font-family: arial; 
+					margin-left: 5%; 
+					margin-top: .1em;}
+				
 				li 
 					{float:left;}
 
@@ -132,7 +139,7 @@
             
 				.olControlMousePosition
 					{font-family: Arial;
-					font-size: larger;
+					font-size: 2em;
 					color: lime;
 					font-weight: bold;}
  			
@@ -144,7 +151,7 @@
 					filter: alpha(opacity = 45);}
 
 				.olControlLayerSwitcher .layersDiv 
-					{opacity:0.65; 
+					{opacity:0.85; 
 					filter: alpha(opacity = 85);
 					background-color: black;
 					-moz-border-radius: 25px 0px 0px 25px;
