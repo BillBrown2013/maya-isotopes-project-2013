@@ -29,7 +29,7 @@
 					font-size:16px; 
 					font-family: arial; 
 					text-align: center; 
-					margin-top:650px;}
+					margin-top:600px;}
 				
 				li 
 					{float:left;}
@@ -117,7 +117,9 @@
 					margin-top:500px;
 					width: 1100px;
 					background-color: white;
-					border-style: outset; border-width: thick; border-color:#A80000;
+					border-style: outset; 
+					border-width: thick; 
+					border-color:#A80000;
 					padding-right: 3em;}
 				
 				#map_2 
@@ -126,7 +128,7 @@
 					width:450px; 
 					padding-left: 5em; 
 					padding-right: 5em; 
-					padding-bottom: 25em; 
+					 
 					margin-left: 30%; 
 					border-style: outset;
 					border-width: thick; 
