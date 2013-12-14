@@ -27,7 +27,7 @@
 					
 				ul.b
 					{list-style-type:none; 
-					clear: left; 
+					margin-left:39%; 
 					text-align:center; 
 					padding:0; 
 					overflow:hidden;}
